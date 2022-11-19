@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BoomBullit" Collapsed="true">
+    <Position X="3.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAQAQAAAAAAAAAAAAAAQAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Code\Bullit\BoomBullit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Boom1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DrillBullit" Collapsed="true">
+    <Position X="3.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\DrillBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boom" Collapsed="true">
+    <Position X="0.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAABAAAAAwAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Each\Boom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NomalBullit" Collapsed="true">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\NomalBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullit" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIABAAAAAAAAAAAAABAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowerBullit" Collapsed="true">
+    <Position X="3.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAJEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\ShowerBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true">
+    <Position X="7.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIEAigAgQSAAAAAAAAAAAIQEAQBAAQgAAQBAgQA=</HashCode>
+      <FileName>Assets\Code\Card.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bullit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CardManager" Collapsed="true">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAEAAAAgAAAAAAAAQCAAQAAAAAAIAAAAAAAIAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Card1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <AssociationLine Name="Player" Type="Player" FixedFromPoint="true">
+      <Path>
+        <Point X="10.75" Y="2.941" />
+        <Point X="10.75" Y="3.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CardManager" Type="CardManager" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="2.563" />
+        <Point X="8.75" Y="2.563" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAACABEAAAAAxAEAAAQCIISACAAAAaAQAAYFA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UiManager" />
+      <Property Name="Player" />
+      <Property Name="StageManager" />
+      <Property Name="CardManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <AssociationLine Name="Avata" Type="Avata" FixedToPoint="true">
+      <Path>
+        <Point X="10.312" Y="4.441" />
+        <Point X="10.312" Y="6.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAABIAEASAAgAAAABTAAAEkAAgQAAAAAQAAQAQAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Avata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StageManager" Collapsed="true">
+    <Position X="13" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAgIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\StageManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Stage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UiManager" Collapsed="true">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAACAAAAAAAEAEAAACAAAAAAAAAAIAAAAAAAI=</HashCode>
+      <FileName>Assets\Code\Manager\UiManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sin1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MonsterData" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Code\MonsterData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardManageSin" Collapsed="true">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAEAAIjCKAAIAABAgYiAEARJhAAIIIQgAIIBACAgEI=</HashCode>
+      <FileName>Assets\Code\Sin\CardManageSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardSin" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIjEKIAIAAAAgYgAEAAIhCgIAAAgAaThACAgEI=</HashCode>
+      <FileName>Assets\Code\Sin\CardSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUACAAQAgEAIAGAIAAAIAAAAEAAEQACAAAIQACBAAQ=</HashCode>
+      <FileName>Assets\Code\Sin\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lobe" Collapsed="true">
+    <Position X="5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Lobe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sin" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Prototype\Sin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageDataSin" Collapsed="true">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAEAAAAAIAAAAAAAABAkAAAAQAAQAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\StageDataSin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MonsterData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StorySin" Collapsed="true">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\StorySin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Title" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Title.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Slot" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <AssociationLine Name="Card" Type="Card" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="7.75" />
+        <Point X="7.5" Y="6.941" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAABAAAIABAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Slot.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Card" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Stage" Collapsed="true">
+    <Position X="13" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAABAAMAEEIAAAAAAAAAAAEAAAIEAAAABAAAA=</HashCode>
+      <FileName>Assets\Code\Stage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Unit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Avata" Collapsed="true">
+    <Position X="10" Y="6.25" Width="1.5" />
+    <AssociationLine Name="Card" Type="Card" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.562" />
+        <Point X="8.75" Y="6.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAIAABAAIEEEACAAAQJAAAABAAAACAQAIAAA=</HashCode>
+      <FileName>Assets\Code\Unit\Avata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Card" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boss" Collapsed="true">
+    <Position X="13" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAgAAIAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\Boss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaidBoss" Collapsed="true">
+    <Position X="13" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAgIAoAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\LaidBoss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster" Collapsed="true">
+    <Position X="13" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCCIAAQIAAQAAgACIAAAAAAAAAAIAAQAAAAAAgQAA=</HashCode>
+      <FileName>Assets\Code\Unit\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit" Collapsed="true">
+    <Position X="13" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAgQAAgAAIAEAAAAIAAQQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\prototype\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wall" Collapsed="true">
+    <Position X="11.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAIAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CardElement" Collapsed="true">
+    <Position X="9" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAkAABAEAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BullitType" Collapsed="true">
+    <Position X="7.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CardRank" Collapsed="true">
+    <Position X="10.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAGAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CardType" Collapsed="true">
+    <Position X="10.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAUQABABECCEAAAAIAQAiUCABgAAEABAAACABAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameState" Collapsed="true">
+    <Position X="7.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAQAAABAAAAEAAAEAAAAAAAAgAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameType" Collapsed="true">
+    <Position X="9" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAAgEAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

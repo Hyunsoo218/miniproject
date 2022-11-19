@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2235149574677894693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2235149574677894691}
+  - component: {fileID: 2235149574677894690}
+  m_Layer: 0
+  m_Name: DarkShower_D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2235149574677894691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235149574677894693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2235149574677894690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235149574677894693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d87411fb1735e541857debd5dfd9ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objBullit: {fileID: 6329819815946123663, guid: e7f4b1c08f119a64c94ed9d916b252e2, type: 3}
+  m_imgImage: {fileID: 21300000, guid: 01d94c921ad18574fa2d8dc5833d0bd6, type: 3}
+  m_eBT: 2
+  m_eCardType: 17
+  m_eCardRank: 4
+  m_nCost: 4
+  m_nLevel: 1
+  m_strData: "5\uCD08 \uB9C8\uB2E4 40%\uC758 \uD53C\uD574\uB97C \uC785\uD788\uB294
+    \uC5B4\uB460\uAD6C\uCCB4\uB97C 10\uAC1C \uBC1C\uC0AC\uD55C\uB2E4"
+  m_fAp: 3
+  m_fHp: 10
+  m_fDamege: 0.4
+  m_fMaxCoolTime: 5
+  m_fCoolTime: 0
