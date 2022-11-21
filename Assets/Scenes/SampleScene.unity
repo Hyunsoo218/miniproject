@@ -28082,7 +28082,7 @@ MonoBehaviour:
   m_eGameType: 2
   m_vecMonster: []
   m_vecMonsterEa: 
-  m_objBoss: {fileID: 2978879199289325643, guid: 7fd77e0d7544bb74ebf833d2a27b203c, type: 3}
+  m_objBoss: {fileID: 3813320470871898827, guid: 503529c986424fd4eaf9bd920827da36, type: 3}
   m_bClear: 0
   m_bOpen: 1
   m_strStage: "\uBCF4\uC2A4\uBAA8\uB4DC 1-1"
