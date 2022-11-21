@@ -39,13 +39,6 @@ public class GameManager : MonoBehaviour
         //        m_cPlayer.m_cAvata.GetCard(temp[j]);
         //    }
         //}
-<<<<<<< HEAD
-        GetCard(CardType.FireBall, CardRank.C);
-        GetCard(CardType.FireBall, CardRank.C);
-        GetCard(CardType.FireBall, CardRank.C);
-        GetCard(CardType.FireBall, CardRank.C);
-        GetCard(CardType.FireBall, CardRank.C);
-=======
 >>>>>>> 04695534f4b066e2e02ccf1a1178e2cef1782bb7
 
         GetMember(MemberType.Pheonix);
@@ -55,26 +48,26 @@ public class GameManager : MonoBehaviour
         GetMember(MemberType.Ignis);
         GetMember(MemberType.Archane);
 
-        //ShowText("¾È³çÇÏ¼¼¿ä 8Á¶¿¡ ¿ÀÇö¼öÀÔ´Ï´Ù\n" +
-        //    "ÇÃ·¹ÀÌÇØ ÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù\n\n" +
-        //    "¾ÆÁ÷ ¹Ì±¸ÇöµÈ ºÎºĞÀÌ ÀÖ¾î¼­ \n¾È³»¸¦ Á¶±İ µå¸®°Ú½À´Ï´Ù.\n" +
-        //    "·ÎºñÈ­¸é »ó´Ü¿¡ 3°¡Áö ¼ıÀÚ´Â ¿ŞÂÊºÎÅÍ\n" +
-        //    "ÇÇ·Îµµ, °ñµå, ´ÙÀÌ¾Æ ÀÔ´Ï´Ù\n" +
-        //    "½ºÅ×ÀÌÁö ÀÔÀå½Ã ÇÇ·Îµµ°¡ 10 Â÷°¨µÇ¸ç\n" +
-        //    "¼ÒÅÁÀ» ÇÒ ½Ã 20ÀÌ Â÷°¨µË´Ï´Ù\n" +
-        //    "ÇÇ·Îµµ°¡ ºÎÁ·ÇÏ¸é \nÀçÁ¢¼ÓÀ» ÇÏ¼Å¾ß ÇÕ´Ï´Ù\n\n" +
-        //    "Ä«µå °ü¸®ÂÊ¿¡ 'ÇÕ¼º'±â´ÉÀº\n ¾ÆÁ÷ ¹Ì±¸Çö ÀÔ´Ï´Ù\n" +
-        //    "·Îºñ ÇÏ´ÜÀÇ '½ºÅÚ¶ó' ¿Í\n'»óÁ¡'µµ ¹Ì±¸Çö ÀÔ´Ï´Ù\n" +
-        //    "¼¼Æ®È¿°ú´Â ÇöÁ¦ 57°³°¡ ±¸Çö µÇ¾ú½À´Ï´Ù\n" +
-        //    "µ¿·áµµ ÀØÁö¸»°í »ç¿ëÇØ º¸¼¼¿ä\n\n" +
-        //    "Àç¹ÌÀÖ°Ô ÇÃ·¹ÀÌÇÏ½Ã°í\n" +
-        //    "¹ö±×³ª ÀÇ°ßÀÌ ÀÖÀ¸½Ã¸é \n" +
-        //    "°µÅåÀ¸·Î º¸³»ÁÖ½Ã¸é °©»çÇÏ°Ú½À´Ï´Ù\n");
+        //ShowText("ì•ˆë…•í•˜ì„¸ìš” 8ì¡°ì— ì˜¤í˜„ìˆ˜ì…ë‹ˆë‹¤\n" +
+        //    "í”Œë ˆì´í•´ ì£¼ì…”ì„œ ê°ì‚¬í•©ë‹ˆë‹¤\n\n" +
+        //    "ì•„ì§ ë¯¸êµ¬í˜„ëœ ë¶€ë¶„ì´ ìˆì–´ì„œ \nì•ˆë‚´ë¥¼ ì¡°ê¸ˆ ë“œë¦¬ê² ìŠµë‹ˆë‹¤.\n" +
+        //    "ë¡œë¹„í™”ë©´ ìƒë‹¨ì— 3ê°€ì§€ ìˆ«ìëŠ” ì™¼ìª½ë¶€í„°\n" +
+        //    "í”¼ë¡œë„, ê³¨ë“œ, ë‹¤ì´ì•„ ì…ë‹ˆë‹¤\n" +
+        //    "ìŠ¤í…Œì´ì§€ ì…ì¥ì‹œ í”¼ë¡œë„ê°€ 10 ì°¨ê°ë˜ë©°\n" +
+        //    "ì†Œíƒ•ì„ í•  ì‹œ 20ì´ ì°¨ê°ë©ë‹ˆë‹¤\n" +
+        //    "í”¼ë¡œë„ê°€ ë¶€ì¡±í•˜ë©´ \nì¬ì ‘ì†ì„ í•˜ì…”ì•¼ í•©ë‹ˆë‹¤\n\n" +
+        //    "ì¹´ë“œ ê´€ë¦¬ìª½ì— 'í•©ì„±'ê¸°ëŠ¥ì€\n ì•„ì§ ë¯¸êµ¬í˜„ ì…ë‹ˆë‹¤\n" +
+        //    "ë¡œë¹„ í•˜ë‹¨ì˜ 'ìŠ¤í…”ë¼' ì™€\n'ìƒì 'ë„ ë¯¸êµ¬í˜„ ì…ë‹ˆë‹¤\n" +
+        //    "ì„¸íŠ¸íš¨ê³¼ëŠ” í˜„ì œ 57ê°œê°€ êµ¬í˜„ ë˜ì—ˆìŠµë‹ˆë‹¤\n" +
+        //    "ë™ë£Œë„ ìŠì§€ë§ê³  ì‚¬ìš©í•´ ë³´ì„¸ìš”\n\n" +
+        //    "ì¬ë¯¸ìˆê²Œ í”Œë ˆì´í•˜ì‹œê³ \n" +
+        //    "ë²„ê·¸ë‚˜ ì˜ê²¬ì´ ìˆìœ¼ì‹œë©´ \n" +
+        //    "ê° í†¡ìœ¼ë¡œ ë³´ë‚´ì£¼ì‹œë©´ ê°‘ì‚¬í•˜ê² ìŠµë‹ˆë‹¤\n");
     }
     public void GetCard(Card cCard)
     {
         m_cPlayer.m_cAvata.GetCard(cCard);
-        ShowCard("Ä«µå È¹µæ", cCard);
+        ShowCard("ì¹´ë“œ íšë“", cCard);
     }
     public void GetCard(List<Card> vecCard)
     {
@@ -82,15 +75,15 @@ public class GameManager : MonoBehaviour
         {
             m_cPlayer.m_cAvata.GetCard(vecCard[i]);
         }
-        Show10Card("10Àå È¹µæ!", vecCard);
+        Show10Card("10ì¥ íšë“!", vecCard);
     }
-    public void GetCard(CardType ct, CardRank cr) // ¼öÁ¤ÇÊ¿ä ¸Å°³º¯¼ö·Î Á¾·ù¶û ·©Å© ¹Ş¾Æ¾ßÇÔ
+    public void GetCard(CardType ct, CardRank cr) // ìˆ˜ì •í•„ìš” ë§¤ê°œë³€ìˆ˜ë¡œ ì¢…ë¥˜ë‘ ë­í¬ ë°›ì•„ì•¼í•¨
     {
         Card temp = cCM.GetCard(ct, cr);
         m_cPlayer.m_cAvata.GetCard(temp);
-        ShowCard("Ä«µå È¹µæ", temp);
+        ShowCard("ì¹´ë“œ íšë“", temp);
     }
-    public void GetMember(MemberType mt) // ¼öÁ¤ÇÊ¿ä ¸Å°³º¯¼ö·Î ¸É¹ö Á¾·ù ¹Ş¾Æ¾ßÇÔ
+    public void GetMember(MemberType mt) // ìˆ˜ì •í•„ìš” ë§¤ê°œë³€ìˆ˜ë¡œ ë§´ë²„ ì¢…ë¥˜ ë°›ì•„ì•¼í•¨
     {
         m_cPlayer.m_cAvata.GetMember(cMM.GetMember(mt));
     }
