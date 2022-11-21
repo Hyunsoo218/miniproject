@@ -39,8 +39,6 @@ public class GameManager : MonoBehaviour
         //        m_cPlayer.m_cAvata.GetCard(temp[j]);
         //    }
         //}
->>>>>>> 04695534f4b066e2e02ccf1a1178e2cef1782bb7
-
         GetMember(MemberType.Pheonix);
         GetMember(MemberType.Naiad);
         GetMember(MemberType.Ariel);
