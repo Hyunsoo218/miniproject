@@ -77,4 +77,8 @@ public class UiManager : MonoBehaviour
     {
         _cShowSin[2].Open(strText, cMember);
     }
+    public void Show10Card(string strText, List<Card> cCard) 
+    {
+        _cShowSin[3].Open(strText, cCard);
+    }
 }

@@ -18,5 +18,6 @@ public class ShowCardSin : Sin
         _txtAp.text = cCard.m_fAp + "";
         _txtHp.text = cCard.m_fHp + "";
         _txtData.text = cCard.m_strData;
+ 
     }
 }
