@@ -31,14 +31,19 @@ public class GameManager : MonoBehaviour
         //    Card temp = cCM.GetRendom_1();
         //    m_cPlayer.m_cAvata.GetCard(temp);
         //}
-        for (int i = 0; i < 30; i++)
-        {
-            List<Card> temp = cCM.GetRendom_10();
-            for (int j = 0; j < temp.Count; j++)
-            {
-                m_cPlayer.m_cAvata.GetCard(temp[j]);
-            }
-        }
+        //for (int i = 0; i < 30; i++)
+        //{
+        //    List<Card> temp = cCM.GetRendom_10();
+        //    for (int j = 0; j < temp.Count; j++)
+        //    {
+        //        m_cPlayer.m_cAvata.GetCard(temp[j]);
+        //    }
+        //}
+        GetCard(CardType.FireBall, CardRank.C);
+        GetCard(CardType.FireBall, CardRank.C);
+        GetCard(CardType.FireBall, CardRank.C);
+        GetCard(CardType.FireBall, CardRank.C);
+        GetCard(CardType.FireBall, CardRank.C);
 
         GetMember(MemberType.Pheonix);
         GetMember(MemberType.Naiad);
