@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
         //    Card temp = cCM.GetRendom_1();
         //    m_cPlayer.m_cAvata.GetCard(temp);
         //}
-        for (int i = 0; i < 30; i++)
-        {
-            List<Card> temp = cCM.GetRendom_10();
-            for (int j = 0; j < temp.Count; j++)
-            {
-                m_cPlayer.m_cAvata.GetCard(temp[j]);
-            }
-        }
+        //for (int i = 0; i < 30; i++)
+        //{
+        //    List<Card> temp = cCM.GetRendom_10();
+        //    for (int j = 0; j < temp.Count; j++)
+        //    {
+        //        m_cPlayer.m_cAvata.GetCard(temp[j]);
+        //    }
+        //}
 
         GetMember(MemberType.Pheonix);
         GetMember(MemberType.Naiad);
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         {
             m_cPlayer.m_cAvata.GetCard(vecCard[i]);
         }
-        // 카드 10장을 한 번에 보여주는 함수 추가하기
+        Show10Card("10장 획득!", vecCard);
     }
     public void GetCard(CardType ct, CardRank cr) // 수정필요 매개변수로 종류랑 랭크 받아야함
     {
@@ -195,6 +195,10 @@ public class GameManager : MonoBehaviour
     public void ShowCard(string strText, Card cCard)
     {
         cUM.ShowCard(strText, cCard);
+    }
+    public void Show10Card(string strText, List<Card> cCard)
+    {
+        cUM.Show10Card(strText, cCard);
     }
     public void ShowMember(string strText, Member cMember)
     {
