@@ -29,7 +29,7 @@ public class Member : MonoBehaviour
     {
         if (_bCanUse == true)
         {
-            // ½ÇÇà
+            // ï¿½ï¿½ï¿½ï¿½
             GameManager.GM.GoCutSin(this);
             _bCanUse = false;
         }

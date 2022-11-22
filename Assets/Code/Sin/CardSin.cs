@@ -174,7 +174,7 @@ public class CardSin : Sin
 
         if (m_vecMyDack[nNum] == m_cSelectcSlot)
         {
-            print("µ¦ Ä«µå ¼±ÅÃ > °°Àº Ä«µå ¼±ÅÃ");
+            print("ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ > ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             for (int i = 0; i < m_vecMyCard.Count; i++)
             {
                 if (m_vecMyCard[i].m_cCard == m_vecMyDack[nNum].m_cCard)
@@ -198,7 +198,7 @@ public class CardSin : Sin
                 {
                     if (m_vecMyDack[j] == m_vecMyDack[nNum]) 
                     {
-                        print("µ¦ Ä«µå ¼±ÅÃ > µ¦ ´Ù¸¥ Ä«µå ¼±ÅÃ");
+                        print("ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ > ï¿½ï¿½ ï¿½Ù¸ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
                         Card temp = m_vecMyDack[nNum].m_cCard;
 
                         m_vecMyDack[nNum].Set(m_cSelectcSlot.m_cCard);
@@ -236,7 +236,7 @@ public class CardSin : Sin
     {
         if (m_vecMyDack[nNum].m_cCard == null)
         {
-            print("ºó½½·Ô ÀåÂø");
+            print("ï¿½ó½½·ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
             Card temp = m_vecMyDack[nNum].m_cCard;
 
@@ -245,7 +245,7 @@ public class CardSin : Sin
         }
         else
         {
-            print("ÀÌ¹Ì ÀÖ´Â ½½·Ô ÀåÂø");
+            print("ï¿½Ì¹ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             Card temp = m_vecMyDack[nNum].m_cCard;
 
             m_vecMyDack[nNum].Set(m_cSelectcSlot.m_cCard);
@@ -267,7 +267,6 @@ public class CardSin : Sin
     }
     public void UpdateData()
     {
-        print("¾÷µ¥ÀÌÆ® ½ÇÇà");
         int cost = 0;
         float ap = 0;
         float hp = 0;
@@ -320,20 +319,20 @@ public class CardSin : Sin
         {
             _bOpenSortMenu = true;
             m_cSortMenu.Open();
-            m_txtOpenSortMenu.text = "¡å";
+            m_txtOpenSortMenu.text = "ï¿½ï¿½";
         }
         else
         {
             _bOpenSortMenu = false;
             m_cSortMenu.Close();
-            m_txtOpenSortMenu.text = "¡ã";
+            m_txtOpenSortMenu.text = "ï¿½ï¿½";
         }
     }
     void CloseSortMenu()
     {
         _bOpenSortMenu = false;
         m_cSortMenu.Close();
-        m_txtOpenSortMenu.text = "¡ã";
+        m_txtOpenSortMenu.text = "ï¿½ï¿½";
     }
     public void SortRank(int nNum)
     {
@@ -515,7 +514,6 @@ public class CardSin : Sin
     public void SortCard()
     {
         CloseSortMenu();
-        print("Á¤·Ä ½ÇÇà");
         if (_cThread != null)
         {
             _cThread = null;
@@ -534,7 +532,7 @@ public class CardSin : Sin
     }
     void ThreadCardSort()
     {
-        print("ThreadCardSort ¾²·¹µå ½ÇÇà");
+        print("ThreadCardSort ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         for (int i = 0; i < m_vecMyCard.Count; i++)
         {
             int index = i;
@@ -566,11 +564,9 @@ public class CardSin : Sin
         MainThreadDispatcher.Instance.Enqueue(() => { _Inven.sizeDelta = new Vector2(1200f, height); });
 
         _cThread = null;
-        print("¾²·¹µå Á¾·á");
     }
     void ThreadAllCardSort()
     {
-        print("ThreadAllCardSort ¾²·¹µå ½ÇÇà");
         float height;
         List<Slot> vecShowSlot = sortUseing(m_vecMyCard);
         MainThreadDispatcher.Instance.Enqueue(() =>
@@ -593,7 +589,6 @@ public class CardSin : Sin
             height = 410f * (((vecShowSlot.Count) - ((vecShowSlot.Count) % 4)) / 4f) + 410f;
         MainThreadDispatcher.Instance.Enqueue(() => { _Inven.sizeDelta = new Vector2(1200f, height); });
         _cThread = null;
-        print("¾²·¹µå Á¾·á");
     }
     List<Slot> sortRank(List<Slot> temp)
     {
@@ -643,7 +638,7 @@ public class CardSin : Sin
                     break;
                 }
             }
-        }
+        } 
         return retList;
     }
     List<Slot> sortUseing(List<Slot> temp)
