@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         m_cPlayer = GetComponent<Player>();
         cServer = GetComponent<Server>();
 
-        GoLogin();
+        GoTitle();
 
         GetMember(MemberType.Pheonix);
         GetMember(MemberType.Naiad);

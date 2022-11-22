@@ -27,7 +27,7 @@ public class Server : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("ID", id);
         form.AddField("PW", pwd);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/login_user", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/login_user", form);
 
         yield return www.Send();
         if (www.isNetworkError)
