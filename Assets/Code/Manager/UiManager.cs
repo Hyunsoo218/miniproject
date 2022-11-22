@@ -24,6 +24,7 @@ public class UiManager : MonoBehaviour
     {
         switch (GS)
         {
+            case GameState.Login:
             case GameState.Title:
             case GameState.Lobe:
             case GameState.Game:

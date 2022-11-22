@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public StageManager cSM;
     public CardManager cCM;
     public MemberManager cMM;
+    public Server cServer;
     public Player m_cPlayer;
     public GameState m_eGS;
     public GameType m_eGT;
@@ -23,22 +24,10 @@ public class GameManager : MonoBehaviour
         cCM = GetComponent<CardManager>();
         cMM = GetComponent<MemberManager>();
         m_cPlayer = GetComponent<Player>();
+        cServer = GetComponent<Server>();
 
-        GoTitle();
+        GoLogin();
 
-        //for (int i = 0; i < 300; i++)
-        //{
-        //    Card temp = cCM.GetRendom_1();
-        //    m_cPlayer.m_cAvata.GetCard(temp);
-        //}
-        //for (int i = 0; i < 30; i++)
-        //{
-        //    List<Card> temp = cCM.GetRendom_10();
-        //    for (int j = 0; j < temp.Count; j++)
-        //    {
-        //        m_cPlayer.m_cAvata.GetCard(temp[j]);
-        //    }
-        //}
         GetMember(MemberType.Pheonix);
         GetMember(MemberType.Naiad);
         GetMember(MemberType.Ariel);
@@ -46,21 +35,6 @@ public class GameManager : MonoBehaviour
         GetMember(MemberType.Ignis);
         GetMember(MemberType.Archane);
 
-        //ShowText("안녕하세요 8조에 오현수입니다\n" +
-        //    "플레이해 주셔서 감사합니다\n\n" +
-        //    "아직 미구현된 부분이 있어서 \n안내를 조금 드리겠습니다.\n" +
-        //    "로비화면 상단에 3가지 숫자는 왼쪽부터\n" +
-        //    "피로도, 골드, 다이아 입니다\n" +
-        //    "스테이지 입장시 피로도가 10 차감되며\n" +
-        //    "소탕을 할 시 20이 차감됩니다\n" +
-        //    "피로도가 부족하면 \n재접속을 하셔야 합니다\n\n" +
-        //    "카드 관리쪽에 '합성'기능은\n 아직 미구현 입니다\n" +
-        //    "로비 하단의 '스텔라' 와\n'상점'도 미구현 입니다\n" +
-        //    "세트효과는 현제 57개가 구현 되었습니다\n" +
-        //    "동료도 잊지말고 사용해 보세요\n\n" +
-        //    "재미있게 플레이하시고\n" +
-        //    "버그나 의견이 있으시면 \n" +
-        //    "갠톡으로 보내주시면 갑사하겠습니다\n");
     }
     public void GetCard(Card cCard)
     {
@@ -92,6 +66,11 @@ public class GameManager : MonoBehaviour
     public void GoTitle()
     {
         m_eGS = GameState.Title;
+        cUM.SetSin(m_eGS);
+    }
+    public void GoLogin()
+    {
+        m_eGS = GameState.Login;
         cUM.SetSin(m_eGS);
     }
     public void GoLobe()
@@ -129,7 +108,6 @@ public class GameManager : MonoBehaviour
     {
         m_cStage.Clear();
         GoWin();
-        
     }
     public void GoLaidEnd() { m_eGS = GameState.LaidEnd;                            cUM.SetSin(m_eGS); }
     public void GoCutSin(Member cMember)
@@ -206,7 +184,7 @@ public class GameManager : MonoBehaviour
 }
 public enum GameState
 {
-    Title, Lobe, Game, Stop, ReStart, Win, Lose, LaidEnd, CutSin
+    Title, Lobe, Game, Stop, ReStart, Win, Lose, LaidEnd, Login, CutSin
 }
 public enum GameType
 {
