@@ -15,10 +15,10 @@ public class MemberSin : Sin
     [SerializeField] GameObject _objMemberData;
     [SerializeField] Text _txtMemberName;
     [SerializeField] Text _txtMemberData;
-    List<Member> _vecSelectMember;
-    List<Member> _vecMyMember;
+    List<Card> _vecSelectMember;
+    List<Card> _vecMyMember;
     List<GameObject> _vecMemberBut = new List<GameObject>();
-    Member _cMember;
+    Card _cMember;
     int _nChageTarget;
     bool _bShowMemberData;
 
@@ -26,7 +26,7 @@ public class MemberSin : Sin
     {
         _objMemberData.SetActive(false);
         _bShowMemberData = false;
-        _vecSelectMember = new List<Member>();
+        _vecSelectMember = new List<Card>();
         _objSelectMember.SetActive(false);
         base.Open();
         _vecSelectMember.AddRange(GameManager.GM.m_cPlayer.m_cAvata._vecUseMember);
@@ -49,7 +49,7 @@ public class MemberSin : Sin
         _nChageTarget = nNum;
         _objSelectMember.SetActive(true);
         _imgMember.sprite = _imgNull;
-        _vecMyMember = new List<Member>();
+        _vecMyMember = new List<Card>();
         _vecMyMember.AddRange(GameManager.GM.m_cPlayer.m_cAvata._vecMyMember);
         for (int i = 0; i < _vecSelectMember.Count; i++)
         {
@@ -80,7 +80,7 @@ public class MemberSin : Sin
         _tMember.GetComponent<RectTransform>().sizeDelta = new Vector2((300f * _vecMyMember.Count) - 50f, 100f);
         _cMember = null;
     }
-    public void SelectBut(Member cMember)
+    public void SelectBut(Card cMember)
     {
         _cMember = cMember;
         _txtMemberName.text = _cMember._strName;

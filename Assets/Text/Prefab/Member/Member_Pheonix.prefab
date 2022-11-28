@@ -44,6 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89b6247f29661a4bb90b65fd962e8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_objBullit: {fileID: 0}
+  m_imgImage: {fileID: 0}
+  m_eBT: 0
+  m_eCardType: 0
+  m_eCardRank: 0
+  m_eCardElement: 0
+  m_nCost: -1
+  m_nLevel: 0
+  m_nMaxLevel: 0
+  m_nUnlimite: 0
+  m_nLevelUpGold: 0
+  m_strData: 
+  m_fAp: 0
+  m_fHp: 0
+  m_fDamege: 0
+  m_fMaxCoolTime: 0
+  m_fCoolTime: 0
   _eCE: 0
   _strName: "\uD53C\uB2C9\uC2A4"
   _strData: "\uBD88\uAF43\uC758 \uC18C\uC6A9\uB3CC\uC774\uB97C \uC77C\uC73C\uCF1C

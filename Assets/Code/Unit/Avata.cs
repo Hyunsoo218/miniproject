@@ -13,8 +13,8 @@ public class Avata : Unit
     public List<List<Card>> m_vecUseCards = new List<List<Card>>();
     public int m_nUseCardIndex = 0;
     [Header("Member")]
-    public List<Member> _vecMyMember = new List<Member>();
-    public List<Member> _vecUseMember = new List<Member>();
+    public List<Card> _vecMyMember = new List<Card>();
+    public List<Card> _vecUseMember = new List<Card>();
     [Header("Show Cool Time")]
     public List<Image> m_vecCoolTimeFill = new List<Image>();
     [Header("Set Buff")]
@@ -116,7 +116,7 @@ public class Avata : Unit
     {
         m_vecMyCard.Add(addCard);
     }
-    public void GetMember(Member addMember)
+    public void GetMember(Card addMember)
     {
         _vecMyMember.Add(addMember);
     }

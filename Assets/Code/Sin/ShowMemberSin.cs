@@ -11,7 +11,7 @@ public class ShowMemberSin : Sin
     [SerializeField] Text _txtName;
     [SerializeField] Text _txtData;
     bool _bMemnerData;
-    public override void Open(string strData, Member cMember)
+    public override void Open(string strData, Card cMember)
     {
         base.Open(strData, cMember);
         _objMemberData.SetActive(false);

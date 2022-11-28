@@ -18,6 +18,13 @@ public class Show10CardSin : Sin
     }
     public void ShowBig(int nNum) 
     {
-        GameManager.GM.ShowCard("10°³ Áß 1°³", _vecSlots[nNum].m_cCard);
+        if (_vecSlots[nNum].m_cCard.m_nCost == -1)
+        {
+            GameManager.GM.ShowMember("", _vecSlots[nNum].m_cCard);
+        }
+        else
+        {
+            GameManager.GM.ShowCard("", _vecSlots[nNum].m_cCard);
+        }
     }
 }

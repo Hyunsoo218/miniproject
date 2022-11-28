@@ -35,13 +35,6 @@ public class GameManager : MonoBehaviour
         cSoM = GetComponent<SoundManager>();
 
         GoTitle();
-
-        GetMember(MemberType.Pheonix);
-        GetMember(MemberType.Naiad);
-        GetMember(MemberType.Ariel);
-        GetMember(MemberType.Oread);
-        GetMember(MemberType.Ignis);
-        GetMember(MemberType.Archane);
     }
     public void GetCard(Card cCard)
     {
@@ -52,7 +45,15 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < vecCard.Count; i++)
         {
-            m_cPlayer.m_cAvata.GetCard(vecCard[i]);
+            if (vecCard[i].m_nCost == -1)
+            {
+                m_cPlayer.m_cAvata.GetMember(vecCard[i]);
+            }
+            else
+            {
+                m_cPlayer.m_cAvata.GetCard(vecCard[i]);
+            }
+            
         }
         Show10Card("10장 획득!", vecCard);
     }
@@ -64,7 +65,9 @@ public class GameManager : MonoBehaviour
     }
     public void GetMember(MemberType mt) // 수정필요 매개변수로 맴버 종류 받아야함
     {
-        m_cPlayer.m_cAvata.GetMember(cMM.GetMember(mt));
+        Member temp = cMM.GetMember(mt);
+        m_cPlayer.m_cAvata.GetMember(temp);
+        ShowMember("동료획득", temp);
     }
     public void GetBuff(SetBuff cSetBuff)
     {
@@ -207,9 +210,14 @@ public class GameManager : MonoBehaviour
     }
     public void Show10Card(string strText, List<Card> cCard)
     {
+        for (int i = 0; i < cCard.Count; i++)
+        {
+            print(cCard[i].gameObject.name);
+        }
+        strText = "";
         cUM.Show10Card(strText, cCard);
     }
-    public void ShowMember(string strText, Member cMember)
+    public void ShowMember(string strText, Card cMember)
     {
         cUM.ShowMember(strText, cMember);
     }

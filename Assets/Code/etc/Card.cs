@@ -21,9 +21,22 @@ public class Card : MonoBehaviour
     public float m_fDamege;
     public float m_fMaxCoolTime;
     public float m_fCoolTime;
+    public bool _bCanUse = true;
+    public CardElement _eCE;
+    public string _strName;
+    public string _strData;
+    public float _fDamege;
+    public GameObject _objCutEffect;
+    public GameObject _objSkill;
+    public Sprite _imgFull;
+    public Sprite _imgFace;
+    public Sprite _imgCard;
     private void Start()
     {
-        m_eCardElement = m_objBullit.GetComponent<Bullit>().m_eCE;
+        if (m_objBullit != null)
+        {
+            m_eCardElement = m_objBullit.GetComponent<Bullit>().m_eCE;
+        }
     }
     public bool CanUse()
     {
@@ -33,7 +46,7 @@ public class Card : MonoBehaviour
         }
         return false;
     }
-    public void Use()
+    public virtual void Use()
     {
         if (m_fCoolTime >= m_fMaxCoolTime)
         {

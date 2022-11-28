@@ -83,7 +83,7 @@ public class UiManager : MonoBehaviour
     {
         _cShowSin[1].Open(strText, cCard);
     }
-    public void ShowMember(string strText, Member cMember)
+    public void ShowMember(string strText, Card cMember)
     {
         _cShowSin[2].Open(strText, cMember);
     }
