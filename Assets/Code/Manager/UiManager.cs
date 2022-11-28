@@ -51,11 +51,20 @@ public class UiManager : MonoBehaviour
         CloseAll();
         m_vecSin[(int)GameState.Game].Open(cStage);
     }
+    public void SetSin(Act cAct)
+    {
+        CloseAll();
+        m_vecSin[(int)GameState.Talk].Open(cAct);
+    }
     void CloseAll()
     {
         for (int i = 0; i < m_vecSin.Count; i++)
         {
             m_vecSin[i].Close();
+        }
+        for (int i = 0; i < _cShowSin.Count; i++)
+        {
+            _cShowSin[i].Close();
         }
     }
     public void CloseUI()

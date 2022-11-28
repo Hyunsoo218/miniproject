@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fMaxHp: 10
   m_fHp: 10
-  m_fAp: 1
+  m_fAp: 0.5
   m_fSpeed: 2
   m_objHitText: {fileID: 707786405035228312, guid: bfe90741c5ee192429c3b844c7c834cc, type: 3}
   m_eElement: 3

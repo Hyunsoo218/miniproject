@@ -9,15 +9,8 @@ public class StageManager : MonoBehaviour
     public List<Stage> m_vecStageDefan = new List<Stage>();
     public List<Stage> m_vecStageBoss = new List<Stage>();
     public List<Stage> m_vecStageLaidBoss = new List<Stage>();
-
-    public Stage Stage
-    {
-        get => default;
-        set
-        {
-        }
-    }
-
+    [SerializeField] Stage _cTutorialStage;
+   
     public Stage GetStage(int nNum, GameType eGT)
     {
         switch (eGT)
@@ -30,7 +23,6 @@ public class StageManager : MonoBehaviour
         }
         return null;
     }
-
     public void OpanNextStage(Stage cStage)
     {
         int nIndex = 0;
@@ -50,5 +42,9 @@ public class StageManager : MonoBehaviour
             case GameType.Laid:
                 break;
         }
+    }
+    public Stage GetTutorialStage()
+    {
+        return _cTutorialStage;
     }
 }

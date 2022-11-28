@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public Text m_txtDiamond;
     public Text m_txtGas;
     public Text m_txtGasTimer;
+    [Header("State")]
+    public bool _bFirst = false;
     float _fCreGas = 0;
     float _fNowCreGasTime = 0;
     bool _bCreGas = false;

@@ -105,7 +105,13 @@ public class CardSin : Sin
 
         List<Card> vecCreCard = new List<Card>();
         vecCreCard.AddRange(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard);
-
+        for (int i = 0; i < _vecUseCard.Count; i++)
+        {
+            if (_vecUseCard[i] != null)
+            {
+                vecCreCard.Add(_vecUseCard[i]);
+            }
+        }
         for (int i = 0; i < vecCreCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
@@ -116,7 +122,6 @@ public class CardSin : Sin
             tempCard.Set(vecCreCard[i]);
             tempButton.onClick.AddListener(() => SelectSlot(tempCard));
         }
-
         for (int i = 0; i < _vecUseCard.Count; i++)
         {
             m_vecMyDack[i].Set(_vecUseCard[i]);
@@ -180,6 +185,7 @@ public class CardSin : Sin
                 if (m_vecMyCard[i].m_cCard == m_vecMyDack[nNum].m_cCard)
                 {
                     m_vecMyCard[i].gameObject.SetActive(true);
+                    GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Add(m_vecMyCard[i].m_cCard);
                     break;
                 }
             }

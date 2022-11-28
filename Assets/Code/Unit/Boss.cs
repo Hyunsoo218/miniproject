@@ -30,6 +30,7 @@ public class Boss : Monster
     }
     public override void Attack()
     {
+        if (pp.Count == 0) return;
         temp = Random.Range(0, pp.Count);
         pp[temp].UsePattern();
     }
@@ -42,7 +43,6 @@ public class Boss : Monster
         {
             timer = 0;
             Attack();
-            print(temp + " ¹ßµ¿");
         }
     }
 }

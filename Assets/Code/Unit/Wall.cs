@@ -14,7 +14,14 @@ public class Wall : Unit
 
         if (m_fHp <= 0)
         {
-            GameManager.GM.GoLose();
+            if (GameManager.GM.m_eGS == GameState.Tutorial)
+            {
+                GameManager.GM.GoStageClear();
+            }
+            else
+            {
+                GameManager.GM.GoLose();
+            }
         }
         return true;
     }

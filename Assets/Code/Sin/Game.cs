@@ -23,7 +23,11 @@ public class Game : Sin
     public List<Image> m_vecSlot = new List<Image>();
     public List<Image> m_vecMemberSlot = new List<Image>();
     public List<Image> m_vecMemberSlotUsed = new List<Image>();
-
+    [SerializeField] Sin _cGguideSin;
+    [SerializeField] Sin _cGguideBossSin;
+    bool _bGguideBoss = false;
+    [SerializeField] GameObject _objStopBut;
+    [SerializeField] GameObject _objSkipBut;
     //게임 화면에서 싱행되는 것들을 관리함. Sin을 상속함
     public override void Open(Stage stage)
     {
@@ -38,11 +42,14 @@ public class Game : Sin
         m_txtScore.text = "";
         switch (GameManager.GM.m_eGT)
         {
+            case GameType.TutorialStage:
             case GameType.Defence:
+                _objStopBut.SetActive(true);
                 m_slBossHp.gameObject.SetActive(false);
                 m_cWall.gameObject.SetActive(true);
                 m_cWall.Respon();
                 m_slWallHp.gameObject.SetActive(true);
+                _objSkipBut.SetActive(false);
                 m_fTime = 180f;
                 break;
             case GameType.Boss:
@@ -53,6 +60,11 @@ public class Game : Sin
                 m_slBossHp.gameObject.SetActive(false);
                 m_fTime = 60f;
                 break;
+        }
+        if (GameManager.GM.m_eGT == GameType.TutorialStage)
+        {
+            _objStopBut.SetActive(false);
+            _objSkipBut.SetActive(true);
         }
         int nIndex = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
         List<Card> vecUseCard = GameManager.GM.m_cPlayer.m_cAvata.m_vecUseCards[nIndex];
@@ -83,10 +95,16 @@ public class Game : Sin
         }
 
         GameManager.GM.m_cPlayer.m_cAvata.ReSet();
+        if (GameManager.GM.m_eGT == GameType.TutorialStage)
+        {
+            GameManager.GM.m_eGS = GameState.Tutorial;
+            _cGguideSin.Open();
+        }
     }
     private void Update()
     {
         if (GameManager.GM.m_eGS != GameState.Game) return;
+        if (GameManager.GM.m_eGS == GameState.Tutorial) return;
         m_fTime -= Time.deltaTime;
 
         int min = (int)(m_fTime / 60f);
@@ -97,6 +115,7 @@ public class Game : Sin
         {
             switch (GameManager.GM.m_eGT)
             {
+                case GameType.TutorialStage:
                 case GameType.Defence:
                     GameManager.GM.GoStageClear();
                     break;
@@ -109,11 +128,10 @@ public class Game : Sin
                     m_txtScore_total.text = "" + (int)m_objBoss.GetComponent<LaidBoss>().m_fScore + "점" ;
                     break;
             }
-            
-        }
-
+        } 
         switch (GameManager.GM.m_eGT)
         {
+            case GameType.TutorialStage:
             case GameType.Defence:
                 SponMonster();
                 if (!m_bBossSpon && m_fTime <= 150f )
@@ -144,6 +162,15 @@ public class Game : Sin
                     m_objBoss.GetComponent<LaidBoss>().Respon();
                 }
                 break;
+        }
+        if (GameManager.GM.m_eGT == GameType.TutorialStage)
+        {
+            if (m_fTime <= 149.8f && !_bGguideBoss)
+            {
+                _bGguideBoss = true;
+                GameManager.GM.m_eGS = GameState.Tutorial;
+                _cGguideBossSin.Open();
+            }
         }
     }
     void SponMonster()
@@ -203,5 +230,9 @@ public class Game : Sin
     {
         m_vecMemberSlotUsed[nNum].gameObject.SetActive(true);
         GameManager.GM.m_cPlayer.m_cAvata._vecUseMember[nNum].Use();
+    }
+    public void ReStartGame()
+    {
+        GameManager.GM.m_eGS = GameState.Game;
     }
 }

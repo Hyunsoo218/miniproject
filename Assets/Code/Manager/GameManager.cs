@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public CardManager cCM;
     public MemberManager cMM;
     public Server cServer;
+    public ActManager cAM;
+    public ImageManager cIM;
+    public CameraShakeManager cCSM;
+    public SoundManager cSoM;
     public Player m_cPlayer;
     public GameState m_eGS;
     public GameType m_eGT;
@@ -25,6 +29,10 @@ public class GameManager : MonoBehaviour
         cMM = GetComponent<MemberManager>();
         m_cPlayer = GetComponent<Player>();
         cServer = GetComponent<Server>();
+        cAM = GetComponent<ActManager>();
+        cIM = GetComponent<ImageManager>();
+        cCSM = GetComponent<CameraShakeManager>();
+        cSoM = GetComponent<SoundManager>();
 
         GoTitle();
 
@@ -34,7 +42,6 @@ public class GameManager : MonoBehaviour
         GetMember(MemberType.Oread);
         GetMember(MemberType.Ignis);
         GetMember(MemberType.Archane);
-
     }
     public void GetCard(Card cCard)
     {
@@ -79,6 +86,25 @@ public class GameManager : MonoBehaviour
         m_eGT = GameType.None;
         cUM.SetSin(m_eGS);
     }
+    public void GoIntro()
+    {
+        if (m_cPlayer._bFirst == true)
+        {
+            // 여기서 인트로 실행
+            m_cPlayer.m_cAvata.m_vecUseCards[0][0] = cCM.GetCard(CardType.FireBall, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][1] = cCM.GetCard(CardType.WaterBall, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][2] = cCM.GetCard(CardType.WindShot, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][3] = cCM.GetCard(CardType.WaterArrow, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][4] = cCM.GetCard(CardType.WindShower, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][5] = cCM.GetCard(CardType.FireBoom, CardRank.D);
+            GoLobe();
+            RunAct(ActionType.Intro_1);
+        }
+        else
+        {
+            GoLobe();
+        }
+    }
     public void GoDefence(Stage cStage)
     {
         m_cStage = cStage;
@@ -106,6 +132,12 @@ public class GameManager : MonoBehaviour
     public void GoLose()    { m_eGS = GameState.Lose;                               cUM.SetSin(m_eGS); }
     public void GoStageClear()
     {
+        if (m_eGT == GameType.TutorialStage)
+        {
+            RunAct(ActionType.Intro_3);
+            m_eGS = GameState.Talk;
+            return;
+        }
         m_cStage.Clear();
         GoWin();
     }
@@ -181,13 +213,46 @@ public class GameManager : MonoBehaviour
     {
         cUM.ShowMember(strText, cMember);
     }
+    public void RunAct(ActionType eAT)
+    {
+        print("이벤트 " + eAT + " 실행");
+        switch (eAT)
+        {
+            case ActionType.None: break;
+            case ActionType.Intro_1:
+            case ActionType.Intro_2:
+            case ActionType.Intro_3:
+            case ActionType.Intro_1_2:
+            case ActionType.Intro_3_2:
+            case ActionType.Intro_2_2:
+            case ActionType.Intro_3_3:
+                cUM.SetSin(cAM.GetAct(eAT));
+                break;
+            case ActionType.TutorialStage:
+                m_cStage = cSM.GetTutorialStage();
+                m_eGS = GameState.Game;
+                m_eGT = GameType.TutorialStage;
+                cUM.SetSin(m_cStage);
+                break;
+            case ActionType.GoLobe:
+                m_cPlayer._bFirst = false;
+                GoLobe();
+                break;
+        }
+    }
+}
+public enum ActionType
+{
+    None, Intro_1, Intro_2, TutorialStage,
+    Intro_3, GoLobe, Intro_1_2, Intro_3_2,
+    Intro_2_2, Intro_3_3
 }
 public enum GameState
 {
-    Title, Lobe, Game, Stop, ReStart, Win, Lose, LaidEnd, Login, CutSin
+    Title, Lobe, Game, Stop, ReStart, Win, Lose, LaidEnd, Login, Talk, CutSin, Tutorial
 }
 public enum GameType
 {
-    None, Defence, Boss, Laid
+    None, Defence, Boss, Laid, TutorialStage
 }
 

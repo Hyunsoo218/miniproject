@@ -16,14 +16,16 @@ public class Monster : Unit
     private void Update()
     {
         if (GameManager.GM.m_eGS != GameState.Game) return;
+        if (GameManager.GM.m_eGS == GameState.Tutorial) return;
         Move();
 
         m_fAttackTime += Time.deltaTime;
 
-        if (m_cTarget)
+        if (m_cTarget != null)
         {
             if (m_fAttackTime >= 0.3f)
-            { 
+            {
+                print(gameObject.name + "이 공격함");
                 m_fAttackTime = 0;
                 m_cTarget.Hit(m_fAp, m_eElement);
             }
@@ -33,6 +35,7 @@ public class Monster : Unit
     {
         switch (GameManager.GM.m_eGT)
         {
+            case GameType.TutorialStage:
             case GameType.Defence:
                 Pattern_Defens();
                 break;
@@ -58,6 +61,7 @@ public class Monster : Unit
         gameObject.SetActive(true);
         switch (GameManager.GM.m_eGT)
         {
+            case GameType.TutorialStage:
             case GameType.Defence:
                 transform.position = new Vector3(Random.Range(-4f, 4f), -0.1f, 12f);
                 break;
@@ -148,6 +152,7 @@ public class Monster : Unit
     }
     public override void Die()
     {
+        m_cTarget = null;
         gameObject.SetActive(false);
         MonsterSponManager.AddSponWaitMonster(this);
     }

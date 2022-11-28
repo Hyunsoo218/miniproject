@@ -64,6 +64,7 @@ public class Avata : Unit
     {
         switch (GameManager.GM.m_eGT)
         {
+            case GameType.TutorialStage:
             case GameType.Defence: MoveDefence(); break;
             case GameType.Laid:
             case GameType.Boss: MoveBoss(); break;
