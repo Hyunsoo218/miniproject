@@ -110,7 +110,7 @@ public class ReComposeSin : Sin
             GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
             for (int i = 0; i < m_vecRandom.Count; i++)
             {
-                GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Remove(m_vecRandom[i].m_cCard);
+                GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecRandom[i].m_cCard);
                 Destroy(m_vecRandom[i].m_cCard.gameObject);
             }
         }
@@ -174,7 +174,7 @@ public class ReComposeSin : Sin
         GameManager.GM.GetCard(m_cShowCard.m_cCard.m_eCardType, CardRank.S);
         for (int i = 0; i < m_vecConf.Count; i++)
         {
-            GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Remove(m_vecConf[i].m_cCard);
+            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecConf[i].m_cCard);
             Destroy(m_vecConf[i].m_cCard.gameObject);
         }
         Close();

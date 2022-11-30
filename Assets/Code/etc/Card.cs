@@ -81,6 +81,8 @@ public class Card : MonoBehaviour
             if (m_nLevel % 10 == 0) m_nLevelUpGold = m_nLevelUpGold * 5;
             else m_nLevelUpGold = (long)(m_nLevelUpGold * 1.3);
 
+            GameManager.GM.cServer.UpdateCard(this);
+
             return true;
         }
         else

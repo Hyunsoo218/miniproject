@@ -96,7 +96,7 @@ public class UnlimitSin : Sin
         }
         for (int i = 0; i < m_vecSelectCard.Count; i++)
         {
-            GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Remove(m_vecSelectCard[i]);
+            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecSelectCard[i]);
             Destroy(m_vecSelectCard[i].gameObject);
         }
         GameManager.GM.ShowCard("초월 성공", m_cSelectSlot.m_cCard);

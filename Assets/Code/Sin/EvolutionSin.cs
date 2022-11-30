@@ -89,7 +89,7 @@ public class EvolutionSin : Sin
 
         for (int i = 0; i < m_vecSelectCard.Count; i++)
         {
-            GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Remove(m_vecSelectCard[i].m_cCard);
+            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecSelectCard[i].m_cCard);
             Destroy(m_vecSelectCard[i].m_cCard.gameObject);
         }
 

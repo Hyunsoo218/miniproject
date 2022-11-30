@@ -28,11 +28,46 @@ public class Server : MonoBehaviour
     {
         StartCoroutine(StageClearCo(data));
     }
-    IEnumerator StageClearCo(StageData data)
+    public void UpdateCard(Card cCard)
+    {
+        CardData data = DataConverter.CardToCardData(cCard);
+        StartCoroutine(UpdateCardCo(data));
+    }
+    public void DeleteCard(int nCardno)
+    {
+        StartCoroutine(DeleteCardCo(nCardno));
+    }
+    IEnumerator UpdateCardCo(CardData data)
     {
         WWWForm form = new WWWForm();
 
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+        form.AddField("d1", data.m_eCardType);
+        form.AddField("d2", data.m_eCardRank);
+        form.AddField("d3", data.m_nCost);
+        form.AddField("d4", data.m_nLevel);
+        form.AddField("d5", data.m_nMaxLevel);
+        form.AddField("d6", data.m_nUnlimite);
+        form.AddField("d7", data.m_nLevelUpGold + "");
+        form.AddField("d8", data.m_fAp + "");
+        form.AddField("d9", data.m_fHp + "");
+        form.AddField("d10", data._eMT);
 
+        UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/updateCard", form);
+        yield return www.SendWebRequest();
+    }
+    IEnumerator DeleteCardCo(int nCardno)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+        form.AddField("d1", nCardno+"");
+
+        UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/deleteCard", form);
+        yield return www.SendWebRequest();
+    }
+    IEnumerator StageClearCo(StageData data)
+    {
+        WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
         form.AddField("d1", "1");
         form.AddField("d2", data.m_strStage);
@@ -43,8 +78,6 @@ public class Server : MonoBehaviour
     IEnumerator GetBewCardCo(CardData data) 
     {
         WWWForm form = new WWWForm();
-
-
         form.AddField("userno", GameManager.GM.m_cPlayer.userno+"");
         form.AddField("d1", data.m_eCardType);
         form.AddField("d2", data.m_eCardRank);
@@ -56,7 +89,6 @@ public class Server : MonoBehaviour
         form.AddField("d8", data.m_fAp+"");
         form.AddField("d9", data.m_fHp + "");
         form.AddField("d10", data._eMT);
-
 
         UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/insertCard", form);
         yield return www.SendWebRequest();
@@ -218,6 +250,25 @@ public class Server : MonoBehaviour
     }
 
 
+}
+public class DataConverter
+{
+    public static CardData CardToCardData(Card cCard)
+    {
+        CardData temp = new CardData();
+        temp.m_eCardType = (int)cCard.m_eCardType;
+        temp.m_eCardRank = (int)cCard.m_eCardRank;
+        temp._eMT = (int)cCard._eMT;
+        temp.m_nCost = cCard.m_nCost;
+        temp.m_nLevel = cCard.m_nLevel;
+        temp.m_nUnlimite = cCard.m_nUnlimite;
+        temp.m_nLevelUpGold = cCard.m_nLevelUpGold;
+        temp.m_fAp = cCard.m_fAp;
+        temp.m_nMaxLevel = cCard.m_nMaxLevel;
+        temp.m_fHp = cCard.m_fHp;
+        temp.cardno = cCard.cardno;
+        return temp;
+    }
 }
 [System.Serializable]
 public class UserData

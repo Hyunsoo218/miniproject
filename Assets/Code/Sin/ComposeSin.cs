@@ -102,8 +102,6 @@ public class ComposeSin : Sin
             height = 410f * ((nCount - nCount % 4) / 4f) + 410f;
         m_tInventory.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1200f, height);
     }
-
-
     public void BackSlot(Slot cSlot) //위에있는 카드를 클릭했을때 기능
     {
         if (cSlot.m_cCard == null)
@@ -204,7 +202,7 @@ public class ComposeSin : Sin
 
         for (int i = 0; i < m_vecMySelectCard.Count; i++)
         {
-            GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Remove(m_vecMySelectCard[i].m_cCard);
+            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecMySelectCard[i].m_cCard);
         }
         Close();
         Open();

@@ -178,4 +178,9 @@ public class Avata : Unit
     {
         _vecMyBuff.Add(cSB);
     }
+    public void RemoveCard(Card delCard)
+    {
+        GameManager.GM.cServer.DeleteCard(delCard.cardno);
+        m_vecMyCard.Remove(delCard);
+    }
 }
