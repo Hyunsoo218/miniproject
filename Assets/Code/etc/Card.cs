@@ -33,6 +33,8 @@ public class Card : MonoBehaviour
     public Sprite _imgFace;
     public Sprite _imgCard;
     public MemberType _eMT;         //
+    public int cardno;         //
+
     private void Start()
     {
         if (m_objBullit != null)

@@ -49,6 +49,21 @@ public class StageManager : MonoBehaviour
     }
     public void SetStage(string m_strStage, bool m_bClear) 
     {
+        //int index = 0;
+        //for (int i = 0; i < m_vecStageDefan.Count; i++) 
+        //{
+        //    if (m_vecStageDefan[i].m_strStage == m_strStage)
+        //    {
+        //        index = i;
+        //    }
+        //}
+        //for (int i = 0; i <= index; i++)
+        //{
+        //    m_vecStageDefan[i].Clear();
+        //    OpanNextStage(m_vecStageDefan[i]);
+        //}
+
+
         for (int i = 0; i < m_vecStageDefan.Count; i++)
         {
             if (m_strStage.Equals(m_vecStageDefan[i].m_strStage))

@@ -19,7 +19,17 @@ public class Stage : MonoBehaviour
 
     public void Clear()
     {
-        m_bClear = true;
+        if (m_bClear == false)
+        {
+            m_bClear = true;
+
+            StageData data = new StageData();
+            data.m_bClear = true;
+            data.m_strStage = m_strStage;
+
+            GameManager.GM.cServer.StageClear(data);
+        }
+        
         GameManager.GM.m_cPlayer.m_nGold += m_nClearGold;
         GameManager.GM.m_cPlayer.SetGold();
         GameManager.GM.cSM.OpanNextStage(this);

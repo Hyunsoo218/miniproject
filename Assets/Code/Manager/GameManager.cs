@@ -209,10 +209,6 @@ public class GameManager : MonoBehaviour
     }
     public void Show10Card(string strText, List<Card> cCard)
     {
-        for (int i = 0; i < cCard.Count; i++)
-        {
-            print(cCard[i].gameObject.name);
-        }
         strText = "";
         cUM.Show10Card(strText, cCard);
     }
@@ -243,6 +239,7 @@ public class GameManager : MonoBehaviour
                 break;
             case ActionType.GoLobe:
                 m_cPlayer._bFirst = false;
+                //   서버로 _bFirst false로 바꾸기
                 GoLobe();
                 break;
         }

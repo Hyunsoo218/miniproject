@@ -12,22 +12,58 @@ public class Server : MonoBehaviour
     
     public void loginBtn(string id, string pwd)
     {
+        print("로그인 시작");
         StartCoroutine(ServerLoginUser(id,pwd));
+        print("로그인 종료");
     }
     public void registerBtn()
     {
         StartCoroutine(ServerMakeUser());
     }
-    public void goldSend(long gold)
+    public void GetBewCard(CardData data)
     {
-        //StartCoroutine(GoldSend(gold));
+        StartCoroutine(GetBewCardCo(data));
     }
-    public void diaSend(long dia)
+    public void StageClear(StageData data)
     {
-        //StartCoroutine(DiaSend(dia));
+        StartCoroutine(StageClearCo(data));
+    }
+    IEnumerator StageClearCo(StageData data)
+    {
+        WWWForm form = new WWWForm();
+
+
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+        form.AddField("d1", "1");
+        form.AddField("d2", data.m_strStage);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/stageClear", form);
+        yield return www.SendWebRequest();
+    }
+    IEnumerator GetBewCardCo(CardData data) 
+    {
+        WWWForm form = new WWWForm();
+
+
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno+"");
+        form.AddField("d1", data.m_eCardType);
+        form.AddField("d2", data.m_eCardRank);
+        form.AddField("d3", data.m_nCost);
+        form.AddField("d4", data.m_nLevel);
+        form.AddField("d5", data.m_nMaxLevel);
+        form.AddField("d6", data.m_nUnlimite);
+        form.AddField("d7", data.m_nLevelUpGold + "");
+        form.AddField("d8", data.m_fAp+"");
+        form.AddField("d9", data.m_fHp + "");
+        form.AddField("d10", data._eMT);
+
+
+        UnityWebRequest www = UnityWebRequest.Post("http://10.30.5.141:3030/insertCard", form);
+        yield return www.SendWebRequest();
     }
     IEnumerator ServerLoginUser(string id, string pwd)
     {
+        print("로그인 코루틴 시작");
         WWWForm form = new WWWForm();
         form.AddField("ID", id);
         form.AddField("PW", pwd);
@@ -82,8 +118,8 @@ public class Server : MonoBehaviour
             {
                 if (CardData[i].m_nCost == -1)
                 {
-                    GameManager.GM.GetMember((MemberType)CardData[i]._eMT); // 동료
-                    print("동료 : "+ (MemberType)CardData[i]._eMT+" 획득");
+                    Member temp = GameManager.GM.cMM.GetMember((MemberType)CardData[i]._eMT);
+                    GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Add(temp);
                 }
                 else
                 {
@@ -95,8 +131,9 @@ public class Server : MonoBehaviour
                     temp.m_nLevelUpGold = CardData[i].m_nLevelUpGold;
                     temp.m_fAp = CardData[i].m_fAp;
                     temp.m_fHp = CardData[i].m_fHp;
-                    print("카드 : " + temp.gameObject.name + " 획득");
-                    GameManager.GM.GetCard(temp);
+                    temp.cardno = CardData[i].cardno;
+
+                    GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Add(temp);
                 }
             }
             // 카드 데이터 클레스 만들어서 작업 다시 끝
@@ -110,9 +147,11 @@ public class Server : MonoBehaviour
                 print("스테이지 : " + s.m_strStage + "  클리어: "+ s.m_bClear);
 
             }
+            
 
             GameManager.GM.GoTitle();
             www.Dispose();
+            print("로그인 코루틴 끝");
         }
 
     }
@@ -193,7 +232,23 @@ public class UserData
     public bool _bFirst = false; //
 }
 [System.Serializable]
-class CardData
+public class PresetData
+{
+    public int userno;
+    public int presetno;
+    public int c1;
+    public int c2;
+    public int c3;
+    public int c4;
+    public int c5;
+    public int c6;
+    public int c7;
+    public int c8;
+    public int c9;
+
+}
+[System.Serializable]
+public class CardData
 {
     public int m_eCardType;    //
     public int m_eCardRank;    //
@@ -205,6 +260,7 @@ class CardData
     public float m_fAp = 3;         //
     public float m_fHp = 10;        //
     public int _eMT;         //
+    public int cardno;         //
 }
 [System.Serializable]
 public class StageData

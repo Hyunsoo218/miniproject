@@ -83,12 +83,12 @@ public class Player : MonoBehaviour
     public void SetGold()
     {
         m_txtGold.text = GameManager.GM.GoldToStr(m_nGold);
-        GameManager.GM.cServer.goldSend(m_nGold);
+        //GameManager.GM.cServer.goldSend(m_nGold);
     }
     public void SetDiamond()
     {
         m_txtDiamond.text = GameManager.GM.GoldToStr(m_nDiamond);
-        GameManager.GM.cServer.diaSend(m_nDiamond);
+       // GameManager.GM.cServer.diaSend(m_nDiamond);
     }
     void SetGas()
     {

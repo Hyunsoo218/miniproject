@@ -114,11 +114,44 @@ public class Avata : Unit
     }
     public void GetCard(Card addCard)
     {
+        CardData temp = new CardData();
+
+        temp.m_eCardType = (int)addCard.m_eCardType;
+        temp.m_eCardRank = (int)addCard.m_eCardRank;
+        temp._eMT = (int)addCard._eMT;
+        temp.m_nCost = addCard.m_nCost;
+        temp.m_nLevel = addCard.m_nLevel;
+        temp.m_nUnlimite = addCard.m_nUnlimite;
+        temp.m_nLevelUpGold = addCard.m_nLevelUpGold;
+        temp.m_fAp = addCard.m_fAp;
+        temp.m_nMaxLevel = addCard.m_nMaxLevel;
+        temp.m_fHp = addCard.m_fHp;
+        temp.cardno = addCard.cardno;
+
+        GameManager.GM.cServer.GetBewCard(temp);
         m_vecMyCard.Add(addCard);
     }
     public void GetMember(Card addMember)
     {
+        print("addMember : " + addMember._eMT);
         _vecMyMember.Add(addMember);
+
+        CardData temp = new CardData();
+
+        temp.m_eCardType = (int)addMember.m_eCardType;
+        temp.m_eCardRank = (int)addMember.m_eCardRank;
+        temp._eMT = (int)addMember._eMT;
+        temp.m_nCost = addMember.m_nCost;
+        temp.m_nLevel = addMember.m_nLevel;
+        temp.m_nUnlimite = addMember.m_nUnlimite;
+        temp.m_nLevelUpGold = addMember.m_nLevelUpGold;
+        temp.m_fAp = addMember.m_fAp;
+        temp.m_nMaxLevel = addMember.m_nMaxLevel;
+        temp.m_fHp = addMember.m_fHp;
+        temp.cardno = addMember.cardno;
+
+        GameManager.GM.cServer.GetBewCard(temp);
+
     }
     public void ReSet()
     {

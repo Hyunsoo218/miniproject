@@ -65,7 +65,29 @@ public class CardSin : Sin
         base.Open();
 
         nIndex = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
-        _vecUseCard = GameManager.GM.m_cPlayer.m_cAvata.m_vecUseCards[nIndex];
+
+        List<Card> tempDeck = new List<Card>();
+
+        for (int i = 0; i < 9; i++)
+        {
+            tempDeck.Add(null);
+
+            int tempInt = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno + "preset" + nIndex + i);
+            if (tempInt != -1)
+            {
+                for (int j = 0; j < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; j++)
+                {
+                    if (GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j].cardno == tempInt)
+                    {
+                        tempDeck[i] = GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j];
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        _vecUseCard = tempDeck;
 
         ColorBlock col = m_vecFreeSetBut[nIndex].colors;
         col.normalColor = new Color(0.3f, 0.7f, 0.85f);
@@ -179,7 +201,7 @@ public class CardSin : Sin
 
         if (m_vecMyDack[nNum] == m_cSelectcSlot)
         {
-            print("�� ī�� ���� > ���� ī�� ����");
+            print("장착 카드 해제");
             for (int i = 0; i < m_vecMyCard.Count; i++)
             {
                 if (m_vecMyCard[i].m_cCard == m_vecMyDack[nNum].m_cCard)
@@ -204,7 +226,9 @@ public class CardSin : Sin
                 {
                     if (m_vecMyDack[j] == m_vecMyDack[nNum]) 
                     {
-                        print("�� ī�� ���� > �� �ٸ� ī�� ����");
+                        
+
+                        print("덱 카드 바꾸기");
                         Card temp = m_vecMyDack[nNum].m_cCard;
 
                         m_vecMyDack[nNum].Set(m_cSelectcSlot.m_cCard);
@@ -277,13 +301,22 @@ public class CardSin : Sin
         float ap = 0;
         float hp = 0;
 
+        string key;
         for (int i = 0; i < m_vecMyDack.Count; i++)
         {
+            key = GameManager.GM.m_cPlayer.userno +  "preset" + nIndex + i;
+
             if (m_vecMyDack[i].m_cCard != null)
             {
                 cost += m_vecMyDack[i].m_cCard.m_nCost;
                 ap += m_vecMyDack[i].m_cCard.m_fAp;
                 hp += m_vecMyDack[i].m_cCard.m_fHp;
+
+                PlayerPrefs.SetInt(key, m_vecMyDack[i].m_cCard.cardno);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(key, -1);
             }
         }
 

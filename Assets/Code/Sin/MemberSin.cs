@@ -46,6 +46,11 @@ public class MemberSin : Sin
     }
     public void ChangBut(int nNum)
     {
+        for (int i = 0; i < _vecMemberBut.Count; i++)
+        {
+            Destroy(_vecMemberBut[i].gameObject);
+        }
+        _vecMemberBut.Clear();
         _nChageTarget = nNum;
         _objSelectMember.SetActive(true);
         _imgMember.sprite = _imgNull;
@@ -64,17 +69,21 @@ public class MemberSin : Sin
             Button but = temp.GetComponent<Button>();
             but.image.sprite = _vecMyMember[i]._imgCard;
 
-            //but.onClick.AddListener(() => { SelectBut(_vecMyMember[i]); });
-
-            switch (i)
+            int index = i;
+            but.onClick.AddListener(() => 
             {
-                case 0: but.onClick.AddListener(() => SelectBut(_vecMyMember[0])); break;
-                case 1: but.onClick.AddListener(() => SelectBut(_vecMyMember[1])); break;
-                case 2: but.onClick.AddListener(() => SelectBut(_vecMyMember[2])); break;
-                case 3: but.onClick.AddListener(() => SelectBut(_vecMyMember[3])); break;
-                case 4: but.onClick.AddListener(() => SelectBut(_vecMyMember[4])); break;
-                case 5: but.onClick.AddListener(() => SelectBut(_vecMyMember[5])); break;
-            }
+                SelectBut(_vecMyMember[index]); 
+            });
+
+            //switch (i)
+            //{
+            //    case 0: but.onClick.AddListener(() => SelectBut(_vecMyMember[0])); break;
+            //    case 1: but.onClick.AddListener(() => SelectBut(_vecMyMember[1])); break;
+            //    case 2: but.onClick.AddListener(() => SelectBut(_vecMyMember[2])); break;
+            //    case 3: but.onClick.AddListener(() => SelectBut(_vecMyMember[3])); break;
+            //    case 4: but.onClick.AddListener(() => SelectBut(_vecMyMember[4])); break;
+            //    case 5: but.onClick.AddListener(() => SelectBut(_vecMyMember[5])); break;
+            //}
             _vecMemberBut.Add(temp);
         }
         _tMember.GetComponent<RectTransform>().sizeDelta = new Vector2((300f * _vecMyMember.Count) - 50f, 100f);
