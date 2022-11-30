@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4487564, g: 0.4974649, b: 0.5690381, a: 1}
+  m_IndirectSpecularColor: {r: 0.4514253, g: 0.50079924, b: 0.5716798, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7967,7 +7967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &327881272
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9816,7 +9816,6 @@ RectTransform:
   m_Children:
   - {fileID: 708063453}
   - {fileID: 377243998}
-  - {fileID: 160867446}
   m_Father: {fileID: 1382781317}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9887,7 +9886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f3e01b96dca53449eed62f610282ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tMouse: {fileID: 160867446}
+  _tMouse: {fileID: 0}
 --- !u!1 &382653303
 GameObject:
   m_ObjectHideFlags: 0
@@ -42990,8 +42989,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 122586501}
+  m_Children: []
   m_Father: {fileID: 1525364932}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46630,7 +46628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1525364932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56700,6 +56698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61306c69b561fe94c91786a56a1ac519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_strId: 
+  m_strPass: 
+  m_strName: 
+  userno: 0
   m_cAvata: {fileID: 1293667799}
   m_nGold: 100000
   m_nDiamond: 0
