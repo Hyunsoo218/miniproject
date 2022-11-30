@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    string m_strId, m_strPass;
-
+    public string m_strId, m_strPass, m_strName;
+    public int userno;
     public Avata m_cAvata;
     public long m_nGold;     // ∞ÒµÂ
     public int m_nDiamond;  // ¥Ÿ¿Ãæ∆
@@ -18,11 +18,33 @@ public class Player : MonoBehaviour
     public Text m_txtGas;
     public Text m_txtGasTimer;
     [Header("State")]
-    public bool _bFirst = false;
+    public bool _bFirst = false; //
     float _fCreGas = 0;
     float _fNowCreGasTime = 0;
     bool _bCreGas = false;
+
+    public override string ToString()
+    {
+        string data = "";
+
+        data += "userno : " + userno + "\n";
+        data += "m_strId : " + m_strId + "\n";
+        data += "m_strPass : " + m_strPass + "\n";
+        data += "m_strName : " + m_strName + "\n";
+        data += "m_nGold : " + m_nGold + "\n";
+        data += "m_nDiamond : " + m_nDiamond + "\n";
+        data += "m_nGas : " + m_nGas + "\n";
+        data += "_bFirst : " + _bFirst + "\n";
+
+        return data;
+    }
     private void Start()
+    {
+        SetGold();
+        SetDiamond();
+        SetGas();
+    }
+    public void AllSet() 
     {
         SetGold();
         SetDiamond();

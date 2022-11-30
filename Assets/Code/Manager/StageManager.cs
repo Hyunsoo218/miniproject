@@ -47,4 +47,27 @@ public class StageManager : MonoBehaviour
     {
         return _cTutorialStage;
     }
+    public void SetStage(string m_strStage, bool m_bClear) 
+    {
+        for (int i = 0; i < m_vecStageDefan.Count; i++)
+        {
+            if (m_strStage.Equals(m_vecStageDefan[i].m_strStage))
+            {
+                m_vecStageDefan[i].Open();
+                m_vecStageDefan[i].m_bClear = m_bClear;
+                OpanNextStage(m_vecStageDefan[i]);
+                return;
+            }
+        }
+        for (int i = 0; i < m_vecStageBoss.Count; i++)
+        {
+            if (m_strStage.Equals(m_vecStageDefan[i].m_strStage))
+            {
+                m_vecStageBoss[i].Open();
+                m_vecStageBoss[i].m_bClear = m_bClear;
+                OpanNextStage(m_vecStageDefan[i]);
+                return;
+            }
+        }
+    }
 }

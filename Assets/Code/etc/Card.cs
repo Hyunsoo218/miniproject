@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class Card : MonoBehaviour
 {
     public GameObject m_objBullit;
     public Sprite m_imgImage;
     public BullitType m_eBT;
-    public CardType m_eCardType;
-    public CardRank m_eCardRank;
+    public CardType m_eCardType;    //
+    public CardRank m_eCardRank;    //
     public CardElement m_eCardElement;
-    public int m_nCost;
-    public int m_nLevel = 1;
-    public int m_nMaxLevel = 30;
-    public int m_nUnlimite = 0;
-    public long m_nLevelUpGold = 10;
+    public int m_nCost;             //
+    public int m_nLevel = 1;        //
+    public int m_nMaxLevel = 30;    //
+    public int m_nUnlimite = 0;     //
+    public long m_nLevelUpGold = 10;//
     public string m_strData;
-    public float m_fAp = 3;
-    public float m_fHp = 10;
+    public float m_fAp = 3;         //
+    public float m_fHp = 10;        //
     public float m_fDamege;
     public float m_fMaxCoolTime;
     public float m_fCoolTime;
     public bool _bCanUse = true;
+    /// //////////////////////////////////////////
     public CardElement _eCE;
     public string _strName;
     public string _strData;
@@ -31,6 +32,7 @@ public class Card : MonoBehaviour
     public Sprite _imgFull;
     public Sprite _imgFace;
     public Sprite _imgCard;
+    public MemberType _eMT;         //
     private void Start()
     {
         if (m_objBullit != null)

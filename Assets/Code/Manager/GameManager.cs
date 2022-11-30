@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public GameType m_eGT;
     Stage m_cStage;
     Member _cMember;
-
     private void Awake() {  GM = this; }
     private void Start()
     {
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
         cCSM = GetComponent<CameraShakeManager>();
         cSoM = GetComponent<SoundManager>();
 
-        GoTitle();
+        GoLogin();
     }
     public void GetCard(Card cCard)
     {
