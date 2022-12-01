@@ -59,6 +59,9 @@ public class CardManageSin : Sin
     {
         base.Open();
 
+        GameManager.GM.ShowText("카드 관리칸은 강화, 합성, 진화, 초월, 재구성 총 5가지로 이루어져있으며\n\n\n현재 칸은 원하는 카드를 재화를 소모해 강화를 하여, 능력치를 강화 할 수 있다.");
+
+
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);

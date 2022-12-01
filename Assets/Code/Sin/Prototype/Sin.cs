@@ -11,5 +11,8 @@ public class Sin : MonoBehaviour
     virtual public void Open(string strData, Card cCard) { gameObject.SetActive(true); }
     virtual public void Open(string strData, List<Card> cCard) { gameObject.SetActive(true); }
     virtual public void Open(string strData, Member cMember) { gameObject.SetActive(true); }
-    virtual public void Close() { gameObject.SetActive(false); }
+    virtual public void Close() 
+    {
+        gameObject.SetActive(false); 
+    }
 }

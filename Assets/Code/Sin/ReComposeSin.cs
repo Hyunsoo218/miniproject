@@ -26,6 +26,9 @@ public class ReComposeSin : Sin
     public override void Open()
     {
         base.Open();
+
+        GameManager.GM.ShowText("S랭크 카드를 소모하여 랜덤/확정으로 S랭크 카드를 얻습니다.\n2장을 소모 할 경우는 랜덤\n5장을 소모 할 경우엔\n원하는 카드를 얻을 수 있습니다.");
+
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);

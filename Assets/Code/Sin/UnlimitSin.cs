@@ -18,6 +18,7 @@ public class UnlimitSin : Sin
     public override void Open()
     {
         base.Open();
+        GameManager.GM.ShowText("S랭크 카드의 최대 레벨(Max Level)을\n1 증가 시켜줍니다.");
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);

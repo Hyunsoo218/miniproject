@@ -62,6 +62,8 @@ public class CardSin : Sin
     }
     public override void Open()
     {
+        GameManager.GM.ShowText("카드를 장착 / 해제 할 수 있으며\n세트효과를 확인할 수 있다.");
+      
         base.Open();
 
         nIndex = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
@@ -161,6 +163,7 @@ public class CardSin : Sin
         }
         m_vecMyCard.Clear();
         CloseSortMenu();
+        GameManager.GM.cUM.ShowTextEnd();
     }
     public void SelectSlot( Slot cSlot )
     {

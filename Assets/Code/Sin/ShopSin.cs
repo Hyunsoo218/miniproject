@@ -4,10 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopSin : Sin
-{
+{ 
     [SerializeField] List<Machine> _vecPanel;
 
     int _nPanelIndex = 0;
+    public override void Open()
+    {
+        base.Open();
+        GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
+    }
     public void GoNextPanel()
     {
         _nPanelIndex++;

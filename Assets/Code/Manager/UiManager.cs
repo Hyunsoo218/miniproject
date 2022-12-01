@@ -79,6 +79,10 @@ public class UiManager : MonoBehaviour
     {
         _cShowSin[0].Open(strText);
     }
+    public void ShowTextEnd()
+    {
+        _cShowSin[0].Close();
+    }
     public void ShowCard(string strText, Card cCard)
     {
         _cShowSin[1].Open(strText, cCard);

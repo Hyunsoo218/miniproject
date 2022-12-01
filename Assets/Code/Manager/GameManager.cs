@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         cCSM = GetComponent<CameraShakeManager>();
         cSoM = GetComponent<SoundManager>();
 
-        GoLobe();
+        GoTitle();
     }
     public void GetCard(Card cCard)
     {

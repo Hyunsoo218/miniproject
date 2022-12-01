@@ -18,6 +18,8 @@ public class EvolutionSin : Sin
     public override void Open()
     {
         base.Open();
+        GameManager.GM.ShowText("같은 랭크인 동일한 카드를 5개 넣어\n카드랭크를 한 단계 올려줍니다.");
+
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
