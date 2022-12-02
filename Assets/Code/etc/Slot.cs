@@ -16,7 +16,6 @@ public class Slot : MonoBehaviour
         m_cCard = card;
         if (m_cCard != null)
         {
-            
             if (card.m_nCost == -1)
             {
                 gameObject.GetComponent<Button>().image.sprite = card._imgFull;
@@ -38,7 +37,6 @@ public class Slot : MonoBehaviour
                     m_txtUnlimitie.text = "";
                 }
             }
-            
         }
         else
         {
@@ -47,5 +45,12 @@ public class Slot : MonoBehaviour
             m_txtUnlimitie.text = "";
             gameObject.GetComponent<Button>().image.sprite = m_imgNull;
         }
+    }
+    public void Boxing(Sprite img)
+    {
+        gameObject.GetComponent<Button>().image.sprite = img;
+        m_txtCost.text = "";
+        m_txtLv.text = "";
+        m_txtUnlimitie.text = "";
     }
 }

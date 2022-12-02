@@ -12,7 +12,7 @@ public class UnlimitSin : Sin
     public Text m_txtNowLv;
     public Text m_txtAfterEa;
     List<Slot> m_vecMyCard = new List<Slot>();
-    List<Card> m_vecSelectCard = new List<Card>();
+    public List<Card> m_vecSelectCard = new List<Card>();
     int m_nMaxSelecyEa;
     bool Click = true;
     public override void Open()
@@ -87,30 +87,8 @@ public class UnlimitSin : Sin
     }
     public void Submit()
     {
-        int nUpLv = 0;
-        for (int i = 0; i < m_vecSelectCard.Count; i++)
-        {
-            nUpLv += m_vecSelectCard[i].m_nUnlimite + 1;
-        }
-        if (nUpLv > 10 - (m_cSelectSlot.m_cCard.m_nMaxLevel - 70)) nUpLv = 10 - (m_cSelectSlot.m_cCard.m_nMaxLevel - 70);
-
-        m_cSelectSlot.m_cCard.m_nMaxLevel = m_cSelectSlot.m_cCard.m_nMaxLevel + nUpLv;
-        m_cSelectSlot.m_cCard.m_nUnlimite += nUpLv;
-        for (int i = 0; i < m_vecSelectCard.Count; i++)
-        {
-            if (m_vecSelectCard[i].m_nLevel > m_cSelectSlot.m_cCard.m_nLevel)
-            {
-                m_cSelectSlot.m_cCard.Copy(m_vecSelectCard[i]);
-            }
-        }
-        for (int i = 0; i < m_vecSelectCard.Count; i++)
-        {
-            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecSelectCard[i]);
-            Destroy(m_vecSelectCard[i].gameObject);
-        }
-        GameManager.GM.ShowCard("초월 성공", m_cSelectSlot.m_cCard);
-        Close();
-        Open();
+        GameManager.GM.cServer.UnlimitCard(this);
+        
     }
     public void Cancel()
     {

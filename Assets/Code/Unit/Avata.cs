@@ -19,8 +19,6 @@ public class Avata : Unit
     public List<Image> m_vecCoolTimeFill = new List<Image>();
     [Header("Set Buff")]
     public List<SetBuff> _vecMyBuff = new List<SetBuff>();
-
-    float m_fCoolTime = 0;
     SkillUseQueue m_qUseingSkill = new SkillUseQueue(9);
 
     RaycastHit _cHit;
@@ -178,6 +176,5 @@ public class Avata : Unit
     public void RemoveCard(Card delCard)
     {
         GameManager.GM.cServer.DeleteCard(delCard.cardno);
-        m_vecMyCard.Remove(delCard);
     }
 }

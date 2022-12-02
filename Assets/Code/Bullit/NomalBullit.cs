@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NomalBullit : Bullit
 {
-    GameObject m_objTarget = null;
     private void Update()
     {
         transform.Translate(Vector3.up * 10f * Time.deltaTime);

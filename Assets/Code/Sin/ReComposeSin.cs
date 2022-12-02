@@ -116,16 +116,8 @@ public class ReComposeSin : Sin
                     return;
                 }
             }
-            int nTemp = Random.Range(0, 24);
-            GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
-            for (int i = 0; i < m_vecRandom.Count; i++)
-            {
-                GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecRandom[i].m_cCard);
-                Destroy(m_vecRandom[i].m_cCard.gameObject);
-            }
+            GameManager.GM.cServer.ReComposeRedon(this);
         }
-        Close();
-        Open();
     }
     public void Cancel(Slot cSlot)
     {
@@ -180,15 +172,7 @@ public class ReComposeSin : Sin
             GameManager.GM.ShowText("획득할 카드를 선택 하세요!");
             return;
         }
-        
-        GameManager.GM.GetCard(m_cShowCard.m_cCard.m_eCardType, CardRank.S);
-        for (int i = 0; i < m_vecConf.Count; i++)
-        {
-            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecConf[i].m_cCard);
-            Destroy(m_vecConf[i].m_cCard.gameObject);
-        }
-        Close();
-        Open();
+        GameManager.GM.cServer.ReComposeConf(this);
     }
     void SortCard(Card cCard = null)
     {

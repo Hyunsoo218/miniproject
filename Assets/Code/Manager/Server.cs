@@ -8,7 +8,6 @@ public class Server : MonoBehaviour
 {
     public InputField InputName;
     public string[] userData;
-    private int gold = 100;
     
     public void loginBtn(string id, string pwd)
     {
@@ -43,19 +42,162 @@ public class Server : MonoBehaviour
     {
         StartCoroutine(UpdateUserDataCo());
     }
+    public void ComposeCard(ComposeSin sin)
+    {
+        StartCoroutine(ComposeCardCo(sin));
+    }
+    public void EvolutionCard(EvolutionSin sin)
+    {
+        StartCoroutine(EvolutionCardCo(sin));
+    }
+    public void UnlimitCard(UnlimitSin sin)
+    {
+        StartCoroutine(UnlimitCardCo(sin));
+    }
+    public void ReComposeRedon(ReComposeSin sin)
+    {
+        StartCoroutine(ReComposeRedonCo(sin));
+    }
+    public void ReComposeConf(ReComposeSin sin)
+    {
+        StartCoroutine(ReComposeConfCo(sin));
+    }
+    IEnumerator ReComposeRedonCo(ReComposeSin sin)
+    {
+        WWWForm form; UnityWebRequest www;
+        for (int i = 0; i < sin.m_vecRandom.Count; i++)
+        {
+            form = new WWWForm();
+            form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+            form.AddField("d1", sin.m_vecRandom[i].m_cCard.cardno + "");
+
+            www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
+            print("재구성 랜덤 삭제실행 : " + i);
+            yield return www.SendWebRequest();
+            www.Dispose();
+        }
+        int nTemp = Random.Range(0, 24);
+        GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
+        yield return new WaitForSeconds(0.2f);
+        sin.Close();
+        sin.Open();
+    }
+    IEnumerator ReComposeConfCo(ReComposeSin sin)
+    {
+        WWWForm form; UnityWebRequest www;
+        for (int i = 0; i < sin.m_vecConf.Count; i++)
+        {
+            form = new WWWForm();
+            form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+            form.AddField("d1", sin.m_vecConf[i].m_cCard.cardno + "");
+
+            www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
+            print("재구성 확정 삭제실행 : " + i);
+            yield return www.SendWebRequest();
+            www.Dispose();
+        }
+        GameManager.GM.GetCard(sin.m_cShowCard.m_cCard.m_eCardType, CardRank.S);
+        yield return new WaitForSeconds(0.2f);
+        sin.Close();
+        sin.Open();
+    }
+    IEnumerator UnlimitCardCo(UnlimitSin sin)
+    {
+        int nUpLv = 0;
+        for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
+        {
+            nUpLv += sin.m_vecSelectCard[i].m_nUnlimite + 1;
+        }
+        if (nUpLv > 10 - (sin.m_cSelectSlot.m_cCard.m_nMaxLevel - 70)) nUpLv = 10 - (sin.m_cSelectSlot.m_cCard.m_nMaxLevel - 70);
+
+        sin.m_cSelectSlot.m_cCard.m_nMaxLevel = sin.m_cSelectSlot.m_cCard.m_nMaxLevel + nUpLv;
+        sin.m_cSelectSlot.m_cCard.m_nUnlimite += nUpLv;
+        for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
+        {
+            if (sin.m_vecSelectCard[i].m_nLevel > sin.m_cSelectSlot.m_cCard.m_nLevel)
+            {
+                sin.m_cSelectSlot.m_cCard.Copy(sin.m_vecSelectCard[i]);
+            }
+        }
+
+        WWWForm form; UnityWebRequest www;
+        for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
+        {
+            form = new WWWForm();
+            form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+            form.AddField("d1", sin.m_vecSelectCard[i].cardno + "");
+
+            www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
+            print("초월 삭제실행 : " + i);
+            yield return www.SendWebRequest();
+            www.Dispose();
+        }
+        yield return new WaitForSeconds(0.1f);
+        GameManager.GM.ShowCard("초월 성공", sin.m_cSelectSlot.m_cCard);
+        sin.Close();
+        sin.Open();
+    }
+    IEnumerator EvolutionCardCo(EvolutionSin sin)
+    {
+        WWWForm form; UnityWebRequest www;
+        for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
+        {
+            form = new WWWForm();
+            form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+            form.AddField("d1", sin.m_vecSelectCard[i].m_cCard.cardno + "");
+
+            www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
+            print("진화 삭제실행 : " + i);
+            yield return www.SendWebRequest();
+            www.Dispose();
+        }
+
+        GameManager.GM.m_cPlayer.m_cAvata.GetCard(sin.m_cResult);
+        GameManager.GM.ShowCard("진화 성공", sin.m_cResult);
+        yield return new WaitForSeconds(0.2f);
+        sin.Close();
+        sin.Open();
+    }
+    IEnumerator ComposeCardCo(ComposeSin sin)
+    {
+        WWWForm form; UnityWebRequest www;
+        for (int i = 0; i < sin.m_vecMySelectCard.Count; i++)
+        {
+            //StartCoroutine(DeleteCardCo(sin.m_vecMySelectCard[i].m_cCard.cardno));
+            form = new WWWForm();
+            form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+            form.AddField("d1", sin.m_vecMySelectCard[i].m_cCard.cardno + "");
+
+            www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
+            print("합성 삭제실행 : " + i);
+            yield return www.SendWebRequest();
+            www.Dispose();
+        }
+        CardRank eCR = sin.m_vecMySelectCard[3].m_cCard.m_eCardRank;
+        int nNextRank = (int)eCR;
+        nNextRank--;
+        Card temp = GameManager.GM.cCM.GetCard((CardType)Random.Range(0, 24), (CardRank)nNextRank);
+
+        GameManager.GM.GetCard(temp);
+
+        yield return new WaitForSeconds(0.2f);
+        sin.Close();
+        sin.Open();
+    }
     IEnumerator UpdateUserDataCo()
     {
         WWWForm form = new WWWForm();
         UserData temp = DataConverter.GetUserData();
 
         form.AddField("userno", temp.userno);
-        form.AddField("gold", temp.userno);
-        form.AddField("dia", temp.userno);
-        form.AddField("gas", temp.userno);
-        form.AddField("first", temp.userno);
+        form.AddField("gold", temp.m_nGold+"");
+        form.AddField("dia", temp.m_nDiamond+"");
+        form.AddField("gas", temp.m_nGas+"");
+        form.AddField("first", temp._bFirst+"");
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/UpdateUesrData", form);
-        yield return www.SendWebRequest();
+        yield return null;
+        www.Dispose();
     }
     IEnumerator SetUserCardCo()
     {
@@ -65,23 +207,15 @@ public class Server : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetCardData", form); //  카드값 주는 주소로 변경
         //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetCardData", form); //  카드값 주는 주소로 변경
         yield return www.SendWebRequest();
-        print(www.downloadHandler.text);
+        print("카드목록 " +www.downloadHandler.text);
 
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Count; i++)
         {
-            int index = i;
-            MainThreadDispatcher.Instance.Enqueue(() =>
-            {
-                Destroy(GameManager.GM.m_cPlayer.m_cAvata._vecMyMember[index].gameObject);
-            });
+            Destroy(GameManager.GM.m_cPlayer.m_cAvata._vecMyMember[i].gameObject);
         }
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
-            int index = i;
-            MainThreadDispatcher.Instance.Enqueue(() =>
-            {
-                Destroy(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[index].gameObject);
-            });
+            Destroy(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[i].gameObject);
         }
 
         GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Clear();
@@ -111,6 +245,7 @@ public class Server : MonoBehaviour
                 GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Add(temp);
             }
         }
+        www.Dispose();
     }
     IEnumerator UpdateCardCo(CardData data)
     {
@@ -127,18 +262,21 @@ public class Server : MonoBehaviour
         form.AddField("d8", data.m_fAp + "");
         form.AddField("d9", data.m_fHp + "");
         form.AddField("d10", data._eMT);
+        form.AddField("cardno", data.cardno);
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateCard", form);
         yield return www.SendWebRequest();
+        www.Dispose();
     }
     IEnumerator DeleteCardCo(int nCardno)
     {
         WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
         form.AddField("d1", nCardno+"");
-
+        
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/deleteCard", form);
         yield return www.SendWebRequest();
+        www.Dispose();
     }
     IEnumerator StageClearCo(StageData data)
     {
@@ -148,7 +286,8 @@ public class Server : MonoBehaviour
         form.AddField("d2", data.m_strStage);
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/stageClear", form);
-        yield return www.SendWebRequest();
+        yield return null;
+        www.Dispose();
     }
     IEnumerator GetBewCardCo(CardData data) 
     {
@@ -167,6 +306,7 @@ public class Server : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/insertCard", form);
         yield return www.SendWebRequest();
+        www.Dispose();
     }
     IEnumerator ServerLoginUser(string id, string pwd)
     {
@@ -213,7 +353,7 @@ public class Server : MonoBehaviour
             GameManager.GM.m_cPlayer.AllSet(); // ok
             // 카드 작업 시작
             form.AddField("userno", GameManager.GM.m_cPlayer.userno);
-
+            www.Dispose();
             www = UnityWebRequest.Post("http://34.64.117.51:3030/GetCardData", form); //  카드값 주는 주소로 변경
             yield return www.SendWebRequest();
             print(www.downloadHandler.text);
@@ -247,6 +387,7 @@ public class Server : MonoBehaviour
             }
             // 카드 작업 끝
             // 스테이지 불러오기 시작
+            www.Dispose();
             www = UnityWebRequest.Post("http://34.64.117.51:3030/GetStageData", form); //  스테이지 주는 주소로 변경
             yield return www.SendWebRequest();
             var stageData = JsonHelper.FromJson<StageData>(www.downloadHandler.text);
@@ -257,20 +398,18 @@ public class Server : MonoBehaviour
                 print("스테이지 : " + s.m_strStage + "  클리어: "+ s.m_bClear);
             }
             // 스테이지 불러오기 종료
-            AutoUpdateUserDataCo();
+            StartCoroutine(AutoUpdateUserDataCo());
             GameManager.GM.GoTitle();
-            www.Dispose();
         }
+        www.Dispose();
     }
     IEnumerator ServerMakeUser()
     {
         WWWForm form = new WWWForm();
-        //form.AddField("ID", inputID.text);
-        //form.AddField("PW", inputPW.text);
-        form.AddField("NAME", InputName.text);
+
+        // 한종환씨는 여기에 내용을 추가 하시오
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/make_user", form);
-
         yield return www.SendWebRequest();
 
         if (www.isNetworkError)
@@ -280,46 +419,6 @@ public class Server : MonoBehaviour
         else
         {
             Debug.Log(www.downloadHandler.text);
-
-        }
-    }
-    IEnumerator GoldSend(long gold)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("GoldSend", "" + gold);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/gold_send", form);
-
-        yield return www.SendWebRequest();
-        www.uploadHandler.Dispose();
-        if (www.isNetworkError)
-        {
-            Debug.Log(www.error);
-        }
-        else
-        {
-            Debug.Log(www.downloadHandler.text);
-            //Myinfotext[5].text = 
-
-        }
-    }
-    IEnumerator DiaSend(long dia)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("DiaSend", "" + dia);
-        print(userData[0]);
-        form.AddField("userno", userData[0]);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/gold_send", form);
-
-        yield return www.SendWebRequest();
-        www.uploadHandler.Dispose();
-        if (www.isNetworkError)
-        {
-            Debug.Log(www.error);
-        }
-        else
-        {
-            Debug.Log(www.downloadHandler.text);
-            //Myinfotext[5].text = 
 
         }
     }
@@ -327,11 +426,11 @@ public class Server : MonoBehaviour
     {
         while (true)
         {
-            UpdateUserDataCo();
-            yield return new WaitForSeconds(60);
+            print("자동저장");
+            StartCoroutine(UpdateUserDataCo());
+            yield return new WaitForSeconds(3f);
         }
     }
-
 }
 public class DataConverter
 {
@@ -353,14 +452,14 @@ public class DataConverter
     }
     public static UserData GetUserData()
     {
-        UserData temp = new UserData();
-
-        temp.userno = GameManager.GM.m_cPlayer.userno;
-        temp.m_nGold = GameManager.GM.m_cPlayer.userno;
-        temp.m_nDiamond = GameManager.GM.m_cPlayer.userno;
-        temp.m_nGas = GameManager.GM.m_cPlayer.userno;
-
-        temp._bFirst = false; //
+        UserData temp = new UserData
+        {
+            userno = GameManager.GM.m_cPlayer.userno,
+            m_nGold = GameManager.GM.m_cPlayer.m_nGold,
+            m_nDiamond = GameManager.GM.m_cPlayer.m_nDiamond,
+            m_nGas = GameManager.GM.m_cPlayer.m_nGas,
+            _bFirst = GameManager.GM.m_cPlayer._bFirst //
+        };
 
         return temp;
     }
@@ -376,22 +475,6 @@ public class UserData
     public int m_nDiamond;  // 다이아
     public int m_nGas;      // 피로도 
     public bool _bFirst = false; //
-}
-[System.Serializable]
-public class PresetData
-{
-    public int userno;
-    public int presetno;
-    public int c1;
-    public int c2;
-    public int c3;
-    public int c4;
-    public int c5;
-    public int c6;
-    public int c7;
-    public int c8;
-    public int c9;
-
 }
 [System.Serializable]
 public class CardData

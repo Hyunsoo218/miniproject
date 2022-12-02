@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BP_Wind_18 : Pattern_Proto
 {
-    float timer = 0;
     GameObject temp;
     public override void UsePattern()
     {
