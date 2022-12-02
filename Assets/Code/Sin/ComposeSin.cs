@@ -13,11 +13,19 @@ public class ComposeSin : Sin
     //카드 올리기
     public List<Slot> m_vecMySelectCard = new List<Slot>(); //합성카드 칸
     //카드 내리기
-    
+    bool Click = true;
     public override void Open() //창을 켰을때
     {
         base.Open();
-        GameManager.GM.ShowText("같은 랭크인 카드를 무작위로 5개를 넣어\n한 단계 업그레이드 된 카드를 랜덤으로 얻습니다.");
+        if (Click == true)
+        {
+            GameManager.GM.ShowText("같은 랭크인 카드를 무작위로 5개를 넣어\n한 단계 업그레이드 된 카드를 랜덤으로 얻습니다.");
+            Click = false;
+        }
+        else if (Click == false)
+        {
+
+        }
         for (int i = 0; i < m_vecMySelectCard.Count; i++)
         {
             m_vecMySelectCard[i].Set(null);

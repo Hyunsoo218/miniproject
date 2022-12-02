@@ -14,11 +14,20 @@ public class EvolutionSin : Sin
     List<Slot> m_vecSelectCard = new List<Slot>();
     int m_cSelectCount = 0;
     Card m_cResult;
-
+    bool Click = true;
     public override void Open()
     {
         base.Open();
-        GameManager.GM.ShowText("같은 랭크인 동일한 카드를 5개 넣어\n카드랭크를 한 단계 올려줍니다.");
+
+        if (Click == true)
+        {
+            GameManager.GM.ShowText("같은 랭크인 동일한 카드를 5개 넣어\n카드랭크를 한 단계 올려줍니다.");
+            Click = false;
+        }
+        else if (Click == false)
+        {
+
+        }
 
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {

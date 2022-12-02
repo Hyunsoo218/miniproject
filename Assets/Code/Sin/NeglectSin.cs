@@ -8,6 +8,7 @@ public class NeglectSin : Sin
     [SerializeField] Transform _tGoldBox;
     [SerializeField] float _fSpeed;
     static bool _bMove = true;
+    bool Click = true;
     private void Update()
     {
         
@@ -20,7 +21,15 @@ public class NeglectSin : Sin
     public override void Open()
     {
         base.Open();
-        GameManager.GM.ShowText("재화를 주기적으로 얻을 수 있는 것을 확인 할 수 있습니다.");
+        if (Click == true)
+        {
+            GameManager.GM.ShowText("재화를 주기적으로 얻을 수 있는 것을 확인 할 수 있습니다.");
+            Click = false;
+        }
+        else if (Click == false)
+        {
+
+        }
     }
     public static void MoveBackGround()
     {
