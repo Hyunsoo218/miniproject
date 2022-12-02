@@ -6,6 +6,6 @@ public class State_Idle : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NeglectSin.MoveBackGround();
+        BangchiManager.MoveBackGround();
     }
 }

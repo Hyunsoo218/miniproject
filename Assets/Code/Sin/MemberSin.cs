@@ -36,23 +36,32 @@ public class MemberSin : Sin
 
         _objMemberData.SetActive(false);
         _bShowMemberData = false;
-        _vecSelectMember = new List<Card>();
         _objSelectMember.SetActive(false);
         base.Open();
-        _vecSelectMember.AddRange(GameManager.GM.m_cPlayer.m_cAvata._vecUseMember);
-        for (int i = 0; i < _vecSelectMember.Count; i++)
+        List<Card> tempMember = new List<Card>();
+        for (int i = 0; i < 3; i++)
         {
-            if (_vecSelectMember[i] != null)
+            int cardno = PlayerPrefs.GetInt("member" + GameManager.GM.m_cPlayer.userno + i);
+            Card temp = null;
+            for (int j = 0; j < GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Count; j++)
             {
-                _vecImage[i].sprite = _vecSelectMember[i]._imgCard;
-                _vecText[i].text = _vecSelectMember[i]._strName;
+                if (cardno == GameManager.GM.m_cPlayer.m_cAvata._vecMyMember[j].cardno)
+                {
+                    temp = GameManager.GM.m_cPlayer.m_cAvata._vecMyMember[j];
+                    _vecImage[i].sprite = temp._imgCard;
+                    _vecText[i].text = temp._strName;
+                    break;
+                }
             }
-            else
+            if (temp == null)
             {
                 _vecImage[i].sprite = _imgNull;
                 _vecText[i].text = "";
             }
+            tempMember.Add(temp);
         }
+        _vecSelectMember = tempMember;
+        GameManager.GM.m_cPlayer.m_cAvata._vecUseMember = tempMember;
     }
     public void ChangBut(int nNum)
     {
@@ -85,15 +94,6 @@ public class MemberSin : Sin
                 SelectBut(_vecMyMember[index]); 
             });
 
-            //switch (i)
-            //{
-            //    case 0: but.onClick.AddListener(() => SelectBut(_vecMyMember[0])); break;
-            //    case 1: but.onClick.AddListener(() => SelectBut(_vecMyMember[1])); break;
-            //    case 2: but.onClick.AddListener(() => SelectBut(_vecMyMember[2])); break;
-            //    case 3: but.onClick.AddListener(() => SelectBut(_vecMyMember[3])); break;
-            //    case 4: but.onClick.AddListener(() => SelectBut(_vecMyMember[4])); break;
-            //    case 5: but.onClick.AddListener(() => SelectBut(_vecMyMember[5])); break;
-            //}
             _vecMemberBut.Add(temp);
         }
         _tMember.GetComponent<RectTransform>().sizeDelta = new Vector2((300f * _vecMyMember.Count) - 50f, 100f);
@@ -121,7 +121,8 @@ public class MemberSin : Sin
         }
         else
         {
-            GameManager.GM.m_cPlayer.m_cAvata._vecUseMember[_nChageTarget] = _cMember;
+            PlayerPrefs.SetInt("member" + GameManager.GM.m_cPlayer.userno + _nChageTarget, _cMember.cardno);
+            //GameManager.GM.m_cPlayer.m_cAvata._vecUseMember[_nChageTarget] = _cMember;
             for (int i = 0; i < _vecMemberBut.Count; i++)
             {
                 Destroy(_vecMemberBut[i]);

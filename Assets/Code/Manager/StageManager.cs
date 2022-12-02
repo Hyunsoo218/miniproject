@@ -49,38 +49,25 @@ public class StageManager : MonoBehaviour
     }
     public void SetStage(string m_strStage, bool m_bClear) 
     {
-        //int index = 0;
-        //for (int i = 0; i < m_vecStageDefan.Count; i++) 
-        //{
-        //    if (m_vecStageDefan[i].m_strStage == m_strStage)
-        //    {
-        //        index = i;
-        //    }
-        //}
-        //for (int i = 0; i <= index; i++)
-        //{
-        //    m_vecStageDefan[i].Clear();
-        //    OpanNextStage(m_vecStageDefan[i]);
-        //}
-
-
         for (int i = 0; i < m_vecStageDefan.Count; i++)
         {
             if (m_strStage.Equals(m_vecStageDefan[i].m_strStage))
             {
                 m_vecStageDefan[i].Open();
-                m_vecStageDefan[i].m_bClear = m_bClear;
+                m_vecStageDefan[i].m_bClear = true;
+                GameManager.GM.m_cPlayer.m_nBangchiGold += m_vecStageDefan[i].m_nClearGold;
                 OpanNextStage(m_vecStageDefan[i]);
                 return;
             }
         }
         for (int i = 0; i < m_vecStageBoss.Count; i++)
         {
-            if (m_strStage.Equals(m_vecStageDefan[i].m_strStage))
+            if (m_strStage.Equals(m_vecStageBoss[i].m_strStage))
             {
                 m_vecStageBoss[i].Open();
-                m_vecStageBoss[i].m_bClear = m_bClear;
-                OpanNextStage(m_vecStageDefan[i]);
+                m_vecStageBoss[i].m_bClear = true;
+                GameManager.GM.m_cPlayer.m_nBangchiGold += m_vecStageBoss[i].m_nClearGold;
+                OpanNextStage(m_vecStageBoss[i]);
                 return;
             }
         }

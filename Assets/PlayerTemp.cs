@@ -19,7 +19,7 @@ public class PlayerTemp : MonoBehaviour
         if (other.gameObject.tag == "GoldBox")
         {
             _cAnimator.SetTrigger("ItemGet");
-            string strGold = GameManager.GM.GoldToStr(other.gameObject.GetComponent<GoldBox>()._nGold);
+            string strGold = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold);
             _cGetGoldTextMesh.text = "+" + strGold;
             _cGetGoldTextMesh.transform.localPosition = new Vector3(-2.65f, 1f, -1.54f);
         }

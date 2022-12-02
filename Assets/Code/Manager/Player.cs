@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int userno;
     public Avata m_cAvata;
     public long m_nGold;     // 골드
+    public long m_nBangchiGold = 1000;     // 골드
     public int m_nDiamond;  // 다이아
     public int m_nGas;      // 피로도
     float m_fGasTimer = 10f;

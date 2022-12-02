@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
             case ActionType.GoLobe:
                 m_eGT = GameType.None;
                 m_cPlayer._bFirst = false;
-                //   서버로 _bFirst false로 바꾸기
+                cServer.UpdateUserData();
                 GoLobe();
                 break;
         }

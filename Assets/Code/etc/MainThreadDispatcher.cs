@@ -15,7 +15,7 @@ public class MainThreadDispatcher : MonoBehaviour
     }
     private void Update()
     {
-        for (int i = 0; i < 90; i++)
+        for (int i = 0; i < 75; i++)
         {
             if (QueuedActions.Count > 0)
             {

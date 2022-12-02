@@ -12,9 +12,7 @@ public class Server : MonoBehaviour
     
     public void loginBtn(string id, string pwd)
     {
-        print("로그인 시작");
         StartCoroutine(ServerLoginUser(id,pwd));
-        print("로그인 종료");
     }
     public void registerBtn()
     {
@@ -41,6 +39,24 @@ public class Server : MonoBehaviour
     {
         StartCoroutine(SetUserCardCo());
     }
+    public void UpdateUserData()
+    {
+        StartCoroutine(UpdateUserDataCo());
+    }
+    IEnumerator UpdateUserDataCo()
+    {
+        WWWForm form = new WWWForm();
+        UserData temp = DataConverter.GetUserData();
+
+        form.AddField("userno", temp.userno);
+        form.AddField("gold", temp.userno);
+        form.AddField("dia", temp.userno);
+        form.AddField("gas", temp.userno);
+        form.AddField("first", temp.userno);
+
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/UpdateUesrData", form);
+        yield return www.SendWebRequest();
+    }
     IEnumerator SetUserCardCo()
     {
         WWWForm form = new WWWForm();
@@ -51,6 +67,23 @@ public class Server : MonoBehaviour
         yield return www.SendWebRequest();
         print(www.downloadHandler.text);
 
+        for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Count; i++)
+        {
+            int index = i;
+            MainThreadDispatcher.Instance.Enqueue(() =>
+            {
+                Destroy(GameManager.GM.m_cPlayer.m_cAvata._vecMyMember[index].gameObject);
+            });
+        }
+        for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
+        {
+            int index = i;
+            MainThreadDispatcher.Instance.Enqueue(() =>
+            {
+                Destroy(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[index].gameObject);
+            });
+        }
+
         GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Clear();
         GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Clear();
 
@@ -60,6 +93,7 @@ public class Server : MonoBehaviour
             if (CardData[i].m_nCost == -1)
             {
                 Member temp = GameManager.GM.cMM.GetMember((MemberType)CardData[i]._eMT);
+                temp.cardno = CardData[i].cardno;
                 GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Add(temp);
             }
             else
@@ -147,8 +181,7 @@ public class Server : MonoBehaviour
         if (www.isNetworkError)
         {
             print(www.error);
-            print("네트워크 에러");
-            GameManager.GM.ShowText("�α��ο� ����");
+            GameManager.GM.ShowText("네트워크 애러");
         }
         else if (www.downloadHandler.text == "101")
         {
@@ -160,8 +193,6 @@ public class Server : MonoBehaviour
         }
         else
         {
-            Debug.Log("로그인 성공");
-
             // 플레이어 정보 불러오기 시작
             UserData tempPl = JsonUtility.FromJson<UserData>(www.downloadHandler.text);
             //yield return www.SendWebRequest();
@@ -196,6 +227,7 @@ public class Server : MonoBehaviour
                 if (CardData[i].m_nCost == -1)
                 {
                     Member temp = GameManager.GM.cMM.GetMember((MemberType)CardData[i]._eMT);
+                    temp.cardno = CardData[i].cardno;
                     GameManager.GM.m_cPlayer.m_cAvata._vecMyMember.Add(temp);
                 }
                 else
@@ -223,12 +255,11 @@ public class Server : MonoBehaviour
                 StageData s = stageData[i];
                 GameManager.GM.cSM.SetStage(s.m_strStage, s.m_bClear);
                 print("스테이지 : " + s.m_strStage + "  클리어: "+ s.m_bClear);
-
             }
             // 스테이지 불러오기 종료
+            AutoUpdateUserDataCo();
             GameManager.GM.GoTitle();
             www.Dispose();
-            print("로그인 코루틴 끝");
         }
     }
     IEnumerator ServerMakeUser()
@@ -292,7 +323,14 @@ public class Server : MonoBehaviour
 
         }
     }
-
+    IEnumerator AutoUpdateUserDataCo()
+    {
+        while (true)
+        {
+            UpdateUserDataCo();
+            yield return new WaitForSeconds(60);
+        }
+    }
 
 }
 public class DataConverter
@@ -311,6 +349,19 @@ public class DataConverter
         temp.m_nMaxLevel = cCard.m_nMaxLevel;
         temp.m_fHp = cCard.m_fHp;
         temp.cardno = cCard.cardno;
+        return temp;
+    }
+    public static UserData GetUserData()
+    {
+        UserData temp = new UserData();
+
+        temp.userno = GameManager.GM.m_cPlayer.userno;
+        temp.m_nGold = GameManager.GM.m_cPlayer.userno;
+        temp.m_nDiamond = GameManager.GM.m_cPlayer.userno;
+        temp.m_nGas = GameManager.GM.m_cPlayer.userno;
+
+        temp._bFirst = false; //
+
         return temp;
     }
 }

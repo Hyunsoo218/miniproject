@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShopSin : Sin
 { 
     [SerializeField] List<Machine> _vecPanel;
+    [SerializeField] List<Sin> _vecPanel_odds;
 
     int _nPanelIndex = 0;
     bool Click = true;
@@ -21,6 +22,12 @@ public class ShopSin : Sin
         {
 
         }
+        for (int i = 0; i < _vecPanel_odds.Count; i++)
+        {
+            _vecPanel_odds[i].Close();
+        }
+        GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
+
     }
     public void GoNextPanel()
     {
@@ -104,9 +111,9 @@ public class ShopSin : Sin
         }
         GameManager.GM.GetCard(temp);
     }
-    public void ShowProbability()
+    public void ShowOdds()
     {
-
+        _vecPanel_odds[_nPanelIndex].Open();
     }
 }
 
