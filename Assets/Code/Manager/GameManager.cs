@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         cCSM = GetComponent<CameraShakeManager>();
         cSoM = GetComponent<SoundManager>();
 
-        GoTitle();
+        GoLogin();
     }
     public void GetCard(Card cCard)
     {
@@ -79,31 +79,58 @@ public class GameManager : MonoBehaviour
     }
     public void GoLogin()
     {
+        cSoM.PlayBGM(BGM.Login_Title);
         m_eGS = GameState.Login;
         cUM.SetSin(m_eGS);
     }
     public void GoLobe()
     {
-        m_eGS = GameState.Lobe;
-        m_eGT = GameType.None;
-        cUM.SetSin(m_eGS);
+        if (m_eGT == GameType.TutorialStage)
+        {
+            m_eGS = GameState.Lobe;
+            cUM.SetSin(m_eGS);
+        }
+        else
+        {
+            m_eGS = GameState.Lobe;
+            m_eGT = GameType.None;
+            cUM.SetSin(m_eGS);
+        }
     }
     public void GoIntro()
     {
+        cSoM.Stop();
+
+        m_eGT = GameType.TutorialStage;
         if (m_cPlayer._bFirst == true)
         {
             // 여기서 인트로 실행
-            m_cPlayer.m_cAvata.m_vecUseCards[0][0] = cCM.GetCard(CardType.FireBall, CardRank.D);
-            m_cPlayer.m_cAvata.m_vecUseCards[0][1] = cCM.GetCard(CardType.WaterBall, CardRank.D);
-            m_cPlayer.m_cAvata.m_vecUseCards[0][2] = cCM.GetCard(CardType.WindShot, CardRank.D);
-            m_cPlayer.m_cAvata.m_vecUseCards[0][3] = cCM.GetCard(CardType.WaterArrow, CardRank.D);
-            m_cPlayer.m_cAvata.m_vecUseCards[0][4] = cCM.GetCard(CardType.WindShower, CardRank.D);
-            m_cPlayer.m_cAvata.m_vecUseCards[0][5] = cCM.GetCard(CardType.FireBoom, CardRank.D);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][0] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][1] = cCM.GetCard(CardType.WaterBall, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][2] = cCM.GetCard(CardType.WindShot, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][3] = cCM.GetCard(CardType.StoneBullet, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][4] = cCM.GetCard(CardType.FireArrow, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][5] = cCM.GetCard(CardType.WindArrow, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][6] = cCM.GetCard(CardType.FireShower, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][7] = cCM.GetCard(CardType.WindShower, CardRank.S);
+            m_cPlayer.m_cAvata.m_vecUseCards[0][8] = cCM.GetCard(CardType.FireBoom, CardRank.S);
+
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][0] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][1] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][2] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][3] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][4] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][5] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][6] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][7] = cCM.GetCard(CardType.FireBall, CardRank.S);
+            //m_cPlayer.m_cAvata.m_vecUseCards[0][8] = cCM.GetCard(CardType.FireBall, CardRank.S);
+
             GoLobe();
             RunAct(ActionType.Intro_1);
         }
         else
         {
+            m_eGT = GameType.None;
             GoLobe();
         }
     }
@@ -218,7 +245,6 @@ public class GameManager : MonoBehaviour
     }
     public void RunAct(ActionType eAT)
     {
-        print("이벤트 " + eAT + " 실행");
         switch (eAT)
         {
             case ActionType.None: break;
@@ -238,6 +264,7 @@ public class GameManager : MonoBehaviour
                 cUM.SetSin(m_cStage);
                 break;
             case ActionType.GoLobe:
+                m_eGT = GameType.None;
                 m_cPlayer._bFirst = false;
                 //   서버로 _bFirst false로 바꾸기
                 GoLobe();

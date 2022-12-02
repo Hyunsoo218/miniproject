@@ -8,6 +8,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] List<AudioClip> _sounds = new List<AudioClip>();
     [SerializeField] AudioSource playAudio;
     [SerializeField] AudioSource playAudioBack;
+    [SerializeField] List<AudioClip> _BGMs = new List<AudioClip>();
+    [SerializeField] AudioSource _cBGMPlayer;
+
     public void PlaySound(SoundObject so)
     {
         if (so == SoundObject.None) return;
@@ -43,6 +46,11 @@ public class SoundManager : MonoBehaviour
     {
         playAudio.Stop();
         playAudioBack.Stop();
+        _cBGMPlayer.Stop();
+    }
+    public void PlayBGM(BGM eBGM)
+    {
+        //_cBGMPlayer.PlayOneShot(_BGMs[(int)eBGM ]);
     }
 }
 public enum SoundObject
@@ -53,4 +61,8 @@ public enum SoundObject
     bgmIntro_2, bgmIntro_2_2, bgmIntro_3_2, bgmIntro_3,
     sOpheliaHit, sRoar, sClirisWepon, sClirisArrack,
     sUseMagic, sStellaAttack
+}
+public enum BGM
+{
+    Login_Title
 }

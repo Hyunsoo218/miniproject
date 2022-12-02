@@ -95,6 +95,8 @@ public class Game : Sin
         }
 
         GameManager.GM.m_cPlayer.m_cAvata.ReSet();
+        print("게임 타입 : " + GameManager.GM.m_eGT);
+        _cGguideSin.Close();
         if (GameManager.GM.m_eGT == GameType.TutorialStage)
         {
             GameManager.GM.m_eGS = GameState.Tutorial;

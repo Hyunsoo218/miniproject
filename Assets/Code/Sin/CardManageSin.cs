@@ -61,21 +61,29 @@ public class CardManageSin : Sin
 
         GameManager.GM.ShowText("카드 관리칸은 강화, 합성, 진화, 초월, 재구성 총 5가지로 이루어져있으며\n\n\n현재 칸은 원하는 카드를 재화를 소모해 강화를 하여, 능력치를 강화 할 수 있다.");
 
+        List<Card> tempMyCard = new List<Card>();
+        tempMyCard.AddRange(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard);
+        int index = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
+        List<Card> tempUseCard = GameManager.GM.m_cPlayer.m_cAvata.m_vecUseCards[index];
+        for (int i = 0; i < 9; i++)
+        {
+            if (tempUseCard[i] != null)
+            {
+                tempMyCard.Remove(tempUseCard[i]);
+            }
+        }
 
-        for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
+        for (int i = 0; i < tempMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
             Button tempButton = temp.GetComponent<Button>();
             Slot tempCard = temp.GetComponent<Slot>();
             m_vecMyCard.Add(tempCard);
 
-            tempCard.Set(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[i]);
+            tempCard.Set(tempMyCard[i]);
             tempButton.onClick.AddListener(() => SelectSlot(tempCard));
         }
-        SortCardEnd();
-        CloseSortMenu();
-        SortCardRank();
-        SortCard();
+        
 
         bool bCardUse = false;
 
@@ -117,6 +125,10 @@ public class CardManageSin : Sin
             SelectSlot(temp.GetComponent<Slot>());
         }
         OnPanel(0);
+        SortCardEnd();
+        CloseSortMenu();
+        SortCardRank();
+        SortCard();
     }
     public override void Close()
     {

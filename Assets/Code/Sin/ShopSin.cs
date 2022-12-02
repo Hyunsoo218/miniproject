@@ -30,7 +30,7 @@ public class ShopSin : Sin
     public void Card_1() 
     {
         int nNum = Random.Range(0,99999) % 100;
-        if (nNum < 3)
+        if (nNum < 10)
         {
             int nMemberNum;
             if (_vecPanel[_nPanelIndex].PicupList.Count == 0)
@@ -64,7 +64,7 @@ public class ShopSin : Sin
         for (int i = 0; i < 10; i++)
         {
             int nNum = Random.Range(0, 99999) % 100;
-            if (nNum < 50)
+            if (nNum < 10)
             {
                 int nMemberNum;
                 Member mTemp = null;

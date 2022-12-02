@@ -62,3 +62,15 @@ MonoBehaviour:
   m_fDamege: 2
   m_fMaxCoolTime: 1
   m_fCoolTime: 0
+  _bCanUse: 1
+  _eCE: 0
+  _strName: 
+  _strData: 
+  _fDamege: 0
+  _objCutEffect: {fileID: 0}
+  _objSkill: {fileID: 0}
+  _imgFull: {fileID: 0}
+  _imgFace: {fileID: 0}
+  _imgCard: {fileID: 0}
+  _eMT: 0
+  cardno: 0

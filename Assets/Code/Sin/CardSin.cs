@@ -68,29 +68,32 @@ public class CardSin : Sin
 
         nIndex = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
 
-        List<Card> tempDeck = new List<Card>();
-
-        for (int i = 0; i < 9; i++)
+        if (GameManager.GM.m_eGT != GameType.TutorialStage)
         {
-            tempDeck.Add(null);
-
-            int tempInt = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno + "preset" + nIndex + i);
-            if (tempInt != -1)
+            List<Card> tempDeck = new List<Card>();
+            for (int i = 0; i < 9; i++)
             {
-                for (int j = 0; j < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; j++)
+                tempDeck.Add(null);
+
+                int tempInt = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno + "preset" + nIndex + i);
+                if (tempInt != -1)
                 {
-                    if (GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j].cardno == tempInt)
+                    for (int j = 0; j < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; j++)
                     {
-                        tempDeck[i] = GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j];
-                        break;
+                        if (GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j].cardno == tempInt)
+                        {
+                            tempDeck[i] = GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard[j];
+                            break;
+                        }
                     }
                 }
             }
+            _vecUseCard = tempDeck;
         }
-
-
-        _vecUseCard = tempDeck;
-
+        else
+        {
+            _vecUseCard = GameManager.GM.m_cPlayer.m_cAvata.m_vecUseCards[nIndex];
+        }
         ColorBlock col = m_vecFreeSetBut[nIndex].colors;
         col.normalColor = new Color(0.3f, 0.7f, 0.85f);
         col.selectedColor = new Color(0.3f, 0.7f, 0.85f);
@@ -305,21 +308,40 @@ public class CardSin : Sin
         float hp = 0;
 
         string key;
-        for (int i = 0; i < m_vecMyDack.Count; i++)
+        if (GameManager.GM.m_eGT != GameType.TutorialStage)
         {
-            key = GameManager.GM.m_cPlayer.userno +  "preset" + nIndex + i;
-
-            if (m_vecMyDack[i].m_cCard != null)
+            List<Card> temp = new List<Card>();
+            for (int i = 0; i < m_vecMyDack.Count; i++)
             {
-                cost += m_vecMyDack[i].m_cCard.m_nCost;
-                ap += m_vecMyDack[i].m_cCard.m_fAp;
-                hp += m_vecMyDack[i].m_cCard.m_fHp;
+                key = GameManager.GM.m_cPlayer.userno + "preset" + nIndex + i;
 
-                PlayerPrefs.SetInt(key, m_vecMyDack[i].m_cCard.cardno);
+                if (m_vecMyDack[i].m_cCard != null)
+                {
+                    cost += m_vecMyDack[i].m_cCard.m_nCost;
+                    ap += m_vecMyDack[i].m_cCard.m_fAp;
+                    hp += m_vecMyDack[i].m_cCard.m_fHp;
+
+                    PlayerPrefs.SetInt(key, m_vecMyDack[i].m_cCard.cardno);
+                    temp.Add(m_vecMyDack[i].m_cCard);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt(key, -1);
+                    temp.Add(null);
+                }
             }
-            else
+            GameManager.GM.m_cPlayer.m_cAvata.m_vecUseCards[nIndex] = temp;
+        }
+        else
+        {
+            for (int i = 0; i < m_vecMyDack.Count; i++)
             {
-                PlayerPrefs.SetInt(key, -1);
+                if (m_vecMyDack[i].m_cCard != null)
+                {
+                    cost += m_vecMyDack[i].m_cCard.m_nCost;
+                    ap += m_vecMyDack[i].m_cCard.m_fAp;
+                    hp += m_vecMyDack[i].m_cCard.m_fHp;
+                }
             }
         }
 

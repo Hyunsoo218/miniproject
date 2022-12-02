@@ -14,7 +14,6 @@ public class DrillBullit : Bullit
         {
             // 유닛 hit 시키기
             other.gameObject.GetComponent<Unit>().Hit(m_fDamage, m_eCE);
-            print("관통탄 명중");
         }
     }
 }

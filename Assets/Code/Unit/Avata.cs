@@ -129,13 +129,10 @@ public class Avata : Unit
         temp.cardno = addCard.cardno;
 
         GameManager.GM.cServer.GetBewCard(temp);
-        m_vecMyCard.Add(addCard);
+        GameManager.GM.cServer.SetUserCard();
     }
     public void GetMember(Card addMember)
     {
-        print("addMember : " + addMember._eMT);
-        _vecMyMember.Add(addMember);
-
         CardData temp = new CardData();
 
         temp.m_eCardType = (int)addMember.m_eCardType;
@@ -151,7 +148,7 @@ public class Avata : Unit
         temp.cardno = addMember.cardno;
 
         GameManager.GM.cServer.GetBewCard(temp);
-
+        GameManager.GM.cServer.SetUserCard();
     }
     public void ReSet()
     {

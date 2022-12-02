@@ -49,14 +49,28 @@ MonoBehaviour:
   m_eBT: 0
   m_eCardType: 0
   m_eCardRank: 3
+  m_eCardElement: 0
   m_nCost: 4
   m_nLevel: 1
   m_nMaxLevel: 40
+  m_nUnlimite: 0
   m_nLevelUpGold: 10
   m_strData: "2\uCD08 \uB9C8\uB2E4 \uD30C\uC774\uC5B4\uBCFC\uC744 \uB0A0\uB824 1\uBA85\uC758
     \uC801\uC5D0\uAC8C 140%\uC758 \uB370\uBBF8\uC9C0\uB97C \uC900\uB2E4"
   m_fAp: 3
   m_fHp: 10
   m_fDamege: 1.4
-  m_fMaxCoolTime: 2
+  m_fMaxCoolTime: 1.6
   m_fCoolTime: 0
+  _bCanUse: 1
+  _eCE: 0
+  _strName: 
+  _strData: 
+  _fDamege: 0
+  _objCutEffect: {fileID: 0}
+  _objSkill: {fileID: 0}
+  _imgFull: {fileID: 0}
+  _imgFace: {fileID: 0}
+  _imgCard: {fileID: 0}
+  _eMT: 0
+  cardno: 0
