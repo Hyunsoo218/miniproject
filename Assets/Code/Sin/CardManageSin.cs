@@ -30,7 +30,7 @@ public class CardManageSin : Sin
     public Text m_txtLv_val;
     public Text m_txtHp_val;
     public Text m_txtAp_val;
-    bool Click = true;
+    public int Manage;
     Slot m_cSelectSlot;
 
     List<bool> m_vecOpenSortMenu = new List<bool>();
@@ -58,16 +58,24 @@ public class CardManageSin : Sin
     public override void Open()
     {
         base.Open();
-
-        if (Click == true)
+        if (Manage == 0)
         {
+            Manage = PlayerPrefs.GetInt("Manage");
+            print("불러왔습니다" + Manage);
+            if (Manage == 0)
+            {
             GameManager.GM.ShowText("카드 관리칸은 강화, 합성, 진화, 초월, 재구성 총 5가지로 이루어져있으며\n\n\n현재 칸은 원하는 카드를 재화를 소모해 강화를 하여, 능력치를 강화 할 수 있다.");
-            Click = false;
+            }
+            Manage++;
+            PlayerPrefs.SetInt("Manage", Manage);
+            print("저장했습니다." + Manage);
         }
-        else if (Click == false)
-        {
-
-        }
+        //else
+        //{
+        //    Manage = 0;
+        //    PlayerPrefs.SetInt("Manage", Manage);
+        //    print("초기화 했습니다.");
+        //}
 
 
         List<Card> tempMyCard = new List<Card>();

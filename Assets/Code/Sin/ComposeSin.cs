@@ -13,19 +13,28 @@ public class ComposeSin : Sin
     //카드 올리기
     public List<Slot> m_vecMySelectCard = new List<Slot>(); //합성카드 칸
     //카드 내리기
-    bool Click = true;
+    public int Compose;
     public override void Open() //창을 켰을때
     {
         base.Open();
-        if (Click == true)
+        if (Compose == 0)
         {
+            Compose = PlayerPrefs.GetInt("Compose");
+            if (Compose == 0)
+            {
             GameManager.GM.ShowText("같은 랭크인 카드를 무작위로 5개를 넣어\n한 단계 업그레이드 된 카드를 랜덤으로 얻습니다.");
-            Click = false;
+            }
+            Compose++;
+            PlayerPrefs.SetInt("Compose", Compose);
         }
-        else if (Click == false)
-        {
+        //else
+        //{
+        //    Compose = 0;
+        //    PlayerPrefs.SetInt("Compose", Compose);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
 
-        }
         for (int i = 0; i < m_vecMySelectCard.Count; i++)
         {
             m_vecMySelectCard[i].Set(null);

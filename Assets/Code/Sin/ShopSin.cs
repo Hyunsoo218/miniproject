@@ -4,48 +4,50 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopSin : Sin
-{ 
+{
     [SerializeField] List<Machine> _vecPanel;
     [SerializeField] List<Sin> _vecPanel_odds;
 
     int _nPanelIndex = 0;
     bool Click = true;
+    public int Shop;
     public override void Open()
     {
         base.Open();
-        if (Click == true)
+        if (Shop == 0)
         {
-            GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
-            Click = false;
+            Shop = PlayerPrefs.GetInt("Shop");
+            if (Shop == 0)
+            {
+                GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
+            }
+            Shop++;
+            PlayerPrefs.SetInt("Shop", Shop);
         }
-        else if (Click == false)
-        {
-
-        }
-        for (int i = 0; i < _vecPanel_odds.Count; i++)
-        {
-            _vecPanel_odds[i].Close();
-        }
-        GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
-
+        //else
+        //{
+        //    Shop = 0;
+        //    PlayerPrefs.SetInt("Shop", Shop);
+        //    print("초기화");
+        //}
     }
     public void GoNextPanel()
     {
         _nPanelIndex++;
-        if (_nPanelIndex >= _vecPanel.Count)  _nPanelIndex = 0;
+        if (_nPanelIndex >= _vecPanel.Count) _nPanelIndex = 0;
         for (int i = 0; i < _vecPanel.Count; i++) _vecPanel[i].Close();
         _vecPanel[_nPanelIndex].Open();
     }
     public void GoPrePanel()
     {
         _nPanelIndex--;
-        if (_nPanelIndex < 0)  _nPanelIndex = _vecPanel.Count - 1;
+        if (_nPanelIndex < 0) _nPanelIndex = _vecPanel.Count - 1;
         for (int i = 0; i < _vecPanel.Count; i++) _vecPanel[i].Close();
         _vecPanel[_nPanelIndex].Open();
     }
-    public void Card_1() 
+    public void Card_1()
     {
-        int nNum = Random.Range(0,99999) % 100;
+        int nNum = Random.Range(0, 99999) % 100;
         if (nNum < 10)
         {
             int nMemberNum;
@@ -73,7 +75,7 @@ public class ShopSin : Sin
             GameManager.GM.GetCard(GameManager.GM.cCM.GetRendom_1());
         }
     }
-    public void Card_10() 
+    public void Card_10()
     {
         List<Card> temp = new List<Card>();
 
@@ -116,4 +118,3 @@ public class ShopSin : Sin
         _vecPanel_odds[_nPanelIndex].Open();
     }
 }
-

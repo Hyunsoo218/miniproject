@@ -14,20 +14,27 @@ public class EvolutionSin : Sin
     List<Slot> m_vecSelectCard = new List<Slot>();
     int m_cSelectCount = 0;
     Card m_cResult;
-    bool Click = true;
+    public int Evolution;
     public override void Open()
     {
         base.Open();
-
-        if (Click == true)
+        if (Evolution == 0)
         {
+            Evolution = PlayerPrefs.GetInt("Evolution");
+            if (Evolution == 0)
+            {
             GameManager.GM.ShowText("같은 랭크인 동일한 카드를 5개 넣어\n카드랭크를 한 단계 올려줍니다.");
-            Click = false;
+            }
+            Evolution++;
+            PlayerPrefs.SetInt("Evolution", Evolution);
         }
-        else if (Click == false)
-        {
-
-        }
+        //else
+        //{
+        //    Evolution = 0;
+        //    PlayerPrefs.SetInt("Evolution", Evolution);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
 
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {

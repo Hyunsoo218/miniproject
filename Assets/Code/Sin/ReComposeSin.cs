@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +14,7 @@ public class ReComposeSin : Sin
     public Slot m_cShowCard;
     List<Slot> m_vecMyCard = new List<Slot>();
     bool m_bRandom;
-    bool Click = true;
+    public int ReCompose;
     private void Start()
     {
         for (int i = 0; i < m_vecCardMenu.Count; i++)
@@ -26,15 +25,24 @@ public class ReComposeSin : Sin
     public override void Open()
     {
         base.Open();
-        if (Click == true)
+        if (ReCompose == 0)
         {
+            ReCompose = PlayerPrefs.GetInt("ReCompose");
+            if (ReCompose == 0)
+            {
             GameManager.GM.ShowText("S랭크 카드를 소모하여 랜덤/확정으로 S랭크 카드를 얻습니다.\n2장을 소모 할 경우는 랜덤\n5장을 소모 할 경우엔\n원하는 카드를 얻을 수 있습니다.");
-            Click = false;
+            }
+            ReCompose++;
+            PlayerPrefs.SetInt("ReCompose", ReCompose);
         }
-        else if (Click == false)
-        {
+        //else
+        //{
+        //    ReCompose = 0;
+        //    PlayerPrefs.SetInt("ReCompose", ReCompose);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
 
-        }
 
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {

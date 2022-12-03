@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3813320470871898792}
   - component: {fileID: 3813320470871898845}
   m_Layer: 0
-  m_Name: Golem_Boss
+  m_Name: Golem_Boss_St6
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,14 +128,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e6cd505c47f3144a267fb29329dd56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMaxHp: 10000
-  m_fHp: 10000
+  m_fMaxHp: 20000
+  m_fHp: 20000
   m_fAp: 10
   m_fSpeed: 1
   m_objHitText: {fileID: 707786405035228312, guid: bfe90741c5ee192429c3b844c7c834cc, type: 3}
-  m_eElement: 1
-  m_strName: "\uC6CC\uD130 \uACE8\uB818 \uC6B0\uB450\uBA38\uB9AC"
+  m_eElement: 5
+  m_strName: "\uC5B4\uB460 \uACE8\uB818 \uC6B0\uB450\uBA38\uB9AC"
   m_imgImage: {fileID: 21300000, guid: 163feba8e8e4e974e962c2e6c41bb84c, type: 3}
-  pp: []
+  pp:
+  - {fileID: -5040178086451683119, guid: f3c28b91e7f88a943acca57db59b06b4, type: 3}
+  - {fileID: 2314054302089132136, guid: 57931df99ff8d124da921e1e8a1382dc, type: 3}
   attackTime: 2
   m_slHp: {fileID: 0}

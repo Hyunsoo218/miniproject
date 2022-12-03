@@ -44,7 +44,8 @@ public class CardSin : Sin
     List<CardRank> m_vecCardRank = new List<CardRank>();
     List<CardElement> m_vecCardElement = new List<CardElement>();
     List<BullitType> m_vecBullitType = new List<BullitType>();
-    int Click = 0;
+    public int Click;
+
     Thread _cThread;
     RectTransform _Inven;
     int nIndex;
@@ -63,23 +64,36 @@ public class CardSin : Sin
     public override void Open()
     {
         base.Open();
+
         if (Click == 0)
         {
+            Click = PlayerPrefs.GetInt("Card");
             Click++;
+            print(Click);
         }
         else if (Click == 1)
         {
             Click++;
+            print(Click);
         }
         else if (Click == 2)
         {
             GameManager.GM.ShowText("카드를 장착 / 해제 할 수 있으며\n세트효과를 확인할 수 있다.");
             Click++;
+            print(Click);
         }
-        else
+        if (Click == 3)
         {
-
+            PlayerPrefs.SetInt("Card", Click);
+            Click++;
         }
+        //else
+        //{
+        //    Click = 0;
+        //    PlayerPrefs.SetInt("Card", Click);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
 
         nIndex = GameManager.GM.m_cPlayer.m_cAvata.m_nUseCardIndex;
 

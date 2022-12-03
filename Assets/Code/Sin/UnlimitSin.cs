@@ -14,19 +14,28 @@ public class UnlimitSin : Sin
     List<Slot> m_vecMyCard = new List<Slot>();
     List<Card> m_vecSelectCard = new List<Card>();
     int m_nMaxSelecyEa;
-    bool Click = true;
+    public int Unlimit;
     public override void Open()
     {
         base.Open();
-        if (Click == true)
+        if (Unlimit == 0)
         {
+            Unlimit = PlayerPrefs.GetInt("Unlimit");
+            if (Unlimit == 0)
+            {
             GameManager.GM.ShowText("S랭크 카드의 최대 레벨(Max Level)을\n1 증가 시켜줍니다.");
-            Click = false;
+            }
+            Unlimit++;
+            PlayerPrefs.SetInt("Unlimit", Unlimit);
         }
-        else if (Click == false)
-        {
+        //else
+        //{
+        //    Unlimit = 0;
+        //    PlayerPrefs.SetInt("Unlimit", Unlimit);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
 
-        }
         for (int i = 0; i < GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard.Count; i++)
         {
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
