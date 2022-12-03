@@ -13,9 +13,9 @@ public class Server : MonoBehaviour
     {
         StartCoroutine(ServerLoginUser(id,pwd));
     }
-    public void registerBtn()
+    public void MakeUser(UserData data)
     {
-        StartCoroutine(ServerMakeUser());
+        StartCoroutine(MakeUserCo(data));
     }
     public void GetBewCard(CardData data)
     {
@@ -61,6 +61,70 @@ public class Server : MonoBehaviour
     public void ReComposeConf(ReComposeSin sin)
     {
         StartCoroutine(ReComposeConfCo(sin));
+    }
+    public void UpdateRaidScore(int score)
+    {
+        StartCoroutine(UpdateRaidScoreCo(score));
+    }
+    public void GetMyRaidScore(RaidSin sin)
+    {
+        StartCoroutine(GetMyRaidScoreCo(sin));
+    }
+    public void GetAllRaidScore(RaidSin sin)
+    {
+        StartCoroutine(GetAllRaidScoreCo(sin));
+    }
+    IEnumerator GetAllRaidScoreCo(RaidSin sin)
+    {
+        WWWForm form = new WWWForm();
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
+        yield return www.SendWebRequest();
+        var allScoer = JsonHelper.FromJson<RaidScore>(www.downloadHandler.text);
+
+        for (int i = 0; i < sin._vecRankData.Count; i++)
+        {
+            Destroy(sin._vecRankData[i]);
+        }
+        sin._vecRankData.Clear();
+        for (int i = 0; i < allScoer.Length; i++)
+        {
+            GameObject temp = Instantiate(sin._objRankData, sin._tRanks);
+            temp.SendMessage("Set", allScoer[i]);
+            sin._vecRankData.Add(temp);
+        }
+
+        sin.OpenAllScoreSin();
+        www.Dispose();
+    }
+    IEnumerator GetMyRaidScoreCo(RaidSin sin)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno);
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
+        yield return www.SendWebRequest();
+        if (www.downloadHandler.text == "")
+        {
+            sin._txtMyRank.text = "";
+            sin._txtMyScore.text = "";
+        }
+        else
+        {
+            RaidScore tempSco = JsonUtility.FromJson<RaidScore>(www.downloadHandler.text);
+            sin._txtMyRank.text = tempSco.Ranking + "";
+            sin._txtMyScore.text = tempSco.Score + "";
+        }
+        sin.gameObject.SetActive(true);
+        www.Dispose();
+    }
+    IEnumerator UpdateRaidScoreCo(int score)
+    {
+        WWWForm form = new WWWForm(); ;
+        form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
+        form.AddField("score", score + "");
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
+        yield return www.SendWebRequest(); // 아무값이나 리턴 해야 다음으로 진행됨
+        www.Dispose();
+        GameManager.GM.GoLaidEnd();
     }
     IEnumerator ReComposeRedonCo(ReComposeSin sin)
     {
@@ -188,7 +252,7 @@ public class Server : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         UserData temp = DataConverter.GetUserData();
-
+        print(temp.m_nGold + " 저장");
         form.AddField("userno", temp.userno);
         form.AddField("gold", temp.m_nGold+"");
         form.AddField("dia", temp.m_nDiamond+"");
@@ -403,24 +467,31 @@ public class Server : MonoBehaviour
         }
         www.Dispose();
     }
-    IEnumerator ServerMakeUser()
+    IEnumerator MakeUserCo(UserData data)
     {
         WWWForm form = new WWWForm();
 
-        // 한종환씨는 여기에 내용을 추가 하시오
+        form.AddField("id", data.userID);
+        form.AddField("pw", data.userPW);
+        form.AddField("name", data.userName);
+        form.AddField("gold", data.m_nGold + "");
+        form.AddField("dia", data.m_nDiamond + "");
+        form.AddField("gas", data.m_nGas + "");
+        form.AddField("first", data._bFirst + "");
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/make_user", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError)
         {
-            Debug.Log(www.error);
+            GameManager.GM.ShowText("회원가입 에러");
         }
         else
         {
-            Debug.Log(www.downloadHandler.text);
-
+            GameManager.GM.ShowText("회원가입 성공");
+            GameManager.GM.GoLogin();
         }
+        www.Dispose();
     }
     IEnumerator AutoUpdateUserDataCo()
     {
@@ -463,6 +534,13 @@ public class DataConverter
 
         return temp;
     }
+}
+[System.Serializable]
+public class RaidScore
+{
+    public int Ranking;
+    public string Name;
+    public int Score;
 }
 [System.Serializable]
 public class UserData

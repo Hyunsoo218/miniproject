@@ -125,9 +125,10 @@ public class Game : Sin
                     GameManager.GM.GoLose();
                     break;
                 case GameType.Laid:
-                    GameManager.GM.GoLaidEnd();
+                    int sco = (int)m_objBoss.GetComponent<LaidBoss>().m_fScore;
+                    GameManager.GM.cServer.UpdateRaidScore(sco);
                     Destroy(m_objBoss);
-                    m_txtScore_total.text = "" + (int)m_objBoss.GetComponent<LaidBoss>().m_fScore + "Á¡" ;
+                    m_txtScore_total.text = sco + " Á¡" ;
                     break;
             }
         } 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public string m_strId, m_strPass, m_strName;
-    public int userno;
+    public int userno = -1;
     public Avata m_cAvata;
     public long m_nGold;     // °ñµå
     public long m_nBangchiGold = 1000;     // °ñµå

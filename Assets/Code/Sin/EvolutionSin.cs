@@ -13,13 +13,8 @@ public class EvolutionSin : Sin
     List<Slot> m_vecMyCard = new List<Slot>();
     public List<Slot> m_vecSelectCard = new List<Slot>();
     int m_cSelectCount = 0;
-<<<<<<< HEAD
-    Card m_cResult;
-    public int Evolution;
-=======
     public Card m_cResult;
-    bool Click = true;
->>>>>>> ed091b4a75b1830507910817cca4e4b5b4d1bce8
+    public int Evolution;
     public override void Open()
     {
         base.Open();

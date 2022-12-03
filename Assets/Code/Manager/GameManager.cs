@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
         cSoM = GetComponent<SoundManager>();
 
         GoLogin();
+    }
+    private void OnApplicationQuit()
+    {
+        print("시간저장키 - lastdate - " + GameManager.GM.m_cPlayer.userno);
+        PlayerPrefs.SetString("lastdate" + GameManager.GM.m_cPlayer.userno, DateTime.Now.ToString("yyyy년MM월dd일HH시mm분"));
     }
     public void GetCard(Card cCard)
     {
