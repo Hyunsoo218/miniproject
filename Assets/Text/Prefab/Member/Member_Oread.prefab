@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objBullit: {fileID: 0}
-  m_imgImage: {fileID: 0}
+  m_imgImage: {fileID: 21300000, guid: de52c6dfc2c8dc54490cd60477e9ef93, type: 3}
   m_eBT: 0
   m_eCardType: 0
   m_eCardRank: 0
@@ -74,3 +74,4 @@ MonoBehaviour:
   _imgCard: {fileID: 21300000, guid: e492611759e419143b344505686b648e, type: 3}
   _eMT: 3
   cardno: 0
+  _strScript: "\uB098\uC05C\uB140\uC11D\uB4E4\uC740 \uBAA8\uB450 \uBC1F\uC544\uC904\uAC70\uC57C"

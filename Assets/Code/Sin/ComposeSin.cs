@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ComposeSin : Sin
 {
-
     //보유중인 카드 오픈
     public Transform m_tInventory; //인벤토리
     public GameObject m_objSlot; 
@@ -211,21 +210,7 @@ public class ComposeSin : Sin
                 return;
             }
         }
-
-        CardRank eCR = m_vecMySelectCard[3].m_cCard.m_eCardRank;
-        int nNextRank = (int)eCR;
-        nNextRank--;
-        Card temp = GameManager.GM.cCM.GetCard((CardType)Random.Range(0,24),(CardRank)nNextRank);
-        GameManager.GM.GetCard(temp);
-
-        for (int i = 0; i < m_vecMySelectCard.Count; i++)
-        {
-            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecMySelectCard[i].m_cCard);
-        }
-        Close();
-        Open();
-
-        return;
+        GameManager.GM.cServer.ComposeCard(this);
     }
 }
 

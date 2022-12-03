@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     public Text m_txtGasTimer;
     [Header("State")]
     public bool _bFirst = false; //
-    float _fCreGas = 0;
     float _fNowCreGasTime = 0;
     bool _bCreGas = false;
 
@@ -84,12 +83,10 @@ public class Player : MonoBehaviour
     public void SetGold()
     {
         m_txtGold.text = GameManager.GM.GoldToStr(m_nGold);
-        //GameManager.GM.cServer.goldSend(m_nGold);
     }
     public void SetDiamond()
     {
         m_txtDiamond.text = GameManager.GM.GoldToStr(m_nDiamond);
-       // GameManager.GM.cServer.diaSend(m_nDiamond);
     }
     void SetGas()
     {

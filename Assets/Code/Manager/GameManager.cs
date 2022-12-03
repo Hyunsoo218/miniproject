@@ -232,7 +232,14 @@ public class GameManager : MonoBehaviour
     }
     public void ShowCard(string strText, Card cCard)
     {
-        cUM.ShowCard(strText, cCard);
+        if (cCard.m_nCost == -1)
+        {
+            ShowMember(strText, cCard);
+        }
+        else
+        {
+            cUM.ShowCard(strText, cCard);
+        }
     }
     public void Show10Card(string strText, List<Card> cCard)
     {

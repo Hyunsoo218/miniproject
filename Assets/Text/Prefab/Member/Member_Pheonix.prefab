@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objBullit: {fileID: 0}
-  m_imgImage: {fileID: 0}
+  m_imgImage: {fileID: 21300000, guid: 5cceddeb22e8b1146a062d3223109eb5, type: 3}
   m_eBT: 0
   m_eCardType: 0
   m_eCardRank: 0
@@ -61,14 +61,17 @@ MonoBehaviour:
   m_fDamege: 0
   m_fMaxCoolTime: 0
   m_fCoolTime: 0
+  _bCanUse: 1
   _eCE: 0
   _strName: "\uD53C\uB2C9\uC2A4"
   _strData: "\uBD88\uAF43\uC758 \uC18C\uC6A9\uB3CC\uC774\uB97C \uC77C\uC73C\uCF1C
     \uBAA8\uB4E0\uC801\uC5D0\uAC8C 1000%\uC758 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
   _fDamege: 10
-  _bCanUse: 1
   _objCutEffect: {fileID: 3694371544194395497, guid: 9ccb06a4570bb8646b12536a80a68943, type: 3}
   _objSkill: {fileID: 2354312431128625401, guid: b1f564a73f6216d48a3931ec77be846d, type: 3}
   _imgFull: {fileID: 21300000, guid: 1b7e1f0bbef961b4aa8a2fae701c56e6, type: 3}
   _imgFace: {fileID: 21300000, guid: f059a3d07dd37cb4f8ca6bdad38e66ce, type: 3}
   _imgCard: {fileID: 21300000, guid: b3b396d24c3187a45a6e2c58b49f1375, type: 3}
+  _eMT: 0
+  cardno: 0
+  _strScript: "\uBAA8\uC870\uB9AC \uBD88\uD0DC\uC6CC\uC8FC\uB9C8!"

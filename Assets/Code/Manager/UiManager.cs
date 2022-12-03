@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] RectTransform m_rScaleControll;
     [SerializeField] GameObject _objCamvas;
     [SerializeField] List<Sin> _cShowSin = new List<Sin>();
+    [SerializeField] Sin _cMemberCutSin;
+    [SerializeField] Text _txtMemberCutSinScript;
+    [SerializeField] Image _imgMemberCutSin;
 
     private void Start()
     {
@@ -89,10 +93,63 @@ public class UiManager : MonoBehaviour
     }
     public void ShowMember(string strText, Card cMember)
     {
-        _cShowSin[2].Open(strText, cMember);
+        GetMemberCutSin(strText, cMember);
     }
     public void Show10Card(string strText, List<Card> cCard) 
     {
         _cShowSin[3].Open(strText, cCard);
+    }
+    void GetMemberCutSin(string strText, Card cMember)
+    {
+        StartCoroutine(MemberCut(strText, cMember));
+    }
+    IEnumerator MemberCut(string strText, Card cMember)
+    {
+        float count = 100;
+        float time = 1;
+        _cMemberCutSin.Open();
+        _txtMemberCutSinScript.text = cMember._strScript;
+        _txtMemberCutSinScript.color = new Color(1,1,1,0);
+        _imgMemberCutSin.gameObject.SetActive(false);
+        for (int i = 0; i < count; i++)
+        {
+            _txtMemberCutSinScript.color += new Color(0, 0, 0, 1 / count);
+            yield return new WaitForSeconds(time / count);
+        }
+
+        yield return new WaitForSeconds(1);
+        _imgMemberCutSin.sprite = cMember.m_imgImage;
+        _imgMemberCutSin.gameObject.SetActive(true);
+        _imgMemberCutSin.rectTransform.localScale = new Vector3(3,3,1);
+        _imgMemberCutSin.rectTransform.anchoredPosition = new Vector2(-1200, 2663);
+        for (int i = 0; i < count; i++)
+        {
+            Vector2 temp = _imgMemberCutSin.rectTransform.anchoredPosition;
+            temp += new Vector2(2400 / count, 0);
+            _imgMemberCutSin.rectTransform.anchoredPosition = temp;
+            yield return new WaitForSeconds(time / count);
+        }
+        _imgMemberCutSin.rectTransform.anchoredPosition = new Vector2(1200, -388);
+        for (int i = 0; i < count; i++)
+        {
+            Vector2 temp = _imgMemberCutSin.rectTransform.anchoredPosition;
+            temp -= new Vector2(2400 / count, 0);
+            _imgMemberCutSin.rectTransform.anchoredPosition = temp;
+            yield return new WaitForSeconds(time / count);
+        }
+        _imgMemberCutSin.rectTransform.localScale = new Vector3(2, 2, 1);
+        _imgMemberCutSin.rectTransform.anchoredPosition = new Vector2(0, 1300);
+        for (int i = 0; i < count; i++)
+        {
+            Vector2 temp = _imgMemberCutSin.rectTransform.anchoredPosition;
+            temp -= new Vector2(0, 2600 / count);
+            _imgMemberCutSin.rectTransform.anchoredPosition = temp;
+            yield return new WaitForSeconds(time / count);
+        }
+        _imgMemberCutSin.rectTransform.localScale = new Vector3(1, 1, 1);
+        _imgMemberCutSin.rectTransform.anchoredPosition = new Vector2(0, 0);
+        yield return new WaitForSeconds(2);
+        _cMemberCutSin.Close();
+        _cShowSin[2].Open(strText, cMember);
     }
 }

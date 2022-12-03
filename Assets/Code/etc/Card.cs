@@ -34,6 +34,7 @@ public class Card : MonoBehaviour
     public Sprite _imgCard;
     public MemberType _eMT;         //
     public int cardno;         //
+    public string _strScript;
 
     private void Start()
     {

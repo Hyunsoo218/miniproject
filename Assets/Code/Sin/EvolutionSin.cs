@@ -11,10 +11,15 @@ public class EvolutionSin : Sin
     public Slot m_cResultSlot;
     public Text m_txtSelectEa;
     List<Slot> m_vecMyCard = new List<Slot>();
-    List<Slot> m_vecSelectCard = new List<Slot>();
+    public List<Slot> m_vecSelectCard = new List<Slot>();
     int m_cSelectCount = 0;
+<<<<<<< HEAD
     Card m_cResult;
     public int Evolution;
+=======
+    public Card m_cResult;
+    bool Click = true;
+>>>>>>> ed091b4a75b1830507910817cca4e4b5b4d1bce8
     public override void Open()
     {
         base.Open();
@@ -104,17 +109,8 @@ public class EvolutionSin : Sin
             GameManager.GM.ShowText("카드 5장을 모두 선택하세요!");
             return;
         }
-
-        for (int i = 0; i < m_vecSelectCard.Count; i++)
-        {
-            GameManager.GM.m_cPlayer.m_cAvata.RemoveCard(m_vecSelectCard[i].m_cCard);
-            Destroy(m_vecSelectCard[i].m_cCard.gameObject);
-        }
-
-        GameManager.GM.m_cPlayer.m_cAvata.GetCard(m_cResult);
-        GameManager.GM.ShowCard("진화 성공", m_cResult);
-        Close();
-        Open();
+        GameManager.GM.cServer.EvolutionCard(this);
+        
     }
     void SortCard(Card cCard = null)
     {

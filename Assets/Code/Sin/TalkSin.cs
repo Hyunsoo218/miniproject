@@ -15,7 +15,6 @@ public class TalkSin : Sin
     [SerializeField] Image _imgFade;
     [SerializeField] Text _txtName;
     [SerializeField] Text _txtChat;
-    string value = "";
     bool _bAuto = false;
     public override void Open(Act cAct)
     {
