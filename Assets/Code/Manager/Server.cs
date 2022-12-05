@@ -482,6 +482,8 @@ public class Server : MonoBehaviour
                 print("스테이지 : " + s.m_strStage + "  클리어: "+ s.m_bClear);
             }
             // 스테이지 불러오기 종료
+            PlayerPrefs.SetString("lastLoginId", id);
+            PlayerPrefs.SetString("lastLoginPw", pwd);
             StartCoroutine(AutoUpdateUserDataCo());
             GameManager.GM.GoTitle();
         }
@@ -512,8 +514,8 @@ public class Server : MonoBehaviour
         }
         else
         {
-            GameManager.GM.ShowText("회원가입 성공");
             GameManager.GM.GoLogin();
+            GameManager.GM.ShowText("회원가입 성공");
         }
         www.Dispose();
     }

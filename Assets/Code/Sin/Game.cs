@@ -54,10 +54,14 @@ public class Game : Sin
                 break;
             case GameType.Boss:
                 m_slBossHp.gameObject.SetActive(true);
+                _objStopBut.SetActive(true);
+                _objSkipBut.SetActive(false);
                 m_fTime = 600f;
                 break;
             case GameType.Laid:
                 m_slBossHp.gameObject.SetActive(false);
+                _objStopBut.SetActive(true);
+                _objSkipBut.SetActive(false);
                 m_fTime = 30f;
                 break;
         }

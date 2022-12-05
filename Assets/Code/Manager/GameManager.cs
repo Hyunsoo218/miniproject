@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text txtFps;
     float f = 0;
     float fps = 0;
-    private void Awake() {  GM = this; }
+    [SerializeField] GameObject _objBangchi;
+    private void Awake() { GM = this; }
     private void Start()
     {
         cUM = GetComponent<UiManager>();
@@ -51,6 +52,10 @@ public class GameManager : MonoBehaviour
     {
         print("시간저장키 - lastdate - " + GameManager.GM.m_cPlayer.userno);
         PlayerPrefs.SetString("lastdate" + GameManager.GM.m_cPlayer.userno, DateTime.Now.ToString("yyyy년MM월dd일HH시mm분"));
+    }
+    public float GetFPS()
+    {
+        return fps;
     }
     public void GetCard(Card cCard)
     {
@@ -109,6 +114,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            cUM.OnOffLineGold();
+            _objBangchi.SetActive(true);
             m_eGS = GameState.Lobe;
             m_eGT = GameType.None;
             cUM.SetSin(m_eGS);
@@ -153,6 +160,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoDefence(Stage cStage)
     {
+        _objBangchi.SetActive(false);
         m_cStage = cStage;
         m_eGS = GameState.Game;
         m_eGT = GameType.Defence;
@@ -160,6 +168,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoBoss(Stage cStage)
     {
+        _objBangchi.SetActive(false);
         m_cStage = cStage;
         m_eGS = GameState.Game;
         m_eGT = GameType.Boss;
@@ -167,6 +176,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoLaid(Stage cStage)
     {
+        _objBangchi.SetActive(false);                                                             
         m_cStage = cStage;
         m_eGS = GameState.Game;
         m_eGT = GameType.Laid;

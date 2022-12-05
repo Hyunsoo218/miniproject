@@ -21,6 +21,12 @@ public class Login : Sin
         _inId.text = "";
         _inPwd.text = "";
         _inName.text = "";
+        string lastId = PlayerPrefs.GetString("lastLoginId");
+        string lastPw = PlayerPrefs.GetString("lastLoginPw");
+        if (lastId != "" && lastPw != "")
+        {
+            GameManager.GM.cServer.loginBtn(lastId, lastPw);
+        }
     }
     public void LoginTry()
     {

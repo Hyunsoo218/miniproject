@@ -12,6 +12,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] Sin _cMemberCutSin;
     [SerializeField] Text _txtMemberCutSinScript;
     [SerializeField] Image _imgMemberCutSin;
+    [SerializeField] Sin _cOffLineGold;
 
     private void Start()
     {
@@ -105,7 +106,7 @@ public class UiManager : MonoBehaviour
     }
     IEnumerator MemberCut(string strText, Card cMember)
     {
-        float count = 100;
+        float count = 30f;
         float time = 1;
         _cMemberCutSin.Open();
         _txtMemberCutSinScript.text = cMember._strScript;
@@ -151,5 +152,9 @@ public class UiManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         _cMemberCutSin.Close();
         _cShowSin[2].Open(strText, cMember);
+    }
+    public void OnOffLineGold()
+    {
+        _cOffLineGold.Open();
     }
 }

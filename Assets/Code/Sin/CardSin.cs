@@ -161,15 +161,16 @@ public class CardSin : Sin
 
         List<Card> vecCreCard = new List<Card>();
         vecCreCard.AddRange(GameManager.GM.m_cPlayer.m_cAvata.m_vecMyCard);
-        for (int i = 0; i < _vecUseCard.Count; i++)
-        {
-            if (_vecUseCard[i] != null)
-            {
-                vecCreCard.Add(_vecUseCard[i]);
-            }
-        }
+        //for (int i = 0; i < _vecUseCard.Count; i++)
+        //{
+        //    if (_vecUseCard[i] != null)
+        //    {
+        //        vecCreCard.Add(_vecUseCard[i]);
+        //    }
+        //}
         for (int i = 0; i < vecCreCard.Count; i++)
         {
+            print( i + "생성");
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
             Button tempButton = temp.GetComponent<Button>();
             Slot tempCard = temp.GetComponent<Slot>();

@@ -9,48 +9,91 @@ public class Show10CardSin : Sin
     [SerializeField] Text _txtTitle; 
     [SerializeField] List<Sprite> _vecBoxing;
     List<Card> _vecCard;
+    List<bool> _vecOpen = new List<bool>();
     public override void Open(string strData, List<Card> cCard)
     {
         base.Open(strData, cCard);
+        while (_vecOpen.Count < 10) _vecOpen.Add(false);
+        for (int i = 0; i < _vecOpen.Count; i++)  _vecOpen[i] = false; 
         _txtTitle.text = strData;
         _vecCard = cCard;
         for (int i = 0; i < _vecSlots.Count; i++)
         {
             _vecSlots[i].Set(cCard[i]);
             _vecSlots[i].Boxing(_vecBoxing[(int)cCard[i].m_eCardRank]);
+            _vecSlots[i].transform.localEulerAngles = new Vector3(0, 0, 0);
         }
+    }
+    public void OKBut()
+    {
+        bool bAllOpen = false;
+
+        for (int i = 0; i < _vecOpen.Count; i++)
+        {
+            if (_vecOpen[i] == false)
+            {
+                if (_vecSlots[i].m_cCard.m_nCost == -1)
+                {
+                    bAllOpen = true;
+                }
+                else
+                {
+                    ShowBig(i);
+                    bAllOpen = true;
+                }
+            }
+        }
+        if (bAllOpen) return;
+
+        Close();
     }
     public void ShowBig(int nNum) 
     {
-        StartCoroutine(ShowCard(nNum));
-
-        
+        if (_vecOpen[nNum] == false)
+        {
+            _vecOpen[nNum] = true;
+            StartCoroutine(ShowCard(nNum));
+        }
+        else
+        {
+            GameManager.GM.ShowCard("", _vecSlots[nNum].m_cCard);
+        }
     }
     IEnumerator ShowCard(int nNum)
     {
-        float count = 120f;
+        float count = 30;
         float time = 0.5f;
-
         for (int i = 0; i < count; i++)
         {
             _vecSlots[nNum].transform.localEulerAngles += new Vector3(0, 90f / count, 0);
             yield return new WaitForSeconds(time / count);
         }
         _vecSlots[nNum].Set(_vecCard[nNum]);
-
         if (_vecSlots[nNum].m_cCard.m_nCost == -1)
         {
-            GameManager.GM.ShowMember("", _vecSlots[nNum].m_cCard);
+            List<Card> tempMember = GameManager.GM.m_cPlayer.m_cAvata._vecMyMember;
+            bool bGet = false;
+            for (int i = 0; i < tempMember.Count; i++)
+            {
+                if (tempMember[i]._eMT == _vecSlots[nNum].m_cCard._eMT)
+                {
+                    bGet = true;
+                    break;
+                }
+            }
+            if (bGet == false)
+            {
+                GameManager.GM.ShowMember("", _vecSlots[nNum].m_cCard);
+            }
         }
-
         for (int i = 0; i < count; i++)
         {
             _vecSlots[nNum].transform.localEulerAngles -= new Vector3(0, 90f / count, 0);
             yield return new WaitForSeconds(time / count);
         }
-        if (_vecSlots[nNum].m_cCard.m_nCost != -1)
-        {
-            GameManager.GM.ShowCard("", _vecSlots[nNum].m_cCard);
-        }
+        //if (_vecSlots[nNum].m_cCard.m_nCost != -1)
+        //{
+        //    GameManager.GM.ShowCard("", _vecSlots[nNum].m_cCard);
+        //}
     }
 }
