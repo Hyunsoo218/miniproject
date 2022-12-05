@@ -11,7 +11,7 @@ public class Game : Sin
     int m_nMonsterEa;
     float m_fSponTimeMax = .5f, m_fSponTime = 2;
     List<GameObject> m_vecMonster = new List<GameObject>();
-    GameObject m_objBoss;
+    public GameObject m_objBoss;
     public Text m_txtTime;
     public Text m_txtScore;
     public Text m_txtScore_total;
@@ -58,7 +58,7 @@ public class Game : Sin
                 break;
             case GameType.Laid:
                 m_slBossHp.gameObject.SetActive(false);
-                m_fTime = 60f;
+                m_fTime = 10f;
                 break;
         }
         if (GameManager.GM.m_eGT == GameType.TutorialStage)
@@ -127,7 +127,6 @@ public class Game : Sin
                 case GameType.Laid:
                     int sco = (int)m_objBoss.GetComponent<LaidBoss>().m_fScore;
                     GameManager.GM.cServer.UpdateRaidScore(sco);
-                    Destroy(m_objBoss);
                     m_txtScore_total.text = sco + " Á¡" ;
                     break;
             }
@@ -213,6 +212,7 @@ public class Game : Sin
         }
         if (m_objBoss)
         {
+            print("½Ã·©");
             Destroy(m_objBoss);
             m_objBoss = null;
         }

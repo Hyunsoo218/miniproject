@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class RaidSin : Sin
 {
     public GameObject _objRankData;
-    public Transform _tRanks;
+    public RectTransform _tRanks;
     public List<GameObject> _vecRankData = new List<GameObject>();
     public Sin _cAllScoerSin;
-    public Text _txtMyRank;
     public Text _txtMyScore;
     public override void Open()
     {

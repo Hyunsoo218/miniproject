@@ -76,7 +76,8 @@ public class Server : MonoBehaviour
     IEnumerator GetAllRaidScoreCo(RaidSin sin)
     {
         WWWForm form = new WWWForm();
-        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
+        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetAllRaidScore", form);
         yield return www.SendWebRequest();
         var allScoer = JsonHelper.FromJson<RaidScore>(www.downloadHandler.text);
 
@@ -85,31 +86,41 @@ public class Server : MonoBehaviour
             Destroy(sin._vecRankData[i]);
         }
         sin._vecRankData.Clear();
-        for (int i = 0; i < allScoer.Length; i++)
+        int co = allScoer.Length;
+        if (allScoer.Length > 10)
+        {
+            co = 10;
+        }
+        for (int i = 0; i < co; i++)
         {
             GameObject temp = Instantiate(sin._objRankData, sin._tRanks);
-            temp.SendMessage("Set", allScoer[i]);
+            allScoer[i].Ranking = i + 1;
+            temp.GetComponent<RankData>().Set(allScoer[i]);
             sin._vecRankData.Add(temp);
         }
+        sin._tRanks.sizeDelta = new Vector2(1061f , (allScoer.Length * 200f) - 20f);
 
-        sin.OpenAllScoreSin();
+        sin._cAllScoerSin.Open();
         www.Dispose();
     }
     IEnumerator GetMyRaidScoreCo(RaidSin sin)
     {
         WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno);
-        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
+        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetMyRaidScore", form);
         yield return www.SendWebRequest();
-        if (www.downloadHandler.text == "")
+        print("asdasd "+www.downloadHandler.text);
+
+        if (www.downloadHandler.text == "101")
         {
-            sin._txtMyRank.text = "";
+            print("레이드 데이터 없음");
             sin._txtMyScore.text = "";
         }
         else
         {
+            print("레이드 데이터 잇음");
             RaidScore tempSco = JsonUtility.FromJson<RaidScore>(www.downloadHandler.text);
-            sin._txtMyRank.text = tempSco.Ranking + "";
             sin._txtMyScore.text = tempSco.Score + "";
         }
         sin.gameObject.SetActive(true);
@@ -120,7 +131,10 @@ public class Server : MonoBehaviour
         WWWForm form = new WWWForm(); ;
         form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
         form.AddField("score", score + "");
-        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
+        form.AddField("name", GameManager.GM.m_cPlayer.m_strName + "");
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/updateRaidScore", form);
+
+        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
         yield return www.SendWebRequest(); // 아무값이나 리턴 해야 다음으로 진행됨
         www.Dispose();
         GameManager.GM.GoLaidEnd();
@@ -251,7 +265,6 @@ public class Server : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         UserData temp = DataConverter.GetUserData();
-        print(temp.m_nGold + " 저장");
         form.AddField("userno", temp.userno);
         form.AddField("gold", temp.m_nGold+"");
         form.AddField("dia", temp.m_nDiamond+"");
@@ -484,6 +497,10 @@ public class Server : MonoBehaviour
         if (www.isNetworkError)
         {
             GameManager.GM.ShowText("회원가입 에러");
+        }
+        else if(www.downloadHandler.text == "202")
+        {
+            GameManager.GM.ShowText("아이디 중복");
         }
         else
         {
