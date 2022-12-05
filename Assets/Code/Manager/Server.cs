@@ -8,7 +8,6 @@ public class Server : MonoBehaviour
 {
     public InputField InputName;
     public string[] userData;
-    
     public void loginBtn(string id, string pwd)
     {
         StartCoroutine(ServerLoginUser(id,pwd));
@@ -260,7 +259,7 @@ public class Server : MonoBehaviour
         form.AddField("first", temp._bFirst+"");
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/UpdateUesrData", form);
-        yield return null;
+        yield return www.SendWebRequest();
         www.Dispose();
     }
     IEnumerator SetUserCardCo()

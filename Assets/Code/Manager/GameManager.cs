@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameType m_eGT;
     Stage m_cStage;
     Member _cMember;
+    [SerializeField] Text txtFps;
+    float f = 0;
+    float fps = 0;
     private void Awake() {  GM = this; }
     private void Start()
     {
@@ -35,6 +39,13 @@ public class GameManager : MonoBehaviour
         cSoM = GetComponent<SoundManager>();
 
         GoLogin();
+        Application.targetFrameRate = 60;
+    }
+    private void Update()
+    {
+        f += (Time.unscaledDeltaTime - f) * 0.1f;
+        fps = 1f / f;
+        txtFps.text = fps.ToString();
     }
     private void OnApplicationQuit()
     {
