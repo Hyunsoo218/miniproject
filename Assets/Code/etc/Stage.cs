@@ -26,11 +26,11 @@ public class Stage : MonoBehaviour
             StageData data = new StageData();
             data.m_bClear = true;
             data.m_strStage = m_strStage;
-            GameManager.GM.m_cPlayer.m_nBangchiGold += m_nClearGold;
             GameManager.GM.cServer.StageClear(data);
             print("클리어함 서버 등록");
             // 플레이어 정보 저장
         }
+        GameManager.GM.m_cPlayer.m_nBangchiGold += m_nClearGold;
         GameManager.GM.m_cPlayer.m_nGold += m_nClearGold;
         GameManager.GM.m_cPlayer.SetGold();
         GameManager.GM.cSM.OpanNextStage(this);

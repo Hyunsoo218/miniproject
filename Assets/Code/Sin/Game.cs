@@ -58,7 +58,7 @@ public class Game : Sin
                 break;
             case GameType.Laid:
                 m_slBossHp.gameObject.SetActive(false);
-                m_fTime = 10f;
+                m_fTime = 30f;
                 break;
         }
         if (GameManager.GM.m_eGT == GameType.TutorialStage)

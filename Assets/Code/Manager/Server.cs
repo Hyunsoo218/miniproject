@@ -79,26 +79,33 @@ public class Server : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
         //UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetAllRaidScore", form);
         yield return www.SendWebRequest();
-        var allScoer = JsonHelper.FromJson<RaidScore>(www.downloadHandler.text);
+        if (www.downloadHandler.text == "101")
+        {
 
-        for (int i = 0; i < sin._vecRankData.Count; i++)
-        {
-            Destroy(sin._vecRankData[i]);
         }
-        sin._vecRankData.Clear();
-        int co = allScoer.Length;
-        if (allScoer.Length > 10)
+        else
         {
-            co = 10;
+            var allScoer = JsonHelper.FromJson<RaidScore>(www.downloadHandler.text);
+            for (int i = 0; i < sin._vecRankData.Count; i++)
+            {
+                Destroy(sin._vecRankData[i]);
+            }
+            sin._vecRankData.Clear();
+            int co = allScoer.Length;
+            if (allScoer.Length > 10)
+            {
+                co = 10;
+            }
+            for (int i = 0; i < co; i++)
+            {
+                GameObject temp = Instantiate(sin._objRankData, sin._tRanks);
+                allScoer[i].Ranking = i + 1;
+                temp.GetComponent<RankData>().Set(allScoer[i]);
+                sin._vecRankData.Add(temp);
+            }
+            sin._tRanks.sizeDelta = new Vector2(1061f, (allScoer.Length * 200f) - 20f);
         }
-        for (int i = 0; i < co; i++)
-        {
-            GameObject temp = Instantiate(sin._objRankData, sin._tRanks);
-            allScoer[i].Ranking = i + 1;
-            temp.GetComponent<RankData>().Set(allScoer[i]);
-            sin._vecRankData.Add(temp);
-        }
-        sin._tRanks.sizeDelta = new Vector2(1061f , (allScoer.Length * 200f) - 20f);
+       
 
         sin._cAllScoerSin.Open();
         www.Dispose();
@@ -136,6 +143,7 @@ public class Server : MonoBehaviour
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
         yield return www.SendWebRequest(); // 아무값이나 리턴 해야 다음으로 진행됨
+        print(www.downloadHandler.text);
         www.Dispose();
         GameManager.GM.GoLaidEnd();
     }
@@ -362,7 +370,7 @@ public class Server : MonoBehaviour
         form.AddField("d2", data.m_strStage);
 
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/stageClear", form);
-        yield return null;
+        yield return www.SendWebRequest();
         www.Dispose();
     }
     IEnumerator GetBewCardCo(CardData data) 
