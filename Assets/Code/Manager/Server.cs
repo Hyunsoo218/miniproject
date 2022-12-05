@@ -76,8 +76,8 @@ public class Server : MonoBehaviour
     IEnumerator GetAllRaidScoreCo(RaidSin sin)
     {
         WWWForm form = new WWWForm();
-        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetAllRaidScore", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
+        //UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetAllRaidScore", form);
         yield return www.SendWebRequest();
         var allScoer = JsonHelper.FromJson<RaidScore>(www.downloadHandler.text);
 
@@ -107,8 +107,8 @@ public class Server : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno);
-        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetMyRaidScore", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
+        //UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetMyRaidScore", form);
         yield return www.SendWebRequest();
         print("asdasd "+www.downloadHandler.text);
 
@@ -132,9 +132,9 @@ public class Server : MonoBehaviour
         form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
         form.AddField("score", score + "");
         form.AddField("name", GameManager.GM.m_cPlayer.m_strName + "");
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/updateRaidScore", form);
+        //UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/updateRaidScore", form);
 
-        //UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/updateRaidScore", form); ;
         yield return www.SendWebRequest(); // 아무값이나 리턴 해야 다음으로 진행됨
         www.Dispose();
         GameManager.GM.GoLaidEnd();
@@ -491,7 +491,7 @@ public class Server : MonoBehaviour
         form.AddField("gas", data.m_nGas + "");
         form.AddField("first", data._bFirst + "");
 
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/make_user", form);
+        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/make_user", form);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError)
