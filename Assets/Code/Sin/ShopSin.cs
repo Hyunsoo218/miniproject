@@ -11,18 +11,19 @@ public class ShopSin : Sin
     int _nPanelIndex = 0;
     bool Click = true;
     public int Shop;
+    public Sin ShopGuide;
     public override void Open()
     {
         base.Open();
         if (Shop == 0)
         {
-            Shop = PlayerPrefs.GetInt("Shop");
+            Shop = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Shop");
             if (Shop == 0)
             {
-                GameManager.GM.ShowText("재화 / 다이아를 사용(소모)하여\n랜덤 뽑기(카드/동료)를 할 수 있습니다.");
+                ShopGuide.Open();
             }
             Shop++;
-            PlayerPrefs.SetInt("Shop", Shop);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Shop", Shop);
         }
         //else
         //{

@@ -15,18 +15,19 @@ public class EvolutionSin : Sin
     int m_cSelectCount = 0;
     public Card m_cResult;
     public int Evolution;
+    public Sin EvolutionGuide;
     public override void Open()
     {
         base.Open();
         if (Evolution == 0)
         {
-            Evolution = PlayerPrefs.GetInt("Evolution");
+            Evolution = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Evolution");
             if (Evolution == 0)
             {
-            GameManager.GM.ShowText("같은 랭크인 동일한 카드를 5개 넣어\n카드랭크를 한 단계 올려줍니다.");
+                EvolutionGuide.Open();
             }
             Evolution++;
-            PlayerPrefs.SetInt("Evolution", Evolution);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Evolution", Evolution);
         }
         //else
         //{

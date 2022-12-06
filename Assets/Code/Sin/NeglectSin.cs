@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class NeglectSin : Sin
 {
+    public Sin NegGuide;
     public int Neg;
     
     public override void Open()
@@ -13,13 +14,20 @@ public class NeglectSin : Sin
         base.Open();
         if (Neg == 0)
         {
-            Neg = PlayerPrefs.GetInt("Neg");
+            Neg = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Neg");
             if (Neg == 0)
             {
-                GameManager.GM.ShowText("재화를 주기적으로 얻을 수 있는 것을 확인 할 수 있습니다.");
+                NegGuide.Open();
             }
             Neg++;
-            PlayerPrefs.SetInt("Neg", Neg);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Neg", Neg);
         }
+        //else
+        //{
+        //    Neg = 0;
+        //    PlayerPrefs.SetInt("Neg", Neg);
+        //    print("초기화 했습니다.");
+        //}
+        //초기값으로 설정 (테스트 할때 else 부분 주석 처리 없애면 됨)
     }
 }

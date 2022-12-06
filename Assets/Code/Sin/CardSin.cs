@@ -45,7 +45,7 @@ public class CardSin : Sin
     List<CardElement> m_vecCardElement = new List<CardElement>();
     List<BullitType> m_vecBullitType = new List<BullitType>();
     public int Click;
-
+    public Sin CardGuide;
     Thread _cThread;
     RectTransform _Inven;
     int nIndex;
@@ -67,7 +67,7 @@ public class CardSin : Sin
 
         if (Click == 0)
         {
-            Click = PlayerPrefs.GetInt("Card");
+            Click = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Card");
             Click++;
             print(Click);
         }
@@ -78,16 +78,16 @@ public class CardSin : Sin
         }
         else if (Click == 2)
         {
-            GameManager.GM.ShowText("카드를 장착 / 해제 할 수 있으며\n세트효과를 확인할 수 있다.");
+            CardGuide.Open();
             Click++;
             print(Click);
         }
         if (Click == 3)
         {
-            PlayerPrefs.SetInt("Card", Click);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Card", Click);
             Click++;
         }
-        //else
+        //else if (Click == 4)
         //{
         //    Click = 0;
         //    PlayerPrefs.SetInt("Card", Click);

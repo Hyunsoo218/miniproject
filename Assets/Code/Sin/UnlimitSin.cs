@@ -15,18 +15,19 @@ public class UnlimitSin : Sin
     public List<Card> m_vecSelectCard = new List<Card>();
     int m_nMaxSelecyEa;
     public int Unlimit;
+    public Sin UnlimitGuide;
     public override void Open()
     {
         base.Open();
         if (Unlimit == 0)
         {
-            Unlimit = PlayerPrefs.GetInt("Unlimit");
+            Unlimit = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Unlimit");
             if (Unlimit == 0)
             {
-            GameManager.GM.ShowText("S랭크 카드의 최대 레벨(Max Level)을\n1 증가 시켜줍니다.");
+                UnlimitGuide.Open();
             }
             Unlimit++;
-            PlayerPrefs.SetInt("Unlimit", Unlimit);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Unlimit", Unlimit);
         }
         //else
         //{

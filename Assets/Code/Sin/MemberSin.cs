@@ -22,17 +22,18 @@ public class MemberSin : Sin
     int _nChageTarget;
     bool _bShowMemberData;
     public int Member;
+    public Sin MemberGuide;
     public override void Open()
     {
         if (Member == 0)
         {
-            Member = PlayerPrefs.GetInt("Member");
+            Member = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"Member");
             if (Member == 0)
             {
-                GameManager.GM.ShowText("동료를 뽑기(상점)에서 획득하고\n정보 확인, 관리(장착/해제)할 수 있습니다.");
+                MemberGuide.Open();
             }
             Member++;
-            PlayerPrefs.SetInt("Member", Member);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno +"Member", Member);
         }
         //else
         //{

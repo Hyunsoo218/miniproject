@@ -15,6 +15,7 @@ public class ReComposeSin : Sin
     List<Slot> m_vecMyCard = new List<Slot>();
     bool m_bRandom;
     public int ReCompose;
+    public Sin ReComposeGuide;
     private void Start()
     {
         for (int i = 0; i < m_vecCardMenu.Count; i++)
@@ -27,13 +28,13 @@ public class ReComposeSin : Sin
         base.Open();
         if (ReCompose == 0)
         {
-            ReCompose = PlayerPrefs.GetInt("ReCompose");
+            ReCompose = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno +"ReCompose");
             if (ReCompose == 0)
             {
-            GameManager.GM.ShowText("S랭크 카드를 소모하여 랜덤/확정으로 S랭크 카드를 얻습니다.\n2장을 소모 할 경우는 랜덤\n5장을 소모 할 경우엔\n원하는 카드를 얻을 수 있습니다.");
+                ReComposeGuide.Open();
             }
             ReCompose++;
-            PlayerPrefs.SetInt("ReCompose", ReCompose);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno+"ReCompose", ReCompose);
         }
         //else
         //{
