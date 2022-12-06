@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 
 public class Server : MonoBehaviour
 {
+    [SerializeField] Sin sin;
     public InputField InputName;
     public string[] userData;
     public void loginBtn(string id, string pwd)
@@ -435,6 +436,8 @@ public class Server : MonoBehaviour
         else
         {
             // 플레이어 정보 불러오기 시작
+
+
             UserData tempPl = JsonUtility.FromJson<UserData>(www.downloadHandler.text);
             //yield return www.SendWebRequest();
             print(www.downloadHandler.text);
@@ -448,6 +451,8 @@ public class Server : MonoBehaviour
             GameManager.GM.m_cPlayer.m_nGas = tempPl.m_nGas;
             GameManager.GM.m_cPlayer._bFirst = tempPl._bFirst;
 
+            sin.Open();
+            sin.Close();
             print(GameManager.GM.m_cPlayer.ToString());
 
             // 플레이어 정보 불러오기 종료

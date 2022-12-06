@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public CameraShakeManager cCSM;
     public SoundManager cSoM;
     public Player m_cPlayer;
+    public Player m_strName;
+    public Player m_strId;
     public GameState m_eGS;
     public GameType m_eGT;
     Stage m_cStage;

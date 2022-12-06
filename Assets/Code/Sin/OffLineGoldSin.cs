@@ -47,12 +47,14 @@ public class OffLineGoldSin : Sin
     {
         print("오프라인 골드 그냥 받기");
         GameManager.GM.m_cPlayer.m_nGold += _nGetGold;
+        GameManager.GM.m_cPlayer.SetGold();
         Close();
     }
     public void GetGold2()
     {
         print("오프라인 골드 2배로 받기");
         GameManager.GM.m_cPlayer.m_nGold += _nGetGold * 2;
+        GameManager.GM.m_cPlayer.SetGold();
         Close();
     }
 }
