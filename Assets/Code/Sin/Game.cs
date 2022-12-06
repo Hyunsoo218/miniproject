@@ -28,6 +28,9 @@ public class Game : Sin
     bool _bGguideBoss = false;
     [SerializeField] GameObject _objStopBut;
     [SerializeField] GameObject _objSkipBut;
+    [Header("Life")]
+    [SerializeField] GameObject _objLife;
+    [SerializeField] List<GameObject> _vecLifeImage;
     //게임 화면에서 싱행되는 것들을 관리함. Sin을 상속함
     public override void Open(Stage stage)
     {
@@ -40,6 +43,7 @@ public class Game : Sin
         m_nMonsterEa = 0;
         m_bBossSpon = false;
         m_txtScore.text = "";
+        for (int i = 0; i < _vecLifeImage.Count; i++) _vecLifeImage[i].SetActive(true); 
         switch (GameManager.GM.m_eGT)
         {
             case GameType.TutorialStage:
@@ -50,18 +54,21 @@ public class Game : Sin
                 m_cWall.Respon();
                 m_slWallHp.gameObject.SetActive(true);
                 _objSkipBut.SetActive(false);
+                _objLife.SetActive(false);
                 m_fTime = 180f;
                 break;
             case GameType.Boss:
                 m_slBossHp.gameObject.SetActive(true);
                 _objStopBut.SetActive(true);
                 _objSkipBut.SetActive(false);
+                _objLife.SetActive(true);
                 m_fTime = 600f;
                 break;
             case GameType.Laid:
                 m_slBossHp.gameObject.SetActive(false);
                 _objStopBut.SetActive(true);
                 _objSkipBut.SetActive(false);
+                _objLife.SetActive(true);
                 m_fTime = 30f;
                 break;
         }
@@ -241,5 +248,13 @@ public class Game : Sin
     public void ReStartGame()
     {
         GameManager.GM.m_eGS = GameState.Game;
+    }
+    public void PlayerHit(int nLife)
+    {
+        int nNowLife = 5 - nLife;
+        for (int i = 0; i < nNowLife; i++)
+        {
+            _vecLifeImage[i].SetActive(false);
+        }
     }
 }

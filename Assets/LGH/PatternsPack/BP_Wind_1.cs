@@ -7,7 +7,7 @@ public class BP_Wind_1 : Pattern_Proto
     float timer = 0f;
     public override void UsePattern()
     {
-        for(int i = 1; i < 4; i++)
+        for (int i = 1; i < 4; i++)
         {
             GameObject temp = Instantiate(gameObject, transform.position+new Vector3(0, 0, 0 + (i * 2)), transform.rotation) as GameObject;
         }
@@ -21,9 +21,5 @@ public class BP_Wind_1 : Pattern_Proto
         transform.Translate(Vector3.down * p_fSpeed * Time.deltaTime);
 
         timer += Time.deltaTime;
-
-
-        
-
     }
 }

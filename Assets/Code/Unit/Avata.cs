@@ -7,6 +7,7 @@ public class Avata : Unit
 {
     // 플레이어 캐릭터의 정보를 가지는 클래스. Unit을 상속함
     public int m_nCost = 15;
+    public int _nLife = 5;
     [Header("Card")]
     public List<Card> m_vecMyCard = new List<Card>();
     //public List<Card> m_vecUseCard = new List<Card>();
@@ -20,6 +21,8 @@ public class Avata : Unit
     [Header("Set Buff")]
     public List<SetBuff> _vecMyBuff = new List<SetBuff>();
     SkillUseQueue m_qUseingSkill = new SkillUseQueue(9);
+    [Header("Game Sin")]
+    [SerializeField] Game _cGame;
 
     RaycastHit _cHit;
     Vector3 _vClick;
@@ -67,6 +70,20 @@ public class Avata : Unit
             case GameType.Laid:
             case GameType.Boss: MoveBoss(); break;
         }
+    }
+    public override bool Hit(float fDamage=0, CardElement CE = CardElement.Dark)
+    {
+        _nLife--;
+        _cGame.PlayerHit(_nLife);
+        if (_nLife <= 0)
+        {
+            Respon();
+        }
+        return true;
+    }
+    public override void Respon()
+    {
+        GameManager.GM.GoLose();
     }
     void MoveDefence()
     {
@@ -150,6 +167,7 @@ public class Avata : Unit
     }
     public void ReSet()
     {
+        _nLife = 5;
         List<Card> vecUseCards = m_vecUseCards[m_nUseCardIndex];
         for (int i = 0; i < vecUseCards.Count; i++)
         {
@@ -176,5 +194,12 @@ public class Avata : Unit
     public void RemoveCard(Card delCard)
     {
         GameManager.GM.cServer.DeleteCard(delCard.cardno);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Pattern")
+        {
+            Hit();
+        }
     }
 }

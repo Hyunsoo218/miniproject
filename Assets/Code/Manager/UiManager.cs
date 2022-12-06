@@ -13,6 +13,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] Text _txtMemberCutSinScript;
     [SerializeField] Image _imgMemberCutSin;
     [SerializeField] Sin _cOffLineGold;
+    [SerializeField] Sin _cLoding;
 
     private void Start()
     {
@@ -156,5 +157,13 @@ public class UiManager : MonoBehaviour
     public void OnOffLineGold()
     {
         _cOffLineGold.Open();
+    }
+    public void OnLoding()
+    {
+        _cLoding.Open();
+    }
+    public void OffLoding()
+    {
+        _cLoding.Close();
     }
 }

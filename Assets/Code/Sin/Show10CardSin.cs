@@ -71,18 +71,14 @@ public class Show10CardSin : Sin
         _vecSlots[nNum].Set(_vecCard[nNum]);
         if (_vecSlots[nNum].m_cCard.m_nCost == -1)
         {
-            List<Card> tempMember = GameManager.GM.m_cPlayer.m_cAvata._vecMyMember;
-            bool bGet = false;
-            for (int i = 0; i < tempMember.Count; i++)
+            print("¸É¹ö È¹µæ : " + _vecSlots[nNum].m_cCard._eMT);
+            int getMember = PlayerPrefs.GetInt(GameManager.GM.m_cPlayer.userno + "member" + _vecSlots[nNum].m_cCard._eMT);
+            print(GameManager.GM.m_cPlayer.userno + "member" + _vecSlots[nNum].m_cCard._eMT + " : " + getMember);
+            PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno + "member" + _vecSlots[nNum].m_cCard._eMT, 1);
+            print(GameManager.GM.m_cPlayer.userno + "member" + _vecSlots[nNum].m_cCard._eMT + " : 1·Î ÀúÀå");
+            if (getMember == 0)
             {
-                if (tempMember[i]._eMT == _vecSlots[nNum].m_cCard._eMT)
-                {
-                    bGet = true;
-                    break;
-                }
-            }
-            if (bGet == false)
-            {
+                print("getMember : " + getMember + "  ÄÆ½Å½ÇÇà ");
                 GameManager.GM.ShowMember("", _vecSlots[nNum].m_cCard);
             }
         }

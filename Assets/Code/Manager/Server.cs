@@ -75,6 +75,7 @@ public class Server : MonoBehaviour
     }
     IEnumerator GetAllRaidScoreCo(RaidSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm();
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetAllRaidScore", form);
         //UnityWebRequest www = UnityWebRequest.Post("http://localhost:3030/GetAllRaidScore", form);
@@ -105,13 +106,13 @@ public class Server : MonoBehaviour
             }
             sin._tRanks.sizeDelta = new Vector2(1061f, (allScoer.Length * 200f) - 20f);
         }
-       
-
+        GameManager.GM.cUM.OffLoding();
         sin._cAllScoerSin.Open();
         www.Dispose();
     }
     IEnumerator GetMyRaidScoreCo(RaidSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno);
         UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/GetMyRaidScore", form);
@@ -130,11 +131,13 @@ public class Server : MonoBehaviour
             RaidScore tempSco = JsonUtility.FromJson<RaidScore>(www.downloadHandler.text);
             sin._txtMyScore.text = tempSco.Score + "";
         }
+        GameManager.GM.cUM.OffLoding();
         sin.gameObject.SetActive(true);
         www.Dispose();
     }
     IEnumerator UpdateRaidScoreCo(int score)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm(); ;
         form.AddField("userno", GameManager.GM.m_cPlayer.userno + "");
         form.AddField("score", score + "");
@@ -145,10 +148,12 @@ public class Server : MonoBehaviour
         yield return www.SendWebRequest(); // 아무값이나 리턴 해야 다음으로 진행됨
         print(www.downloadHandler.text);
         www.Dispose();
+        GameManager.GM.cUM.OffLoding();
         GameManager.GM.GoLaidEnd();
     }
     IEnumerator ReComposeRedonCo(ReComposeSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form; UnityWebRequest www;
         for (int i = 0; i < sin.m_vecRandom.Count; i++)
         {
@@ -162,13 +167,15 @@ public class Server : MonoBehaviour
             www.Dispose();
         }
         int nTemp = Random.Range(0, 24);
-        GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
         yield return new WaitForSeconds(0.2f);
+        GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
+        GameManager.GM.cUM.OffLoding();
         sin.Close();
         sin.Open();
     }
     IEnumerator ReComposeConfCo(ReComposeSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form; UnityWebRequest www;
         for (int i = 0; i < sin.m_vecConf.Count; i++)
         {
@@ -181,13 +188,15 @@ public class Server : MonoBehaviour
             yield return www.SendWebRequest();
             www.Dispose();
         }
-        GameManager.GM.GetCard(sin.m_cShowCard.m_cCard.m_eCardType, CardRank.S);
         yield return new WaitForSeconds(0.2f);
+        GameManager.GM.GetCard(sin.m_cShowCard.m_cCard.m_eCardType, CardRank.S);
+        GameManager.GM.cUM.OffLoding();
         sin.Close();
         sin.Open();
     }
     IEnumerator UnlimitCardCo(UnlimitSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         int nUpLv = 0;
         for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
         {
@@ -219,11 +228,13 @@ public class Server : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         GameManager.GM.ShowCard("초월 성공", sin.m_cSelectSlot.m_cCard);
+        GameManager.GM.cUM.OffLoding();
         sin.Close();
         sin.Open();
     }
     IEnumerator EvolutionCardCo(EvolutionSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form; UnityWebRequest www;
         for (int i = 0; i < sin.m_vecSelectCard.Count; i++)
         {
@@ -238,13 +249,15 @@ public class Server : MonoBehaviour
         }
 
         GameManager.GM.m_cPlayer.m_cAvata.GetCard(sin.m_cResult);
-        GameManager.GM.ShowCard("진화 성공", sin.m_cResult);
         yield return new WaitForSeconds(0.2f);
+        GameManager.GM.ShowCard("진화 성공", sin.m_cResult);
+        GameManager.GM.cUM.OffLoding();
         sin.Close();
         sin.Open();
     }
     IEnumerator ComposeCardCo(ComposeSin sin)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form; UnityWebRequest www;
         for (int i = 0; i < sin.m_vecMySelectCard.Count; i++)
         {
@@ -266,6 +279,7 @@ public class Server : MonoBehaviour
         GameManager.GM.GetCard(temp);
 
         yield return new WaitForSeconds(0.2f);
+        GameManager.GM.cUM.OffLoding();
         sin.Close();
         sin.Open();
     }
@@ -285,6 +299,7 @@ public class Server : MonoBehaviour
     }
     IEnumerator SetUserCardCo()
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm();
         form.AddField("userno", GameManager.GM.m_cPlayer.userno);
 
@@ -330,6 +345,7 @@ public class Server : MonoBehaviour
             }
         }
         www.Dispose();
+        GameManager.GM.cUM.OffLoding();
     }
     IEnumerator UpdateCardCo(CardData data)
     {
@@ -394,6 +410,7 @@ public class Server : MonoBehaviour
     }
     IEnumerator ServerLoginUser(string id, string pwd)
     {
+        GameManager.GM.cUM.OnLoding();
         print("로그인 코루틴 시작");
         WWWForm form = new WWWForm();
         form.AddField("ID", id);
@@ -487,10 +504,12 @@ public class Server : MonoBehaviour
             StartCoroutine(AutoUpdateUserDataCo());
             GameManager.GM.GoTitle();
         }
+        GameManager.GM.cUM.OffLoding();
         www.Dispose();
     }
     IEnumerator MakeUserCo(UserData data)
     {
+        GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm();
 
         form.AddField("id", data.userID);
@@ -517,6 +536,7 @@ public class Server : MonoBehaviour
             GameManager.GM.GoLogin();
             GameManager.GM.ShowText("회원가입 성공");
         }
+        GameManager.GM.cUM.OffLoding();
         www.Dispose();
     }
     IEnumerator AutoUpdateUserDataCo()
