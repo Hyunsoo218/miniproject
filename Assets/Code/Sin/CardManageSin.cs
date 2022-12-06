@@ -137,8 +137,16 @@ public class CardManageSin : Sin
             SelectSlot(m_vecMyCard[m_vecMyCard.Count - 1]);
         else
         {
-            GameObject temp = m_tInventory.GetChild(0).gameObject;
-            SelectSlot(temp.GetComponent<Slot>());
+            try
+            {
+                GameObject temp = m_tInventory.GetChild(0).gameObject;
+                SelectSlot(temp.GetComponent<Slot>());
+            }
+            catch (System.Exception)
+            {
+                SelectSlot(null);
+            }
+           
         }
         OnPanel(0);
         SortCardEnd();
@@ -489,17 +497,13 @@ public class CardManageSin : Sin
     }
     void SetData()
     {
-        Card temp = m_cSelectSlot.m_cCard;
-
-        m_imgCard.sprite = temp.m_imgImage;
-        m_txtLv.text = temp.m_nLevel.ToString();
-        m_txtRank.text = temp.m_eCardRank.ToString();
-        m_txtHp.text = ((int)temp.m_fHp).ToString();
-        m_txtAp.text = ((int)temp.m_fAp).ToString();
-        m_txtData.text = temp.m_strData;
-
-        if (temp.m_nLevel == temp.m_nMaxLevel)
+        if (m_cSelectSlot == null)
         {
+            m_txtLv.text = "-";
+            m_txtRank.text = "-";
+            m_txtHp.text = "-";
+            m_txtAp.text = "-";
+            m_txtData.text = "-";
             m_txtLv.text += "(최대)";
             m_txtLv_val.text = "-";
             m_txtHp_val.text = "-";
@@ -508,15 +512,36 @@ public class CardManageSin : Sin
         }
         else
         {
-            m_txtLv_val.text = (temp.m_nLevel + 1).ToString();
-            m_txtHp_val.text = ((int)(temp.m_fHp * 1.1f)).ToString();
-            m_txtAp_val.text = ((int)(temp.m_fAp * 1.1f)).ToString();
-            m_txtLevelUpGold.text = GameManager.GM.GoldToStr(temp.m_nLevelUpGold);
+            Card temp = m_cSelectSlot.m_cCard;
+
+            m_imgCard.sprite = temp.m_imgImage;
+            m_txtLv.text = temp.m_nLevel.ToString();
+            m_txtRank.text = temp.m_eCardRank.ToString();
+            m_txtHp.text = ((int)temp.m_fHp).ToString();
+            m_txtAp.text = ((int)temp.m_fAp).ToString();
+            m_txtData.text = temp.m_strData;
+
+            if (temp.m_nLevel == temp.m_nMaxLevel)
+            {
+                m_txtLv.text += "(최대)";
+                m_txtLv_val.text = "-";
+                m_txtHp_val.text = "-";
+                m_txtAp_val.text = "-";
+                m_txtLevelUpGold.text = "-";
+            }
+            else
+            {
+                m_txtLv_val.text = (temp.m_nLevel + 1).ToString();
+                m_txtHp_val.text = ((int)(temp.m_fHp * 1.1f)).ToString();
+                m_txtAp_val.text = ((int)(temp.m_fAp * 1.1f)).ToString();
+                m_txtLevelUpGold.text = GameManager.GM.GoldToStr(temp.m_nLevelUpGold);
+            }
+            SortCardRank();
         }
-        SortCardRank();
     }
     public void LevelUp()
     {
+        if (m_cSelectSlot == null) return;
         if (GameManager.GM.m_cPlayer.UseGold(m_cSelectSlot.m_cCard.m_nLevelUpGold))
         {
             if (m_cSelectSlot.m_cCard.LvUp())
