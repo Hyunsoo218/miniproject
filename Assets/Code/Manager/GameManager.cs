@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     public GameType m_eGT;
     Stage m_cStage;
     Member _cMember;
-    [SerializeField] Text txtFps;
-    float f = 0;
-    float fps = 0;
     [SerializeField] GameObject _objBangchi;
     private void Awake() { GM = this; }
     private void Start()
@@ -42,20 +39,10 @@ public class GameManager : MonoBehaviour
         GoLogin();
         Application.targetFrameRate = 60;
     }
-    private void Update()
-    {
-        f += (Time.unscaledDeltaTime - f) * 0.1f;
-        fps = 1f / f;
-        txtFps.text = fps.ToString();
-    }
     private void OnApplicationQuit()
     {
         print("시간저장키 - lastdate - " + GameManager.GM.m_cPlayer.userno);
         PlayerPrefs.SetString("lastdate" + GameManager.GM.m_cPlayer.userno, DateTime.Now.ToString("yyyy년MM월dd일HH시mm분"));
-    }
-    public float GetFPS()
-    {
-        return fps;
     }
     public void GetCard(Card cCard)
     {
