@@ -61,6 +61,7 @@ public class Show10CardSin : Sin
     }
     IEnumerator ShowCard(int nNum)
     {
+        GameManager.GM.cUM.OnDonTodhi();
         float count = 30;
         float time = 0.5f;
         for (int i = 0; i < count; i++)
@@ -91,5 +92,6 @@ public class Show10CardSin : Sin
         //{
         //    GameManager.GM.ShowCard("", _vecSlots[nNum].m_cCard);
         //}
+        GameManager.GM.cUM.OffDonTodhi();
     }
 }

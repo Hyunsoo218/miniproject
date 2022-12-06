@@ -7,6 +7,7 @@ public class ShopSin : Sin
 {
     [SerializeField] List<Machine> _vecPanel;
     [SerializeField] List<Sin> _vecPanel_odds;
+    [SerializeField] Sin _cGetCardSin;
 
     int _nPanelIndex = 0;
     bool Click = true;
@@ -48,6 +49,7 @@ public class ShopSin : Sin
     }
     public void Card_1()
     {
+        _cGetCardSin.Open();
         int nNum = Random.Range(0, 99999) % 100;
         if (nNum < 10)
         {
@@ -78,6 +80,7 @@ public class ShopSin : Sin
     }
     public void Card_10()
     {
+        _cGetCardSin.Open();
         List<Card> temp = new List<Card>();
 
         for (int i = 0; i < 10; i++)

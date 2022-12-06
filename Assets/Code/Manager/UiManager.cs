@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] Image _imgMemberCutSin;
     [SerializeField] Sin _cOffLineGold;
     [SerializeField] Sin _cLoding;
+    [SerializeField] Sin _cDonTochi;
 
     private void Start()
     {
@@ -166,4 +167,6 @@ public class UiManager : MonoBehaviour
     {
         _cLoding.Close();
     }
+    public void OnDonTodhi() { _cDonTochi.Open(); }
+    public void OffDonTodhi() { _cDonTochi.Close(); }
 }
