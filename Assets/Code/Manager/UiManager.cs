@@ -42,6 +42,7 @@ public class UiManager : MonoBehaviour
             case GameState.ReStart:
                 m_vecSin[(int)GS].Close();
                 Time.timeScale = 1;
+                GameManager.GM.m_eGS = GameState.Game;
                 return;
 
             case GameState.Stop:
