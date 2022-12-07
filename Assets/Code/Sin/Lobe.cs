@@ -18,6 +18,7 @@ public class Lobe : Sin
     }
     public override void Open()
     {
+        GameManager.GM.cSoM.PlayTheme((Themes)7);
         base.Open();
         OnPanel(0);
         OnPanel(2);

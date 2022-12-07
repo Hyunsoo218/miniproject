@@ -113,6 +113,19 @@ public class Game : Sin
             GameManager.GM.m_eGS = GameState.Tutorial;
             _cGguideSin.Open();
         }
+
+        switch (GameManager.GM.m_eGT)
+        {
+            case GameType.Defence:
+                GameManager.GM.cSoM.PlayTheme((Themes)5);
+                break;
+            case GameType.Boss:
+                GameManager.GM.cSoM.PlayTheme((Themes)2);
+                break;
+            case GameType.Laid:
+                GameManager.GM.cSoM.PlayTheme((Themes)1);
+                break;
+        }
     }
     private void Update()
     {
@@ -130,12 +143,15 @@ public class Game : Sin
             {
                 case GameType.TutorialStage:
                 case GameType.Defence:
+                    GameManager.GM.cSoM.PlayTheme((Themes)3);
                     GameManager.GM.GoStageClear();
                     break;
                 case GameType.Boss:
+                    GameManager.GM.cSoM.PlayTheme((Themes)4);
                     GameManager.GM.GoLose();
                     break;
                 case GameType.Laid:
+                    GameManager.GM.cSoM.PlayTheme((Themes)3);
                     int sco = (int)m_objBoss.GetComponent<LaidBoss>().m_fScore;
                     GameManager.GM.cServer.UpdateRaidScore(sco);
                     m_txtScore_total.text = sco + " Á¡" ;
@@ -149,6 +165,7 @@ public class Game : Sin
                 SponMonster();
                 if (!m_bBossSpon && m_fTime <= 150f )
                 {
+                    GameManager.GM.cSoM.PlayTheme((Themes)6);
                     m_bBossSpon = true;
                     m_slBossHp.gameObject.SetActive(true);
                     m_objBoss = Instantiate(m_cStage.m_objBoss);

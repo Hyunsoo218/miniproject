@@ -40,12 +40,16 @@ public class UiManager : MonoBehaviour
                 break;
 
             case GameState.ReStart:
+                GameManager.GM.cSoM.ThemeUnPause();
                 m_vecSin[(int)GS].Close();
                 Time.timeScale = 1;
                 GameManager.GM.m_eGS = GameState.Game;
                 return;
 
             case GameState.Stop:
+                GameManager.GM.cSoM.ThemePause();
+                Time.timeScale = 0;
+                break;
             case GameState.Win:
             case GameState.Lose:
             case GameState.LaidEnd:

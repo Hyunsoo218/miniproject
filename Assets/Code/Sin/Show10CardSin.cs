@@ -44,7 +44,7 @@ public class Show10CardSin : Sin
             }
         }
         if (bAllOpen) return;
-
+        GameManager.GM.cSoM.PlayTheme((Themes)7);
         Close();
     }
     public void ShowBig(int nNum) 

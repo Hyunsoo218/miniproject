@@ -10,6 +10,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource playAudioBack;
     [SerializeField] List<AudioClip> _BGMs = new List<AudioClip>();
     [SerializeField] AudioSource _cBGMPlayer;
+    [SerializeField] List<AudioClip> themes = new List<AudioClip>();
+    [SerializeField] AudioSource playTheme;
 
     public void PlaySound(SoundObject so)
     {
@@ -42,6 +44,51 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+    public void PlayTheme(Themes so)
+    {
+        if (so == Themes.None) return;
+        //playTheme.clip = null;
+        StopCoroutine("StartBossTheme");
+        //playTheme.Stop();
+        switch (so)
+        {
+            case Themes.sBossIntro:
+                playTheme.clip = themes[(int)so];
+                playTheme.Play();
+                StartCoroutine("StartBossTheme");
+                break;
+            case Themes.sDefenseBoss:
+                playTheme.PlayOneShot(themes[(int)so]);
+                break;
+            case Themes.sClear:
+            case Themes.sDefeat:
+                playTheme.clip = null;
+                playTheme.PlayOneShot(themes[(int)so]);
+                break;
+            case Themes.sLobby:
+            case Themes.sDefense:
+            case Themes.sBoss:
+            case Themes.sShop:
+                playTheme.clip = themes[(int)so];
+                playTheme.Play();
+                break;
+        }
+    }
+    IEnumerator StartBossTheme()
+    {
+        yield return new WaitForSeconds(19.2f);
+        playTheme.clip = null;
+        playTheme.clip = themes[1];
+        playTheme.Play();
+    }
+    public void ThemePause()
+    {
+        playTheme.Pause();
+    }
+    public void ThemeUnPause()
+    {
+        playTheme.UnPause();
+    }
     public void Stop()
     {
         playAudio.Stop();
@@ -65,4 +112,8 @@ public enum SoundObject
 public enum BGM
 {
     Login_Title
+}
+public enum Themes
+{
+    None, sBoss, sBossIntro, sClear, sDefeat, sDefense, sDefenseBoss, sLobby, sShop, sTitle
 }

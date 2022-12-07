@@ -83,6 +83,7 @@ public class Avata : Unit
     }
     public override void Respon()
     {
+        GameManager.GM.cSoM.PlayTheme((Themes)4);
         GameManager.GM.GoLose();
     }
     void MoveDefence()

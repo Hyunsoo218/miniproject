@@ -80,6 +80,7 @@ public class ShopSin : Sin
     }
     public void Card_10()
     {
+        GameManager.GM.cSoM.PlayTheme((Themes)8);
         _cGetCardSin.Open();
         List<Card> temp = new List<Card>();
 
