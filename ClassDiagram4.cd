@@ -1,0 +1,1064 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Act" Collapsed="true">
+    <Position X="23.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAACAAEAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Action\Prototype\Act.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BoomBullit" Collapsed="true">
+    <Position X="3" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAQAQAAAAAAAAAAAAAARAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Code\Bullit\BoomBullit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Boom2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DrillBullit" Collapsed="true">
+    <Position X="6" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\DrillBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boom" Collapsed="true">
+    <Position X="1" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAABAAAAAwAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Each\Boom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NomalBullit" Collapsed="true">
+    <Position X="4.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\NomalBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullit" Collapsed="true">
+    <Position X="9" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIABAAAAAAAAAAAAABAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowerBullit" Collapsed="true">
+    <Position X="7.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAJEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\ShowerBullit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSponManager" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAEAAgAAAAAAAAAAAAAAAIBAAAA=</HashCode>
+      <FileName>Assets\Code\DataManager\MonsterSponManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillUseQueue" Collapsed="true">
+    <Position X="16" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAQIAAAAAABAAAAQAAAAEBAAGAAAAAAAAAABgAAA=</HashCode>
+      <FileName>Assets\Code\DataManager\SkillUseQueue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SkillUseQueueNode" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SkillUseQueueNode" Collapsed="true">
+    <Position X="16" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAgAAABAAAAEQAAgAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\DataManager\SkillUseQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true">
+    <Position X="14" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAAIAIEAGiAgRSAEYAAAQACQAoQEAABAAwyEAwBAgQA=</HashCode>
+      <FileName>Assets\Code\etc\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainThreadDispatcher" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAAAAAAAAAAAAAAAAAIAAQAAAAABAAEA=</HashCode>
+      <FileName>Assets\Code\etc\MainThreadDispatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Member" Collapsed="true">
+    <Position X="14" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Assets\Code\etc\Member.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MemberSkill" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MemberSlot" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\etc\MemberSlot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterData" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Code\etc\MonsterData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MouseMove" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAACAAAAAAAAEAAgAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\etc\MouseMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Slot" Collapsed="true">
+    <Position X="1.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAAAAABAAAIABAAAAQAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Code\etc\Slot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Stage" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAABAAMAEEAAAAAAAAAAAAEAAAIEAAAABAAAA=</HashCode>
+      <FileName>Assets\Code\etc\Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialStage" Collapsed="true">
+    <Position X="17.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\etc\TutorialStage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActManager" Collapsed="true">
+    <Position X="21.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Code\Manager\ActManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Act" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BangchiManager" Collapsed="true">
+    <Position X="23.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAQAAACAAAAAAAIAAQAAAAAAAFAAAABEAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\BangchiManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GoldBox" />
+      <Property Name="PlayerTemp" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CameraShakeManager" Collapsed="true">
+    <Position X="23.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAEAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CameraShakeManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardManager" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAEAAAAgAAAAAAAAQCAAQAAAAAQIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Card" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="18.5" Y="4" Width="1.5" />
+    <AssociationLine Name="Server" Type="Server" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.5" Y="4.406" />
+        <Point X="15.062" Y="4.406" />
+        <Point X="15.062" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CardManager" Type="CardManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.312" Y="4.691" />
+        <Point X="19.312" Y="6.009" />
+        <Point X="20.25" Y="6.009" />
+        <Point X="20.25" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MemberManager" Type="MemberManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.625" Y="4.691" />
+        <Point X="19.625" Y="5.606" />
+        <Point X="22" Y="5.606" />
+        <Point X="22" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="BangchiManager" Type="BangchiManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20" Y="4.5" />
+        <Point X="21.261" Y="4.5" />
+        <Point X="21.261" Y="5.208" />
+        <Point X="22.667" Y="5.208" />
+        <Point X="22.667" Y="5.807" />
+        <Point X="23.75" Y="5.807" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SoundManager" Type="SoundManager" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="20" Y="4.312" />
+        <Point X="22.636" Y="4.312" />
+        <Point X="22.636" Y="4.819" />
+        <Point X="23.75" Y="4.819" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="CameraShakeManager" Type="CameraShakeManager" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="19.438" Y="4" />
+        <Point X="19.438" Y="2.846" />
+        <Point X="23.75" Y="2.846" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ActManager" Type="ActManager" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="18.938" Y="4" />
+        <Point X="18.938" Y="1.596" />
+        <Point X="21.5" Y="1.596" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IEisQJACICRBUIAkAIzAEEIBQCKISACAACAaAwAAYFA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UiManager" />
+      <Property Name="Server" />
+      <Property Name="Player" />
+      <Property Name="StageManager" />
+      <Property Name="CardManager" />
+      <Property Name="MemberManager" />
+      <Property Name="BangchiManager" />
+      <Property Name="SoundManager" />
+      <Property Name="ImageManager" />
+      <Property Name="CameraShakeManager" />
+      <Property Name="ActManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ImageManager" Collapsed="true">
+    <Position X="23.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAACAEAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Code\Manager\ImageManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JsonHelper" Collapsed="true">
+    <Position X="10.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\JsonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemberManager" Collapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <AssociationLine Name="Member" Type="Member" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="22.062" Y="7.191" />
+        <Point X="22.062" Y="18.096" />
+        <Point X="15.5" Y="18.096" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAIAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\MemberManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Member" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <AssociationLine Name="Avata" Type="Avata" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.75" Y="7.191" />
+        <Point X="16.75" Y="9.596" />
+        <Point X="15.5" Y="9.596" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAABIAEASAEgAAEAJTAQEEkAAgQAAAAAQABQAQAQAA=</HashCode>
+      <FileName>Assets\Code\Manager\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Avata" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Server" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <AssociationLine Name="StageData" Type="StageData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.062" Y="5.441" />
+        <Point X="14.062" Y="6.031" />
+        <Point X="11.75" Y="6.031" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="DataConverter" Type="DataConverter" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.5" Y="5.441" />
+        <Point X="14.5" Y="7.031" />
+        <Point X="11.75" Y="7.031" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gYwACIAHCAAAQgQLAAAxCAAAUQQAAA4KIAgAABgMBBA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CardData" />
+      <Property Name="RaidScore" />
+      <Property Name="UserData" />
+      <Property Name="StageData" />
+      <Property Name="DataConverter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DataConverter" Collapsed="true">
+    <Position X="10.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RaidScore" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UserData" Collapsed="true">
+    <Position X="10.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAACBBAAEAAAAAAAAAAAQABAAEAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardData" Collapsed="true">
+    <Position X="10.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAGgAgQCAAAAAAAAAQAAQAAAAAAAAEAQAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageData" Collapsed="true">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SetBuffManager" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgAAAAABAAAAAAAAAgAAAACAAwAAgAAAAABAAA=</HashCode>
+      <FileName>Assets\Code\Manager\SetBuffManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="23.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAEAAAAAAAAAEAACgAAAAAAAAAIBAAAAAAAIA=</HashCode>
+      <FileName>Assets\Code\Manager\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageManager" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAAACAAAAAAAAAAgAAAAAAAgAAAAQIAgIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\StageManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Stage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UiManager" Collapsed="true">
+    <Position X="13.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICCAEAAQACAAAIAEBEBGAhADAAASAAAAoAIAAAACIAI=</HashCode>
+      <FileName>Assets\Code\Manager\UiManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sin" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Archane" Collapsed="true">
+    <Position X="6" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Archane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ariel" Collapsed="true">
+    <Position X="7.5" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Ariel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ignis" Collapsed="true">
+    <Position X="9" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Ignis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Naiad" Collapsed="true">
+    <Position X="1.5" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Naiad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Oread" Collapsed="true">
+    <Position X="3" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Oread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pheonix" Collapsed="true">
+    <Position X="4.5" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Pheonix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemberSkill" Collapsed="true">
+    <Position X="9" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\MemberSkill\Prototype\MemberSkill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SetBuff" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Assets\Code\SetBuff\Prototype\SetBuff.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardManageSin" Collapsed="true">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAEAAIjCKAAIAABAgYiAEARphAAIIIQgAIIBACAgEI=</HashCode>
+      <FileName>Assets\Code\Sin\CardManageSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardSin" Collapsed="true">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gwAAQJJ3GKJIIAAAAgYoCEAAIhCgoAAAgAaTpgSAgkY=</HashCode>
+      <FileName>Assets\Code\Sin\CardSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComposeSin" Collapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgEAQAIAAAAgAAAAAAABAAAAAAAAAAAACABAU=</HashCode>
+      <FileName>Assets\Code\Sin\ComposeSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EvolutionSin" Collapsed="true">
+    <Position X="1.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACogACAAIAAAAkBAAAAAAhAACIAAAAIEAQCAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\EvolutionSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="6" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAUACAAQAgEgIAHAIAAAIAAgAEAAEQACAkAMYACBgAQ=</HashCode>
+      <FileName>Assets\Code\Sin\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GetCardSin" Collapsed="true">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAA4CAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\GetCardSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lobe" Collapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Lobe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LodingSin" Collapsed="true">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgAAAEAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\LodingSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login" Collapsed="true">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAgAIgQAAAGAAAAAAAAAAAIAAAAAAAAAIGA=</HashCode>
+      <FileName>Assets\Code\Sin\Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Machine" Collapsed="true">
+    <Position X="1.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEIAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Machine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemberSin" Collapsed="true">
+    <Position X="3" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAAABDSAAAIhIAADAAAAAABAAoCAAAAQAAQCEAAQA=</HashCode>
+      <FileName>Assets\Code\Sin\MemberSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyDataSin" Collapsed="true">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAIgAAEAAAAAIAAQAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Code\Sin\MyDataSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeglectSin" Collapsed="true">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAABACAAICACAAAIAAAAAABAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Code\Sin\NeglectSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OffLineGoldSin" Collapsed="true">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAQAAIAAAABAAAACAAAAAAAAAAAABAAAAAgA=</HashCode>
+      <FileName>Assets\Code\Sin\OffLineGoldSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sin" Collapsed="true">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Slot" Type="Slot" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="3.25" />
+        <Point X="2.25" Y="3.25" />
+        <Point X="2.25" Y="2.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MainThreadDispatcher" Type="MainThreadDispatcher" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="3.062" />
+        <Point X="3.75" Y="3.062" />
+        <Point X="3.75" Y="2.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RankData" Type="RankData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="2.938" />
+        <Point X="5.25" Y="2.938" />
+        <Point X="5.25" Y="2.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MonsterData" Type="MonsterData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="2.812" />
+        <Point X="6.75" Y="2.812" />
+        <Point X="6.75" Y="2.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MouseMove" Type="MouseMove" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.438" Y="2.75" />
+        <Point X="9.438" Y="2.441" />
+        <Point X="8.219" Y="2.441" />
+        <Point X="8.219" Y="2.191" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SetBuff" Type="SetBuff" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.062" Y="2.75" />
+        <Point X="10.062" Y="2.375" />
+        <Point X="11.281" Y="2.375" />
+        <Point X="11.281" Y="2.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAEACAAgAQAAAAAQAAAAAASAAgA=</HashCode>
+      <FileName>Assets\Code\Sin\Prototype\Sin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Slot" />
+      <Property Name="MainThreadDispatcher" />
+      <Property Name="RankData" />
+      <Property Name="MonsterData" />
+      <Property Name="MouseMove" />
+      <Property Name="SetBuffManager" />
+      <Property Name="SetBuff" />
+      <Property Name="MonsterSponManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RaidSin" Collapsed="true">
+    <Position X="7.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAIAAAAQAAIAAAAAAAEAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\RaidSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReComposeSin" Collapsed="true">
+    <Position X="4.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAIgQCAAYAAAQgAACAAQAlEACAgCAAhAAQCAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\ReComposeSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopSin" Collapsed="true">
+    <Position X="3" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAgAAQIgBAAAIACAAARAQAAAAgAAAgA=</HashCode>
+      <FileName>Assets\Code\Sin\ShopSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Show10CardSin" Collapsed="true">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACQAAAAAAAIAAAAAAAAAAAAICAAEAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Code\Sin\Show10CardSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowBuffSin" Collapsed="true">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAKAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\ShowBuffSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowCardSin" Collapsed="true">
+    <Position X="1.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAKAAAAEAAAAAAAACAAABAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Code\Sin\ShowCardSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowMemberSin" Collapsed="true">
+    <Position X="6" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAIgAAAAAAAAAAAAiAAAAAAAAAACAAAEg=</HashCode>
+      <FileName>Assets\Code\Sin\ShowMemberSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowTextSin" Collapsed="true">
+    <Position X="4.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\ShowTextSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StageDataSin" Collapsed="true">
+    <Position X="4.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAEAAAAAIAAAAAAAABAkAAAAQAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\StageDataSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StorySin" Collapsed="true">
+    <Position X="7.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\StorySin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TalkSin" Collapsed="true">
+    <Position X="4.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAgAAgAACAIgAAABAAAABAAAAAAAiAgAAAVAAgEQg=</HashCode>
+      <FileName>Assets\Code\Sin\TalkSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Title" Collapsed="true">
+    <Position X="1.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\Title.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnlimitSin" Collapsed="true">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAACIgQAAAIAAAAggAhAAAAlAACIAAAAIAAQCAAAA=</HashCode>
+      <FileName>Assets\Code\Sin\UnlimitSin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Avata" Collapsed="true">
+    <Position X="14" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAREAAAACKAAVAQIANMAAAAAQJAAAAAAQCAAIQAIBYA=</HashCode>
+      <FileName>Assets\Code\Unit\Avata.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Card" />
+      <Property Name="SkillUseQueue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boss" Collapsed="true">
+    <Position X="11.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQAAgAAIAAIAAAMgAAACAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\Boss.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pattern_Proto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LaidBoss" Collapsed="true">
+    <Position X="11.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAgIAoAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\LaidBoss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Monster" Collapsed="true">
+    <Position X="11.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCCIAAQIAAQAAgACIAAAAAAAAAAIAAQAAAAAAgQAA=</HashCode>
+      <FileName>Assets\Code\Unit\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit" Collapsed="true">
+    <Position X="14" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAgQAAgAAIAEAAAAIAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\prototype\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wall" Collapsed="true">
+    <Position X="11.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAIAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Unit\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldBox" Collapsed="true">
+    <Position X="22.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\GoldBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_1" Collapsed="true">
+    <Position X="6" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_10" Collapsed="true">
+    <Position X="1.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_10.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_11" Collapsed="true">
+    <Position X="4.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_11.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_12" Collapsed="true">
+    <Position X="7.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_12.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_13" Collapsed="true">
+    <Position X="1.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_13.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_14" Collapsed="true">
+    <Position X="4.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_14.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_15" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_15.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_16" Collapsed="true">
+    <Position X="3" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_16.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_17" Collapsed="true">
+    <Position X="6" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_17.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_18" Collapsed="true">
+    <Position X="3" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_18.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_19" Collapsed="true">
+    <Position X="4.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_19.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_2" Collapsed="true">
+    <Position X="7.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_20" Collapsed="true">
+    <Position X="3" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_20.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_3" Collapsed="true">
+    <Position X="6" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_4" Collapsed="true">
+    <Position X="7.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_5" Collapsed="true">
+    <Position X="3" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_6" Collapsed="true">
+    <Position X="6" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_6.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_7" Collapsed="true">
+    <Position X="1.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_7.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_8" Collapsed="true">
+    <Position X="4.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_8.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BP_Wind_9" Collapsed="true">
+    <Position X="1.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\BP_Wind_9.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pattern_Proto" Collapsed="true">
+    <Position X="9" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\PP_P\Pattern_Proto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerTemp" Collapsed="true">
+    <Position X="24.25" Y="7.75" Width="1.5" />
+    <AssociationLine Name="State_GetItem" Type="State_GetItem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.5" Y="8.441" />
+        <Point X="24.5" Y="8.816" />
+        <Point X="23.25" Y="8.816" />
+        <Point X="23.25" Y="9.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="State_Idle" Type="State_Idle" FixedFromPoint="true">
+      <Path>
+        <Point X="24.938" Y="8.441" />
+        <Point X="24.938" Y="9.25" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAACAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAEI=</HashCode>
+      <FileName>Assets\PlayerTemp.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="State_GetItem" />
+      <Property Name="State_Idle" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RankData" Collapsed="true">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAEAAAAAAAAAAAAAAIAAAAAAAAg=</HashCode>
+      <FileName>Assets\RankData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State_GetItem" Collapsed="true">
+    <Position X="22.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\State_GetItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State_Idle" Collapsed="true">
+    <Position X="24.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\State_Idle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="CardElement" Collapsed="true">
+    <Position X="24.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAkAABAEAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BullitType" Collapsed="true">
+    <Position X="22.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Bullit\Prototype\Bullit.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ShakeMode" Collapsed="true">
+    <Position X="24.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CameraShakeManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CardRank" Collapsed="true">
+    <Position X="24.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAGAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CardType" Collapsed="true">
+    <Position X="22.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAUQABABECCEAAAAIAQAiUCABgAAEABAAACABAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ActionType" Collapsed="true">
+    <Position X="22.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKABAAACAAAAAAAAAAAACAAAAAAAAAE0AAA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameState" Collapsed="true">
+    <Position X="24.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAQAAABAAAAEAAAEAAAAAAAAgAAAAAIEAQAAAABAA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameType" Collapsed="true">
+    <Position X="22.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACQAAAAAAAAAAAAAAAAgAAAgEAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BackImageType" Collapsed="true">
+    <Position X="24.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAACQAAAAAAAAAIABAgAAAAAAACQAAAATAEAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\ImageManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="HumenImageType" Collapsed="true">
+    <Position X="22.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAAgAAAEABIA=</HashCode>
+      <FileName>Assets\Code\Manager\ImageManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MemberType" Collapsed="true">
+    <Position X="24.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAQAEAAACEAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\MemberManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SetBuffType" Collapsed="true">
+    <Position X="22.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAKAgAAQAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Code\Manager\SetBuffManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SoundObject" Collapsed="true">
+    <Position X="22.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAACAAEAIAIQ4AAAAAIAIAAAABABAAAAAJ0BAQA=</HashCode>
+      <FileName>Assets\Code\Manager\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="BGM" Collapsed="true">
+    <Position X="22.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Code\Manager\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="PatternElement" Collapsed="true">
+    <Position X="24.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAkAABAEAAEAAAAAAA=</HashCode>
+      <FileName>Assets\LGH\PatternsPack\PP_P\Pattern_Proto.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

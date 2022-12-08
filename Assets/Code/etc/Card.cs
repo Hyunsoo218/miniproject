@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class Card : MonoBehaviour
+public class Card : Bullit
 {
     public GameObject m_objBullit;
     public Sprite m_imgImage;
@@ -66,13 +66,13 @@ public class Card : MonoBehaviour
     public void Attack(float fPlayerAp)
     {
         // m_objBullit น฿ป็ m_cPlayer
-        GameObject tenp = Instantiate(m_objBullit, GameManager.GM.m_cPlayer.m_cAvata.transform.position, Quaternion.Euler(90,0,0));
+        GameObject tenp = Instantiate(m_objBullit, GameManager.GM.m_cPlayer.m_cAvata.transform.position, Quaternion.Euler(90, 0, 0));
 
         tenp.GetComponent<Bullit>().Set(fPlayerAp * m_fDamege);
     }
     public bool LvUp()
     {
-        if(m_nLevel < m_nMaxLevel)
+        if (m_nLevel < m_nMaxLevel)
         {
             m_nLevel++;
 

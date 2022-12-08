@@ -6,6 +6,8 @@ public class PlayerTemp : MonoBehaviour
 {
     [SerializeField] TextMesh _cGetGoldTextMesh;
     Animator _cAnimator;
+    [SerializeField] NeglectSin sin;
+
     private void Start()
     {
         _cAnimator = GetComponent<Animator>();
@@ -19,7 +21,17 @@ public class PlayerTemp : MonoBehaviour
         if (other.gameObject.tag == "GoldBox")
         {
             _cAnimator.SetTrigger("ItemGet");
-            string strGold = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold);
+            //
+            string strGold = "";
+            if (sin._nBuf1Ea > 0)
+            {
+                strGold = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold*2);
+            }
+            else
+            {
+                strGold = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold);
+            }
+            
             _cGetGoldTextMesh.text = "+" + strGold;
             _cGetGoldTextMesh.transform.localPosition = new Vector3(-2.65f, 1f, -1.54f);
         }

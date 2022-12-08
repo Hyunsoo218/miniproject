@@ -16,6 +16,14 @@ public class UiManager : MonoBehaviour
     [SerializeField] Sin _cLoding;
     [SerializeField] Sin _cDonTochi;
 
+    public Sin Sin
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Start()
     {
         float fX = Screen.width / 1242f;

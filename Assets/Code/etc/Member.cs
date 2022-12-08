@@ -9,6 +9,15 @@ public class Member : Card
     {
         m_imgImage = _imgFull;
     }
+
+    public MemberSkill MemberSkill
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public override void Use()
     {
         if (_bCanUse == true)

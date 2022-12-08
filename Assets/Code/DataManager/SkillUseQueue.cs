@@ -20,6 +20,15 @@ public class SkillUseQueue
         for (int i = 0; i < m_cNode.Length; i++)
             m_cNode[i] = new SkillUseQueueNode();
     }
+
+    public SkillUseQueueNode SkillUseQueueNode
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void Add(Card cCard)
     {
         if (m_nCount == m_nMaxCount) {  }

@@ -9,6 +9,47 @@ public class Server : MonoBehaviour
     [SerializeField] Sin sin;
     public InputField InputName;
     public string[] userData;
+
+    public CardData CardData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public RaidScore RaidScore
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public UserData UserData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public StageData StageData
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public DataConverter DataConverter
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public void loginBtn(string id, string pwd)
     {
         StartCoroutine(ServerLoginUser(id,pwd));

@@ -10,6 +10,14 @@ public class CardManager : MonoBehaviour
     public List<GameObject> m_vecCard_C = new List<GameObject>();
     public List<GameObject> m_vecCard_D = new List<GameObject>();
 
+    public Card Card
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public Card GetCard(CardType eCT, CardRank eCR)
     {
         switch (eCR)

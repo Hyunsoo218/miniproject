@@ -10,7 +10,15 @@ public class StageManager : MonoBehaviour
     public List<Stage> m_vecStageBoss = new List<Stage>();
     public List<Stage> m_vecStageLaidBoss = new List<Stage>();
     [SerializeField] Stage _cTutorialStage;
-   
+
+    public Stage Stage
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public Stage GetStage(int nNum, GameType eGT)
     {
         switch (eGT)

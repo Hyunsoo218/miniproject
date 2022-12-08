@@ -20,6 +20,95 @@ public class GameManager : MonoBehaviour
     Stage m_cStage;
     Member _cMember;
     [SerializeField] GameObject _objBangchi;
+
+    public UiManager UiManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public Server Server
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public Player Player
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public StageManager StageManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public CardManager CardManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public MemberManager MemberManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public BangchiManager BangchiManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public SoundManager SoundManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public ImageManager ImageManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public CameraShakeManager CameraShakeManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public ActManager ActManager
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Awake() { GM = this; }
     private void Start()
     {

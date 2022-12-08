@@ -45,4 +45,12 @@ public class Boss : Monster
             Attack();
         }
     }
+
+    public Pattern_Proto Pattern_Proto
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }

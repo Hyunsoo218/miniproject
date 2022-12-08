@@ -26,6 +26,23 @@ public class Avata : Unit
 
     RaycastHit _cHit;
     Vector3 _vClick;
+
+    public Card Card
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public SkillUseQueue SkillUseQueue
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Start()
     {
         for (int i = 0; i < 6; i++)

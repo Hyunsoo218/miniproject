@@ -22,6 +22,14 @@ public class BoomBullit : Bullit
         }
     }
 
+    public Boom Boom2
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Update()
     {
         transform.Translate(Vector3.up * 10f * Time.deltaTime);

@@ -9,6 +9,23 @@ public class BangchiManager : MonoBehaviour
     [SerializeField] float _fSpeed;
     public static float _fBoost = 1;
     static bool _bMove = true;
+
+    public GoldBox GoldBox
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public PlayerTemp PlayerTemp
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     void Update()
     {
         if (_bMove)

@@ -48,7 +48,14 @@ public class NeglectSin : Sin
     }
     public void SetData() 
     {
-        _txtReward.text = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold);
+        if (_nBuf1Ea > 0)
+        {
+            _txtReward.text = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold * 2);
+        }
+        else
+        {
+            _txtReward.text = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold);
+        }
         _txtBuf1Ea.text = "接食 ( " + GameManager.GM.GoldToStr(_nBuf1Ea) + " )";
         _txtBuf2Ea.text = "接食 ( " + GameManager.GM.GoldToStr(_nBuf2Ea) + " )";
         PlayerPrefs.SetInt(GameManager.GM.m_cPlayer.userno + "buf1", _nBuf1Ea);

@@ -23,6 +23,14 @@ public class Player : MonoBehaviour
     float _fNowCreGasTime = 0;
     bool _bCreGas = false;
 
+    public Avata Avata
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     public override string ToString()
     {
         string data = "";
