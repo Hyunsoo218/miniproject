@@ -51,6 +51,7 @@ public class NeglectSin : Sin
         if (_nBuf1Ea > 0)
         {
             _txtReward.text = GameManager.GM.GoldToStr(GameManager.GM.m_cPlayer.m_nBangchiGold * 2);
+            // dadadad
         }
         else
         {
