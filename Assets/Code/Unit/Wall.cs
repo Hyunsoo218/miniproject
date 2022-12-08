@@ -20,6 +20,7 @@ public class Wall : Unit
             }
             else
             {
+                GameManager.GM.cSoM.PlayTheme((Themes)4);
                 GameManager.GM.GoLose();
             }
         }
