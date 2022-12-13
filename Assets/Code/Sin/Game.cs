@@ -255,6 +255,11 @@ public class Game : Sin
         {
             Destroy(temp[i]);
         }
+        temp = GameObject.FindGameObjectsWithTag("Pattern");
+        for (int i = 0; i < temp.Length; i++)
+        {
+            Destroy(temp[i]);
+        }
         MonsterSponManager.Clear();
     }
     public void UseMember(int nNum)
@@ -269,6 +274,14 @@ public class Game : Sin
     public void PlayerHit(int nLife)
     {
         int nNowLife = 5 - nLife;
+        if (nNowLife < 0)
+        {
+            nNowLife = 0;
+        }
+        if (nNowLife > 5)
+        {
+            nNowLife = 5;
+        }
         for (int i = 0; i < nNowLife; i++)
         {
             _vecLifeImage[i].SetActive(false);

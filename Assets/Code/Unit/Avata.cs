@@ -90,6 +90,10 @@ public class Avata : Unit
     }
     public override bool Hit(float fDamage=0, CardElement CE = CardElement.Dark)
     {
+        if (_nLife < 0)
+        {
+            return true;
+        }
         _nLife--;
         _cGame.PlayerHit(_nLife);
         if (_nLife <= 0)
@@ -101,6 +105,7 @@ public class Avata : Unit
     public override void Respon()
     {
         GameManager.GM.cSoM.PlayTheme((Themes)4);
+        print("¾Ó Áê±Ý~");
         GameManager.GM.GoLose();
     }
     void MoveDefence()

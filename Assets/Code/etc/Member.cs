@@ -22,7 +22,13 @@ public class Member : Card
     {
         if (_bCanUse == true)
         {
+            GameObject[] temp = GameObject.FindGameObjectsWithTag("Pattern");
+            for (int i = 0; i < temp.Length; i++)
+            {
+                Destroy(temp[i]);
+            }
             GameManager.GM.GoCutSin(this);
+
             _bCanUse = false;
         }
     }

@@ -136,6 +136,11 @@ MonoBehaviour:
   m_eElement: 1
   m_strName: "\uC6CC\uD130 \uACE8\uB818 \uC6B0\uB450\uBA38\uB9AC"
   m_imgImage: {fileID: 21300000, guid: 163feba8e8e4e974e962c2e6c41bb84c, type: 3}
-  pp: []
+  pp:
+  - {fileID: 1080271390621112513, guid: 13253c68ca6c9be4bb193e69562eecfc, type: 3}
+  - {fileID: -1977265496521276111, guid: 30cd2181cb2ffb143b26b156c7d2a287, type: 3}
+  - {fileID: -7769559653594675686, guid: 01345bc292e35b74b9c20c4a35ef4a94, type: 3}
+  - {fileID: -1884946591005205648, guid: 2a3364d8bb907684e964cebdc56ccfe6, type: 3}
+  - {fileID: -1884946591005205648, guid: 2a3364d8bb907684e964cebdc56ccfe6, type: 3}
   attackTime: 2
   m_slHp: {fileID: 0}
