@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Text.RegularExpressions;
 
 public class Server : MonoBehaviour
 {
@@ -555,6 +556,7 @@ public class Server : MonoBehaviour
     }
     IEnumerator MakeUserCo(UserData data)
     {
+        
         GameManager.GM.cUM.OnLoding();
         WWWForm form = new WWWForm();
 
@@ -565,25 +567,35 @@ public class Server : MonoBehaviour
         form.AddField("dia", data.m_nDiamond + "");
         form.AddField("gas", data.m_nGas + "");
         form.AddField("first", data._bFirst + "");
+        string idChecker = Regex.Replace(data.userID, @"[^0-9a-zA-Z가-힣]{1,10}", "", RegexOptions.Singleline);
+        print(idChecker);
 
-        UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/make_user", form);
-        yield return www.SendWebRequest();
+        if (idChecker.Equals(data.userID) == false)
+        {
+            GameManager.GM.ShowText("특수문자, 공백은 허용되지 않습니다..");
+            GameManager.GM.cUM.OffLoding();
+        }
+        else {
+            UnityWebRequest www = UnityWebRequest.Post("http://34.64.117.51:3030/make_user", form);
+            yield return www.SendWebRequest();
 
-        if (www.isNetworkError)
-        {
-            GameManager.GM.ShowText("회원가입 에러");
+            if (www.isNetworkError)
+            {
+                GameManager.GM.ShowText("회원가입 에러");
+            }
+            else if (www.downloadHandler.text == "202")
+            {
+                GameManager.GM.ShowText("아이디 중복");
+            }
+            else
+            {
+                print(data.userID);
+                GameManager.GM.GoLogin();
+                GameManager.GM.ShowText("회원가입 성공");
+            }
+            GameManager.GM.cUM.OffLoding();
+            www.Dispose();
         }
-        else if(www.downloadHandler.text == "202")
-        {
-            GameManager.GM.ShowText("아이디 중복");
-        }
-        else
-        {
-            GameManager.GM.GoLogin();
-            GameManager.GM.ShowText("회원가입 성공");
-        }
-        GameManager.GM.cUM.OffLoding();
-        www.Dispose();
     }
     IEnumerator AutoUpdateUserDataCo()
     {
