@@ -170,7 +170,6 @@ public class CardSin : Sin
         //}
         for (int i = 0; i < vecCreCard.Count; i++)
         {
-            print( i + "생성");
             GameObject temp = Instantiate(m_objSlot, m_tInventory);
             Button tempButton = temp.GetComponent<Button>();
             Slot tempCard = temp.GetComponent<Slot>();

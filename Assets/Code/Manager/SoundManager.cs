@@ -12,7 +12,15 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource _cBGMPlayer;
     [SerializeField] List<AudioClip> themes = new List<AudioClip>();
     [SerializeField] AudioSource playTheme;
-
+    private void Start()
+    {
+        playTheme.enabled = false;
+    }
+    public void OnSoundSo()
+    {
+        playTheme.enabled = true;
+        print("asdasdasdasd");
+    }
     public void PlaySound(SoundObject so)
     {
         if (so == SoundObject.None) return;

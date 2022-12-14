@@ -210,7 +210,7 @@ public class Server : MonoBehaviour
             www.Dispose();
         }
         int nTemp = Random.Range(0, 24);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
         GameManager.GM.GetCard((CardType)nTemp, CardRank.S);
         GameManager.GM.cUM.OffLoding();
         sin.Close();

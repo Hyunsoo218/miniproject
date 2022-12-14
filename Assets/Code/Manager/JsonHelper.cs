@@ -5,7 +5,6 @@ public static class JsonHelper
 {
     public static T[] FromJson<T>(string json)
     {
-        Debug.Log(json);
         Wrapper<T> wrapper = UnityEngine.JsonUtility.FromJson<Wrapper<T>>(json);
         return wrapper.info;
     }
